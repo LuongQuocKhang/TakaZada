@@ -153,7 +153,16 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CaseController.cs" />
+    <Compile Include="Controllers\ComputerController.cs" />
+    <Compile Include="Controllers\CPUController.cs" />
+    <Compile Include="Controllers\HardwareController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KeyboardController.cs" />
+    <Compile Include="Controllers\MainBoardController.cs" />
+    <Compile Include="Controllers\RadiatorController.cs" />
+    <Compile Include="Controllers\RAMController.cs" />
+    <Compile Include="Controllers\VGAController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -202,6 +211,15 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Case\" />
+    <Folder Include="Views\Computer\" />
+    <Folder Include="Views\CPU\" />
+    <Folder Include="Views\Hardware\" />
+    <Folder Include="Views\Keyboard\" />
+    <Folder Include="Views\MainBoard\" />
+    <Folder Include="Views\Radiator\" />
+    <Folder Include="Views\RAM\" />
+    <Folder Include="Views\VGA\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
