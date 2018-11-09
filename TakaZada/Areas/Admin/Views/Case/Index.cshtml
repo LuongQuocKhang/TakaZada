@@ -1,0 +1,83 @@
+﻿@using TakaZada.Core
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPage.cshtml";
+
+    var list = (List<TakaZada.Core.Models.Case>)ViewBag.Cases;
+}
+<style>
+    img {
+        width: 80px;
+        height: 80px;
+    }
+
+    a {
+        margin: 0.5px;
+    }
+
+    table {
+        margin: 5px;
+    }
+</style>
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">
+        <a href="#">Dashboard</a>
+    </li>
+    <li class="breadcrumb-item active">Management</li>
+    <li class="breadcrumb-item active">Case</li>
+</ol>
+<div class="col-md-12">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <td>ID</td>
+                <td>Image</td>
+                <td>Name</td>
+                <td>Trademark</td>
+                <td>Color</td>
+                <td>Model</td>
+                <td>Action</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in list)
+            {
+                <tr style="@if (item.IsDelete == true) { @Html.Raw("background-color:" +  "#f2dede")}">
+                    <td>@item.Id</td>
+                    <td>
+                        <img src="@Constants.CASE_PATH@item.Image" alt="Alternate Text" />
+                    </td>
+                    <td>
+                        @item.Name
+                    </td>
+                    <td>
+                        @item.TradeMark
+                    </td>
+                    <td>
+                        @item.Color
+                    </td>
+                    <td>
+                        @item.Model
+                    </td>
+                    <td>
+                        <a class="btn btn-success" href="@Url.Action("Update","Case",new { Id = item.Id})">Update</a>
+                        @if (item.IsDelete == false)
+                        {
+                            <a class="btn btn-danger" name="@item.Id" href="@Url.Action("Delete","Case",new { Id = item.Id})">Delete</a>
+                        }
+                        else
+                        {
+                            <a class="btn btn-success" name="@item.Id" href="@Url.Action("Restore","Case",new { Id = item.Id})">Restore</a>
+                        }
+
+                    </td>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+    <a class="btn btn-success" href="@Url.Action("Add","Case")">Add</a>
+
+
+</div>
+

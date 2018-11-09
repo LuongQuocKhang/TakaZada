@@ -58,6 +58,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Net.Http.Formatting, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.6\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
@@ -94,10 +95,40 @@
     <Compile Include="Admin\AdminService.cs" />
     <Compile Include="Admin\ILogin.cs" />
     <Compile Include="Admin\ILogOut.cs" />
+    <Compile Include="Case\CaseService.cs" />
+    <Compile Include="Case\ICaseReponsitory.cs" />
+    <Compile Include="Case\ILoadCase.cs" />
     <Compile Include="Computer\ComputerService.cs" />
+    <Compile Include="Computer\IComputerReponsitory.cs" />
     <Compile Include="Computer\ILoad.cs" />
+    <Compile Include="CPU\CPUService.cs" />
+    <Compile Include="CPU\ICPUReponsitory.cs" />
+    <Compile Include="CPU\ILoadCPU.cs" />
+    <Compile Include="Handle\ActivityLogFunction.cs" />
+    <Compile Include="Handle\CoreApp.cs" />
+    <Compile Include="Handle\IUser.cs" />
+    <Compile Include="Handle\PropertyCopier.cs" />
+    <Compile Include="Hardware\HardwareService.cs" />
+    <Compile Include="Hardware\IHardwareReponsitiry.cs" />
+    <Compile Include="Hardware\ILoadHardware.cs" />
+    <Compile Include="Keyboard\IKeyboardLoad.cs" />
+    <Compile Include="Keyboard\IKeyboardReponsitory.cs" />
+    <Compile Include="Keyboard\KeyboardService.cs" />
+    <Compile Include="Mainboard\IMainboardLoad.cs" />
+    <Compile Include="Mainboard\IMainboardReponsitory.cs" />
+    <Compile Include="Mainboard\MainboardService.cs" />
+    <Compile Include="Radiator\IRadiatorLoad.cs" />
+    <Compile Include="Radiator\IRadiatorReponsitory.cs" />
+    <Compile Include="Radiator\RadiatorService.cs" />
+    <Compile Include="RAM\IRAMLoad.cs" />
+    <Compile Include="RAM\IRAMRepository.cs" />
+    <Compile Include="RAM\RAMService.cs" />
+    <Compile Include="UploadFileService.cs" />
     <Compile Include="NinjectResolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VGA\IVGALoad.cs" />
+    <Compile Include="VGA\IVGAReponsitory.cs" />
+    <Compile Include="VGA\VGAService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -109,5 +140,6 @@
       <Name>TakaZada.Core</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

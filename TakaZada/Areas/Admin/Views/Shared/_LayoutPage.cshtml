@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>SB Admin - Dashboard</title>
+    <title>TakaZada Admin - Dashboard</title>
     <!-- Bootstrap core CSS-->
     <link href="~/Assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
     <!-- Custom fonts for this template-->
@@ -18,7 +18,7 @@
 </head>
 <body id="page-top">
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
-        <a class="navbar-brand mr-1" href="index.html">Start Bootstrap</a>
+        <a class="navbar-brand mr-1" href="index.html">TakaZada administration</a>
         <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
             <i class="fas fa-bars"></i>
         </button>
@@ -76,7 +76,7 @@
         <!-- Sidebar -->
         <ul class="sidebar navbar-nav">
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="@Url.Action("Index","Admin")">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span>
                 </a>
@@ -87,15 +87,15 @@
                     <span>Management</span>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-                    <a class="dropdown-item" href="login.html">Case</a>
+                    <a class="dropdown-item" href="@Url.Action("Index","Case")">Case</a>
                     <a class="dropdown-item" href="@Url.Action("Index","Computer")">Computer</a>
-                    <a class="dropdown-item" href="login.html">CPU</a>
-                    <a class="dropdown-item" href="login.html">Hardware</a>
-                    <a class="dropdown-item" href="login.html">KeyBoard</a>
-                    <a class="dropdown-item" href="login.html">MainBoard</a>
-                    <a class="dropdown-item" href="login.html">Radiator</a>
-                    <a class="dropdown-item" href="login.html">RAM</a>
-                    <a class="dropdown-item" href="login.html">VGA</a>
+                    <a class="dropdown-item" href="@Url.Action("Index","CPU")">CPU</a>
+                    <a class="dropdown-item" href="@Url.Action("Index","Hardware")">Hardware</a>
+                    <a class="dropdown-item" href="@Url.Action("Index","Keyboard")">Keyboard</a>
+                    <a class="dropdown-item" href="@Url.Action("Index","Mainboard")">Mainboard</a>
+                    <a class="dropdown-item" href="@Url.Action("Index","Radiator")">Radiator</a>
+                    <a class="dropdown-item" href="@Url.Action("Index","RAM")">RAM</a>
+                    <a class="dropdown-item" href="@Url.Action("Index","VGA")">VGA</a>
                 </div>
             </li>
             <li class="nav-item">
@@ -113,14 +113,7 @@
         </ul>
         <div id="content-wrapper">
             <div class="container-fluid">
-                <!-- Breadcrumbs-->
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item">
-                        <a href="#">Dashboard</a>
-                    </li>
-                    <li class="breadcrumb-item active">Overview</li>
-                </ol>
-                <!-- Icon Cards-->
+
                
                 @RenderBody()
             </div>

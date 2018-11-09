@@ -1,0 +1,124 @@
+﻿@using TakaZada.Core.Models;
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPage.cshtml";
+    var computer = (Computer)ViewBag.SelectedComputer;
+}
+@Scripts.Render("~/bundles/jquery")
+<h2>Update form</h2>
+<form method="post">
+    @{
+        if (null != Session["submit_message"])
+        {
+            @Html.Raw("<h3 class='error-mesage' style='display: none;'>" + Session["submit_message"] + "</h3>");
+            <script type="text/javascript">
+                $(function () {
+                    $('.error-mesage').delay(500).fadeIn('normal', function () {
+                        $(this).delay(2500).fadeOut();
+                    });
+                });
+            </script>
+            Session["submit_message"] = null;
+        }
+    }
+    <div class="form-group">
+        <input class="form-control" type="hidden" name="ComputerId" value="@computer.Id" />
+    </div>
+    <div class="form-group">
+        <label>Name</label>
+        <input class="form-control" type="text" id="Name" name="Name" value="@computer.Name" />
+    </div>
+    <div class="form-group">
+        <label>CPU</label>
+        <input class="form-control" type="text" id="CPU" name="CPU" value="@computer.CPU" />
+    </div>
+    <div class="form-group">
+        <label>RAM</label>
+        <input class="form-control" type="text" id="RAM" name="RAM" value="@computer.RAM" />
+    </div>
+    <div class="form-group">
+        <label>VideoCard</label>
+        <input class="form-control" type="text" id="VideoCard" name="VideoCard" value="@computer.VideoCard" />
+    </div>
+    <div class="form-group">
+        <label>Hardware</label>
+        <input class="form-control" type="text" id="Hardware" name="Hardware" value="@computer.Hardware" />
+    </div>
+    <div class="form-group">
+        <label>SlotSupport</label>
+        <input class="form-control" type="text" id="SlotSupport" name="SlotSupport" value="@computer.SlotSupport" />
+    </div>
+    <div class="form-group">
+        <label>SlotSupport</label>
+        <input class="form-control" type="text" id="SlotSupport" name="SlotSupport" value="@computer.SlotSupport" />
+    </div>
+    <div class="form-group">
+        <label>Display</label>
+        <input class="form-control" type="text" id="Display" name="Display" value="@computer.Display" />
+    </div>
+    <div class="form-group">
+        <label>Port</label>
+        <input class="form-control" type="text" id="Port" name="Port" value="@computer.Port" />
+    </div>
+    <div class="form-group">
+        <label>Extra</label>
+        <input class="form-control" type="text" id="Extra" name="Extra" value="@computer.Extra" />
+    </div>
+    <div class="form-group">
+        <label>OS</label>
+        <input class="form-control" type="text" id="OS" name="OS" value="@computer.OS" />
+    </div>
+    <div class="form-group">
+        <label>Type</label>
+        <input class="form-control" type="text" id="Type" name="Type" value="@computer.Type" />
+    </div>
+    <div class="form-group">
+        <label>Trademark</label>
+        <input class="form-control" type="text" id="Trademark" name="Trademark" value="@computer.Trademark" />
+    </div>
+    <div class="form-group">
+        <label>Feature</label>
+        <input class="form-control" type="text" id="Feature" name="Feature" value="@computer.Feature" />
+    </div>
+    <div class="form-group">
+        <label>Color</label>
+        <input class="form-control" type="text" id="Color" name="Color" value="@computer.Color" />
+    </div>
+    <div class="form-group">
+        <label>CPUSeries</label>
+        <input class="form-control" type="text" id="CPUSeries" name="CPUSeries" value="@computer.CPUSeries" />
+    </div>
+    <div class="form-group">
+        <label>ScreenSize</label>
+        <input class="form-control" type="text" id="ScreenSize" name="ScreenSize" value="@computer.ScreenSize" />
+    </div>
+    <div class="form-group">
+        <label>Resolution</label>
+        <input class="form-control" type="text" id="Resolution" name="Resolution" value="@computer.Resolution" />
+    </div>
+    <div class="form-group">
+        <label>StandardOfScreen</label>
+        <input class="form-control" type="text" id="StandardOfScreen" name="StandardOfScreen" value="@computer.StandardOfScreen" />
+    </div>
+    <div class="form-group">
+        <label>Mass</label>
+        <input class="form-control" type="text" id="Mass" name="Mass" value="@computer.Mass" />
+    </div>
+    <div class="form-group">
+        <label>WarrantyPeriod</label>
+        <input class="form-control" type="text" id="WarrantyPeriod" name="WarrantyPeriod" value="@computer.WarrantyPeriod" />
+    </div>
+    <div class="form-group">
+        <label>Price</label>
+        <input class="form-control" type="text" id="Price" name="Price" value="@computer.Price" />
+    </div>
+    <div class="form-group">
+        <label>Description</label>
+        <textarea class="form-control" id="Description" name="Description" rows="8">
+          @computer.Description
+        </textarea>
+    </div>
+    <button class="btn btn-success" type="submit">Submit</button>
+    <a class="btn btn-danger" href="@Url.Action("Index","Computer")">Cancel</a>
+</form>
+

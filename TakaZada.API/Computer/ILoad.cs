@@ -10,5 +10,6 @@ namespace TakaZada.API.Computer
     public interface ILoad
     {
         IEnumerable<TakaZada.Core.Models.Computer> Load();
+        TakaZada.Core.Models.Computer LoadById(int Id);
     }
 }

@@ -1,4 +1,4 @@
-﻿
+﻿@using TakaZada.Core
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutPage.cshtml";
@@ -19,6 +19,13 @@
         margin: 5px;
     }
 </style>
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">
+        <a href="#">Dashboard</a>
+    </li>
+    <li class="breadcrumb-item active">Management</li>
+    <li class="breadcrumb-item active">Computer</li>
+</ol>
 <div class="col-md-12">
     <table class="table table-bordered">
         <thead>
@@ -28,7 +35,7 @@
                 <td>Name</td>
                 <td>Trademark</td>
                 <td>OS</td>
-                <td>Size</td>
+                <td>Feature</td>
                 <td>Action</td>
             </tr>
         </thead>
@@ -38,7 +45,7 @@
                 <tr style="@if (item.IsDeleted == true) { @Html.Raw("background-color:" +  "#f2dede")}">
                     <td>@item.Id</td>
                     <td>
-                        <img src="~/Content/Pictures/Laptop/@item.Image" alt="Alternate Text" />
+                        <img src="@Constants.COMPUTER_PATH@item.Image" alt="Alternate Text" />
                     </td>
                     <td>
                         @item.Name
@@ -50,7 +57,7 @@
                         @item.OS
                     </td>
                     <td>
-                        @item.Size
+                        @item.Feature
                     </td>
                     <td>
                         <a class="btn btn-success" href="@Url.Action("Update","Computer",new { Id = item.Id})">Update</a>
@@ -69,5 +76,8 @@
             }
         </tbody>
     </table>
+    <a class="btn btn-success" href="@Url.Action("Add","Computer")">Add</a>
+
+
 </div>
 

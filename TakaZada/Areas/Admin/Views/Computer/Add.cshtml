@@ -1,0 +1,207 @@
+﻿@using TakaZada.Core.Models;
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPage.cshtml";
+    var computer = (Computer)ViewBag.SelectedComputer;
+}
+@Scripts.Render("~/bundles/jquery")
+<style>
+    .btn-file {
+        position: relative;
+        overflow: hidden;
+    }
+
+        .btn-file input[type=file] {
+            position: absolute;
+            top: 0;
+            right: 0;
+            min-width: 100%;
+            min-height: 100%;
+            font-size: 100px;
+            text-align: right;
+            filter: alpha(opacity=0);
+            opacity: 0;
+            outline: none;
+            background: white;
+            cursor: inherit;
+            display: block;
+        }
+
+    #img-upload {
+        width: 100%;
+    }
+</style>
+<h2>Update form</h2>
+<form method="post">
+    @{
+        if (null != Session["submit_message"])
+        {
+            @Html.Raw("<h3 class='error-mesage' style='display: none;'>" + Session["submit_message"] + "</h3>");
+            <script type="text/javascript">
+                $(function () {
+                    $('.error-mesage').delay(500).fadeIn('normal', function () {
+                        $(this).delay(2500).fadeOut();
+                    });
+                });
+            </script>
+            Session["submit_message"] = null;
+        }
+    }
+    <div class="form-group">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Upload Image</label>
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <span class="btn btn-default btn-file">
+                            Browse… <input type="file" id="imgInp">
+                        </span>
+                    </span>
+                    <input type="text" class="form-control" id="Image" name="Image" value="" readonly>
+                </div>
+                <input type="text" class="form-control" hidden name="src" id="src" value="" />
+                <img id='img-upload' />
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <input class="form-control" type="hidden" name="ComputerId" />
+    </div>
+    <div class="form-group">
+        <label>Name</label>
+        <input class="form-control" type="text" id="Name" name="Name" />
+    </div>
+    <div class="form-group">
+        <label>CPU</label>
+        <input class="form-control" type="text" id="CPU" name="CPU" />
+    </div>
+    <div class="form-group">
+        <label>RAM</label>
+        <input class="form-control" type="text" id="RAM" name="RAM" />
+    </div>
+    <div class="form-group">
+        <label>VideoCard</label>
+        <input class="form-control" type="text" id="VideoCard" name="VideoCard" />
+    </div>
+    <div class="form-group">
+        <label>Hardware</label>
+        <input class="form-control" type="text" id="Hardware" name="Hardware" />
+    </div>
+    <div class="form-group">
+        <label>SlotSupport</label>
+        <input class="form-control" type="text" id="SlotSupport" name="SlotSupport" />
+    </div>
+    <div class="form-group">
+        <label>SlotSupport</label>
+        <input class="form-control" type="text" id="SlotSupport" name="SlotSupport" />
+    </div>
+    <div class="form-group">
+        <label>Display</label>
+        <input class="form-control" type="text" id="Display" name="Display" />
+    </div>
+    <div class="form-group">
+        <label>Port</label>
+        <input class="form-control" type="text" id="Port" name="Port" />
+    </div>
+    <div class="form-group">
+        <label>Extra</label>
+        <input class="form-control" type="text" id="Extra" name="Extra" />
+    </div>
+    <div class="form-group">
+        <label>OS</label>
+        <input class="form-control" type="text" id="OS" name="OS" />
+    </div>
+    <div class="form-group">
+        <label>Type</label>
+        <input class="form-control" type="text" id="Type" name="Type" />
+    </div>
+    <div class="form-group">
+        <label>Trademark</label>
+        <input class="form-control" type="text" id="Trademark" name="Trademark" />
+    </div>
+    <div class="form-group">
+        <label>Feature</label>
+        <input class="form-control" type="text" id="Feature" name="Feature" />
+    </div>
+    <div class="form-group">
+        <label>Color</label>
+        <input class="form-control" type="text" id="Color" name="Color" />
+    </div>
+    <div class="form-group">
+        <label>CPUSeries</label>
+        <input class="form-control" type="text" id="CPUSeries" name="CPUSeries" />
+    </div>
+    <div class="form-group">
+        <label>ScreenSize</label>
+        <input class="form-control" type="text" id="ScreenSize" name="ScreenSize" />
+    </div>
+    <div class="form-group">
+        <label>Resolution</label>
+        <input class="form-control" type="text" id="Resolution" name="Resolution" />
+    </div>
+    <div class="form-group">
+        <label>StandardOfScreen</label>
+        <input class="form-control" type="text" id="StandardOfScreen" name="StandardOfScreen" />
+    </div>
+    <div class="form-group">
+        <label>Mass</label>
+        <input class="form-control" type="text" id="Mass" name="Mass" />
+    </div>
+    <div class="form-group">
+        <label>WarrantyPeriod</label>
+        <input class="form-control" type="text" id="WarrantyPeriod" name="WarrantyPeriod" />
+    </div>
+    <div class="form-group">
+        <label>Price</label>
+        <input class="form-control" type="text" id="Price" name="Price" />
+    </div>
+    <div class="form-group">
+        <label>Description</label>
+        <textarea class="form-control" id="Description" name="Description" rows="8">
+          
+        </textarea>
+    </div>
+    <button class="btn btn-success" type="submit">Add</button>
+    <a class="btn btn-danger" href="@Url.Action("Index","Computer")">Cancel</a>
+</form>
+<script>
+
+    $(document).ready(function () {
+        $(document).on('change', '.btn-file :file', function () {
+            var input = $(this);
+            var str = input.val().replace(/\\/g, '/');
+            var label = str.substring(str.lastIndexOf('/') + 1);
+            input.trigger('fileselect', [label]);
+        });
+
+        $('.btn-file :file').on('fileselect', function (event, label) {
+
+            var input = $(this).parents('.input-group').find(':text'),
+                log = label;
+
+            if (input.length) {
+                input.val(log);
+            } else {
+                if (log) alert(log);
+            }
+
+        });
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#img-upload').attr('src', e.target.result);
+                    var src = e.target.result.replace(/data:image\/([a-zA-Z+]*);base64,/g, "");
+                    $("#src").val(src);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        $("#imgInp").change(function () {
+            readURL(this);
+        });
+    });
+</script>

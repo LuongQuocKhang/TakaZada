@@ -84,6 +84,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Admin\Admin.cs" />
+    <Compile Include="Admin\Computer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
   </ItemGroup>
@@ -97,6 +98,10 @@
     <ProjectReference Include="..\TakaZada.API\TakaZada.API.csproj">
       <Project>{7729867F-5CB3-4C5B-BDD5-305A2797199C}</Project>
       <Name>TakaZada.API</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TakaZada.Core\TakaZada.Core.csproj">
+      <Project>{EEC9DB96-EA12-4BB1-AA80-20BFDDBAEB35}</Project>
+      <Name>TakaZada.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\TakaZada\TakaZada.csproj">
       <Project>{3348D95A-8788-4691-A621-18178A2470B0}</Project>
