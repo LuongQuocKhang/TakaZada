@@ -1686,6 +1686,7 @@
     <Content Include="Content\Pictures\VGA\Card màn hình Gigabyte 4GB N105TWF2OC-4GD.jpg" />
     <Content Include="Content\Pictures\VGA\Card màn hình Msi 4GB GTX1050Ti 4GT OCV1.jpg" />
     <Content Include="Content\Pictures\VGA\Card màn hình Msi 4GB GTX1050Ti Gaming X 4G.jpg" />
+    <Content Include="Content\Style.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -1777,6 +1778,19 @@
     <Content Include="Areas\Admin\Views\Radiator\Index.cshtml" />
     <Content Include="Areas\Admin\Views\RAM\Index.cshtml" />
     <Content Include="Areas\Admin\Views\VGA\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Case\Update.cshtml" />
+    <Content Include="Areas\Admin\Views\Case\Add.cshtml" />
+    <Content Include="Areas\Admin\Views\CPU\Update.cshtml" />
+    <Content Include="Areas\Admin\Views\CPU\Add.cshtml" />
+    <Content Include="Areas\Admin\Views\Hardware\Update.cshtml" />
+    <Content Include="Areas\Admin\Views\Hardware\Add.cshtml" />
+    <Content Include="Areas\Admin\Views\Keyboard\Update.cshtml" />
+    <Content Include="Areas\Admin\Views\Keyboard\Add.cshtml" />
+    <Content Include="Areas\Admin\Views\Mainboard\Update.cshtml" />
+    <Content Include="Areas\Admin\Views\Mainboard\Add.cshtml" />
+    <Content Include="Areas\Admin\Views\Radiator\Update.cshtml" />
+    <Content Include="Areas\Admin\Views\Radiator\Add.cshtml" />
+    <Content Include="Areas\Admin\Views\RAM\Update.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -1788,6 +1802,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\UploadImage.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

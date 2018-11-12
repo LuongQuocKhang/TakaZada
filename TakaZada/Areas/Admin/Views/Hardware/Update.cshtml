@@ -1,0 +1,72 @@
+﻿@using TakaZada.Core.Models;
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPage.cshtml";
+    var Hardware = (Hardware)ViewBag.SelectedHardware;
+}
+@Scripts.Render("~/bundles/jquery")
+<h2>Update form</h2>
+<form method="post">
+    @{
+        if (null != Session["submit_message"])
+        {
+            @Html.Raw("<h3 class='error-mesage' style='display: none;'>" + Session["submit_message"] + "</h3>");
+            <script type="text/javascript">
+                $(function () {
+                    $('.error-mesage').delay(500).fadeIn('normal', function () {
+                        $(this).delay(2500).fadeOut();
+                    });
+                });
+            </script>
+            Session["submit_message"] = null;
+        }
+    }
+    <div class="form-group">
+        <input class="form-control" type="hidden" name="Id" value="@Hardware.Id" />
+    </div>
+    <div class="form-group">
+        <label>Name</label>
+        <input class="form-control" type="text" id="Name" name="Name" value="@Hardware.Name" />
+    </div>
+    <div class="form-group">
+        <label>WarrantyPeriod</label>
+        <input class="form-control" type="number" id="WarrantyPeriod" name="WarrantyPeriod" value="@Hardware.WarrantyPeriod" />
+    </div>
+    <div class="form-group">
+        <label>TradeMark</label>
+        <input class="form-control" type="text" id="TradeMark" name="TradeMark" value="@Hardware.TradeMark" />
+    </div>
+    <div class="form-group">
+        <label>Memory</label>
+        <input class="form-control" type="text" id="Memory" name="Memory" value="@Hardware.Memory" />
+    </div>
+    <div class="form-group">
+        <label>Label</label>
+        <input class="form-control" type="text" id="Label" name="Label" value="@Hardware.Label" />
+    </div>
+    <div class="form-group">
+        <label>Size</label>
+        <input class="form-control" type="text" id="Size" name="Size" value="@Hardware.Size" />
+    </div>
+    <div class="form-group">
+        <label>ReadSpeed</label>
+        <input class="form-control" type="text" id="ReadSpeed" name="ReadSpeed" value="@Hardware.ReadSpeed" />
+    </div>
+    <div class="form-group">
+        <label>WriteSpeed</label>
+        <input class="form-control" type="text" id="WriteSpeed" name="WriteSpeed" value="@Hardware.WriteSpeed" />
+    </div>
+    <div class="form-group">
+        <label>Price</label>
+        <input class="form-control" type="text" id="Price" name="Price" value="@Hardware.Price" />
+    </div>
+    <div class="form-group">
+        <label>Description</label>
+        <textarea class="form-control" id="Description" name="Description" rows="8">
+          @Hardware.Description
+        </textarea>
+    </div>
+    <button class="btn btn-success" type="submit">Submit</button>
+    <a class="btn btn-danger" href="@Url.Action("Index","Hardware")">Cancel</a>
+</form>
+

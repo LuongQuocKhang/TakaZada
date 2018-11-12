@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TakaZada.API.Handle;
 using TakaZada.Core.Models;
 
 namespace TakaZada.API.RAM
@@ -11,17 +12,60 @@ namespace TakaZada.API.RAM
     {
         public Core.Models.RAM CreateRAM()
         {
-            throw new NotImplementedException();
+            return new Core.Models.RAM();
         }
 
         public bool DeleteRAM(int Id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (var db = new DBContext())
+                {
+                    var ram = db.RAMs.FirstOrDefault(x => x.Id == Id);
+                    ram.IsDeleted = true;
+                    db.SaveChanges();
+                    ActivityLogFunction.WriteActivity("Delete Ram");
+
+                }
+                return true;
+            }
+            catch (Exception e) { }
+            return false;
+        }
+
+        public bool DeleteRAMFromDeletedlist(int Id)
+        {
+            try
+            {
+                using (var db = new DBContext())
+                {
+                    var ram = db.RAMs.FirstOrDefault(x => x.Id == Id);
+                    db.RAMs.Remove(ram);
+                    db.SaveChanges();
+                    ActivityLogFunction.WriteActivity("Delete Ram");
+
+                }
+                return true;
+            }
+            catch (Exception e) { }
+            return false;
         }
 
         public bool InsertRAM(Core.Models.RAM RAM)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (var db = new DBContext())
+                {
+                    db.RAMs.Add(RAM);
+                    db.SaveChanges();
+                    ActivityLogFunction.WriteActivity("Insert Ram");
+
+                }
+                return true;
+            }
+            catch (Exception e) { }
+            return false;
         }
 
         public IEnumerable<Core.Models.RAM> Load()
@@ -36,17 +80,52 @@ namespace TakaZada.API.RAM
 
         public Core.Models.RAM LoadById(int Id)
         {
-            throw new NotImplementedException();
+            Core.Models.RAM ram = null;
+            using (var db = new DBContext())
+            {
+                ram = db.RAMs.FirstOrDefault(x => x.Id == Id);
+            }
+            return ram;
         }
 
         public bool RestoreRAM(int Id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (var db = new DBContext())
+                {
+                    var ram = db.RAMs.FirstOrDefault(x => x.Id == Id);
+                    ram.IsDeleted = false;
+                    db.SaveChanges();
+                    ActivityLogFunction.WriteActivity("Restore Ram");
+
+                }
+                return true;
+            }
+            catch (Exception e) { }
+            return false;
         }
 
         public bool UpadteRAM(Core.Models.RAM RAM)
         {
-            throw new NotImplementedException();
+            if (RAM == null) return false;
+            try
+            {
+                using (var db = new DBContext())
+                {
+                    int id = RAM.Id;
+                    var temp = db.RAMs.FirstOrDefault(x => x.Id == id);
+                    PropertyCopier<Core.Models.RAM, Core.Models.RAM>.Copy(RAM, temp);
+                    db.SaveChanges();
+                    ActivityLogFunction.WriteActivity("Update RAM");
+                    return true;
+                }
+            }
+            catch (Exception e)
+            {
+
+            }
+            return false;
         }
     }
 }

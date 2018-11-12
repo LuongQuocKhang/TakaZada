@@ -47,7 +47,7 @@ namespace TakaZada.Areas.Admin.Controllers
         public ActionResult Update_Post()
         {
             // Get computer and update it properties
-            var computer = _LoadService.LoadById(Int32.Parse(Request.Form["ComputerId"]));
+            var computer = _LoadService.LoadById(Int32.Parse(Request.Form["Id"]));
 
             #region update properties
             try { computer.Name = Request.Form["Name"]; } catch (Exception e) { }
@@ -71,6 +71,7 @@ namespace TakaZada.Areas.Admin.Controllers
             try { computer.Price = Request.Form["Price"]; } catch (Exception e) { }
             try { computer.Description = Request.Form["Description"]; } catch (Exception e) { }
             #endregion
+
             if (_ComputerService.UpadteComputer(computer))
             {
                 Session["submit_message"] =
@@ -125,6 +126,7 @@ namespace TakaZada.Areas.Admin.Controllers
                     try { computer.Price = Request.Form["Price"]; } catch (Exception e) { }
                     try { computer.Description = Request.Form["Description"]; } catch (Exception e) { }
                     try { computer.IsDeleted = false; } catch (Exception e) { }
+                    computer.Image = filename;
                     #endregion
 
                     if (_ComputerService.InsertComputer(computer))
@@ -135,11 +137,14 @@ namespace TakaZada.Areas.Admin.Controllers
                 // create computer
                 
             }
-            catch (Exception e)
-            {
-
-            }
+            catch (Exception e) { }
             return View();
+        }
+
+        public ActionResult Remove(int Id)
+        {
+            _ComputerService.DeleteComputerFromDeletedlist(Id);
+            return RedirectToAction("Index");
         }
     }
 }

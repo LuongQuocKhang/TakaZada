@@ -1,0 +1,76 @@
+﻿@using TakaZada.Core.Models;
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPage.cshtml";
+}
+@Scripts.Render("~/bundles/jquery")
+<link href="~/Content/Style.css" rel="stylesheet" />
+
+<h2>Update form</h2>
+<form method="post">
+    <div class="form-group">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Upload Image</label>
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <span class="btn btn-default btn-file">
+                            Browse… <input type="file" id="imgInp">
+                        </span>
+                    </span>
+                    <input type="text" class="form-control" id="Image" name="Image" value="" readonly>
+                </div>
+                <input type="text" class="form-control" hidden name="src" id="src" value="" />
+                <img id='img-upload' />
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <input class="form-control" type="hidden" name="Id"/>
+    </div>
+    <div class="form-group">
+        <label>Name</label>
+        <input class="form-control" type="text" id="Name" name="Name"/>
+    </div>
+    <div class="form-group">
+        <label>TradeMark</label>
+        <input class="form-control" type="text" id="TradeMark" name="TradeMark"/>
+    </div>
+    <div class="form-group">
+        <label>Label</label>
+        <input class="form-control" type="text" id="Label" name="Label"/>
+    </div>
+    <div class="form-group">
+        <label>Material</label>
+        <input class="form-control" type="text" id="Material" name="Material"/>
+    </div>
+    <div class="form-group">
+        <label>Speed</label>
+        <input class="form-control" type="text" id="Speed" name="Speed"/>
+    </div>
+    <div class="form-group">
+        <label>Size</label>
+        <input class="form-control" type="text" id="Size" name="Size"/>
+    </div>
+    <div class="form-group">
+        <label>FanSize</label>
+        <input class="form-control" type="text" id="FanSize" name="FanSize"/>
+    </div>
+    <div class="form-group">
+        <label>Socket</label>
+        <input class="form-control" type="text" id="Socket" name="Socket"/>
+    </div>
+    <div class="form-group">
+        <label>Price</label>
+        <input class="form-control" type="text" id="Price" name="Price"/>
+    </div>
+    <div class="form-group">
+        <label>Description</label>
+        <textarea class="form-control" id="Description" name="Description" rows="8">
+        </textarea>
+    </div>
+    <button class="btn btn-success" type="submit">Submit</button>
+    <a class="btn btn-danger" href="@Url.Action("Index","Radiator")">Cancel</a>
+</form>
+<script src="~/Scripts/UploadImage.js"></script>
+

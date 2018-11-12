@@ -5,48 +5,9 @@
     var computer = (Computer)ViewBag.SelectedComputer;
 }
 @Scripts.Render("~/bundles/jquery")
-<style>
-    .btn-file {
-        position: relative;
-        overflow: hidden;
-    }
-
-        .btn-file input[type=file] {
-            position: absolute;
-            top: 0;
-            right: 0;
-            min-width: 100%;
-            min-height: 100%;
-            font-size: 100px;
-            text-align: right;
-            filter: alpha(opacity=0);
-            opacity: 0;
-            outline: none;
-            background: white;
-            cursor: inherit;
-            display: block;
-        }
-
-    #img-upload {
-        width: 100%;
-    }
-</style>
-<h2>Update form</h2>
+<link href="~/Content/Style.css" rel="stylesheet" />
+<h2>Add form</h2>
 <form method="post">
-    @{
-        if (null != Session["submit_message"])
-        {
-            @Html.Raw("<h3 class='error-mesage' style='display: none;'>" + Session["submit_message"] + "</h3>");
-            <script type="text/javascript">
-                $(function () {
-                    $('.error-mesage').delay(500).fadeIn('normal', function () {
-                        $(this).delay(2500).fadeOut();
-                    });
-                });
-            </script>
-            Session["submit_message"] = null;
-        }
-    }
     <div class="form-group">
         <div class="col-md-6">
             <div class="form-group">
@@ -164,44 +125,4 @@
     <button class="btn btn-success" type="submit">Add</button>
     <a class="btn btn-danger" href="@Url.Action("Index","Computer")">Cancel</a>
 </form>
-<script>
-
-    $(document).ready(function () {
-        $(document).on('change', '.btn-file :file', function () {
-            var input = $(this);
-            var str = input.val().replace(/\\/g, '/');
-            var label = str.substring(str.lastIndexOf('/') + 1);
-            input.trigger('fileselect', [label]);
-        });
-
-        $('.btn-file :file').on('fileselect', function (event, label) {
-
-            var input = $(this).parents('.input-group').find(':text'),
-                log = label;
-
-            if (input.length) {
-                input.val(log);
-            } else {
-                if (log) alert(log);
-            }
-
-        });
-        function readURL(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-
-                reader.onload = function (e) {
-                    $('#img-upload').attr('src', e.target.result);
-                    var src = e.target.result.replace(/data:image\/([a-zA-Z+]*);base64,/g, "");
-                    $("#src").val(src);
-                }
-
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
-
-        $("#imgInp").change(function () {
-            readURL(this);
-        });
-    });
-</script>
+<script src="~/Scripts/UploadImage.js"></script>

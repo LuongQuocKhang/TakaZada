@@ -1,0 +1,88 @@
+﻿@using TakaZada.Core.Models;
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPage.cshtml";
+    var cpu = (CPU)ViewBag.SelectedCPU;
+}
+@Scripts.Render("~/bundles/jquery")
+<h2>Update form</h2>
+<form method="post">
+    @{
+        if (null != Session["submit_message"])
+        {
+            @Html.Raw("<h3 class='error-mesage' style='display: none;'>" + Session["submit_message"] + "</h3>");
+            <script type="text/javascript">
+                $(function () {
+                    $('.error-mesage').delay(500).fadeIn('normal', function () {
+                        $(this).delay(2500).fadeOut();
+                    });
+                });
+            </script>
+            Session["submit_message"] = null;
+        }
+    }
+    <div class="form-group">
+        <input class="form-control" type="hidden" name="Id" value="@cpu.Id" />
+    </div>
+    <div class="form-group">
+        <label>Name</label>
+        <input class="form-control" type="text" id="Name" name="Name" value="@cpu.Name" />
+    </div>
+    <div class="form-group">
+        <label>WarrantyPeriod</label>
+        <input class="form-control" type="number" id="WarrantyPeriod" name="WarrantyPeriod" value="@cpu.WarrantyPeriod" />
+    </div>
+    <div class="form-group">
+        <label>TradeMark</label>
+        <input class="form-control" type="text" id="TradeMark" name="TradeMark" value="@cpu.TradeMark" />
+    </div>
+    <div class="form-group">
+        <label>CPUType</label>
+        <input class="form-control" type="text" id="CPUType" name="CPUType" value="@cpu.CPUType" />
+    </div>
+    <div class="form-group">
+        <label>CPULine</label>
+        <input class="form-control" type="text" id="CPULine" name="CPULine" value="@cpu.CPULine" />
+    </div>
+    <div class="form-group">
+        <label>Size</label>
+        <input class="form-control" type="text" id="Size" name="Size" value="@cpu.Size" />
+    </div>
+    <div class="form-group">
+        <label>CoreNum</label>
+        <input class="form-control" type="text" id="CoreNum" name="CoreNum" value="@cpu.CoreNum" />
+    </div>
+    <div class="form-group">
+        <label>ThreadNum</label>
+        <input class="form-control" type="text" id="ThreadNum" name="ThreadNum" value="@cpu.ThreadNum" />
+    </div>
+    <div class="form-group">
+        <label>BasicPulse</label>
+        <input class="form-control" type="text" id="BasicPulse" name="BasicPulse" value="@cpu.BasicPulse" />
+    </div>
+    <div class="form-group">
+        <label>CoreCPU</label>
+        <input class="form-control" type="text" id="CoreCPU" name="CoreCPU" value="@cpu.CoreCPU" />
+    </div>    
+    <div class="form-group">
+        <label>MaxPulse</label>
+        <input class="form-control" type="text" id="MaxPulse" name="MaxPulse" value="@cpu.MaxPulse" />
+    </div>    
+    <div class="form-group">
+        <label>CacheCPU</label>
+        <input class="form-control" type="text" id="CacheCPU" name="CacheCPU" value="@cpu.CacheCPU" />
+    </div>    
+    <div class="form-group">
+        <label>Price</label>
+        <input class="form-control" type="text" id="Price" name="Price" value="@cpu.Price" />
+    </div>
+    <div class="form-group">
+        <label>Description</label>
+        <textarea class="form-control" id="Description" name="Description" rows="8">
+          @cpu.Description
+        </textarea>
+    </div>
+    <button class="btn btn-success" type="submit">Submit</button>
+    <a class="btn btn-danger" href="@Url.Action("Index","Case")">Cancel</a>
+</form>
+

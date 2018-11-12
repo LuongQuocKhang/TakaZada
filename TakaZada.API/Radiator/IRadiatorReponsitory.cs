@@ -11,6 +11,8 @@ namespace TakaZada.API.Radiator
         Core.Models.Radiator CreateRadiator();
         bool InsertRadiator(Core.Models.Radiator Radiator);
         bool DeleteRadiator(int Id);
+        bool DeleteRadiatorFromDeletedlist(int Id);
+
         bool RestoreRadiator(int Id);
         bool UpadteRadiator(Core.Models.Radiator Radiator);
     }

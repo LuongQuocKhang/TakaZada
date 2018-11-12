@@ -11,6 +11,8 @@ namespace TakaZada.API.Keyboard
         Core.Models.Keyboard CreateKeyboard();
         bool InsertKeyboard(Core.Models.Keyboard Keyboard);
         bool DeleteKeyboard(int Id);
+        bool DeleteKeyboardFromDeletedlist(int Id);
+
         bool RestoreKeyboard(int Id);
         bool UpadteKeyboard(Core.Models.Keyboard Keyboard);
     }

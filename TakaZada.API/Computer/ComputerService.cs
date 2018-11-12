@@ -104,6 +104,25 @@ namespace TakaZada.API.Computer
         public Core.Models.Computer CreateComputer()
         {
             return new Core.Models.Computer();
-        }  
+        }
+
+        public bool DeleteComputerFromDeletedlist(int Id)
+        {
+            using (var db = new DBContext())
+            {
+                try
+                {
+                    var computer = db.Computers.FirstOrDefault(x => x.Id == Id);
+                    db.Computers.Remove(computer);
+                    db.SaveChanges();
+                    return true;
+                }
+                catch (Exception e)
+                {
+
+                }
+            }
+            return false;
+        }
     }
 }

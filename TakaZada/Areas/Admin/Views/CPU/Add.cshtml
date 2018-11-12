@@ -1,0 +1,93 @@
+﻿@using TakaZada.Core.Models;
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPage.cshtml";
+    var cpu = (CPU)ViewBag.SelectedCPU;
+}
+@Scripts.Render("~/bundles/jquery")
+<link href="~/Content/Style.css" rel="stylesheet" />
+
+<h2>Add form</h2>
+<form method="post">
+    <div class="form-group">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Upload Image</label>
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <span class="btn btn-default btn-file">
+                            Browse… <input type="file" id="imgInp">
+                        </span>
+                    </span>
+                    <input type="text" class="form-control" id="Image" name="Image" value="" readonly>
+                </div>
+                <input type="text" class="form-control" hidden name="src" id="src" value="" />
+                <img id='img-upload' />
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <input class="form-control" type="hidden" name="Id" />
+    </div>
+    <div class="form-group">
+        <label>Name</label>
+        <input class="form-control" type="text" id="Name" name="Name" />
+    </div>
+    <div class="form-group">
+        <label>WarrantyPeriod</label>
+        <input class="form-control" type="number" id="WarrantyPeriod" name="WarrantyPeriod" />
+    </div>
+    <div class="form-group">
+        <label>TradeMark</label>
+        <input class="form-control" type="text" id="TradeMark" name="TradeMark" />
+    </div>
+    <div class="form-group">
+        <label>CPUType</label>
+        <input class="form-control" type="text" id="CPUType" name="CPUType" />
+    </div>
+    <div class="form-group">
+        <label>CPULine</label>
+        <input class="form-control" type="text" id="CPULine" name="CPULine" />
+    </div>
+    <div class="form-group">
+        <label>Size</label>
+        <input class="form-control" type="text" id="Size" name="Size" />
+    </div>
+    <div class="form-group">
+        <label>CoreNum</label>
+        <input class="form-control" type="text" id="CoreNum" name="CoreNum" />
+    </div>
+    <div class="form-group">
+        <label>ThreadNum</label>
+        <input class="form-control" type="text" id="ThreadNum" name="ThreadNum" />
+    </div>
+    <div class="form-group">
+        <label>BasicPulse</label>
+        <input class="form-control" type="text" id="BasicPulse" name="BasicPulse" />
+    </div>
+    <div class="form-group">
+        <label>CoreCPU</label>
+        <input class="form-control" type="text" id="CoreCPU" name="CoreCPU" />
+    </div>
+    <div class="form-group">
+        <label>MaxPulse</label>
+        <input class="form-control" type="text" id="MaxPulse" name="MaxPulse" />
+    </div>
+    <div class="form-group">
+        <label>CacheCPU</label>
+        <input class="form-control" type="text" id="CacheCPU" name="CacheCPU" />
+    </div>
+    <div class="form-group">
+        <label>Price</label>
+        <input class="form-control" type="text" id="Price" name="Price" />
+    </div>
+    <div class="form-group">
+        <label>Description</label>
+        <textarea class="form-control" id="Description" name="Description" rows="8">
+        </textarea>
+    </div>
+    <button class="btn btn-success" type="submit">Submit</button>
+    <a class="btn btn-danger" href="@Url.Action("Index","CPU")">Cancel</a>
+</form>
+<script src="~/Scripts/UploadImage.js"></script>
+

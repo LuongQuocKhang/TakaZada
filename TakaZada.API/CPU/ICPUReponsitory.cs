@@ -11,6 +11,8 @@ namespace TakaZada.API.CPU
         Core.Models.CPU CreateCPU();
         bool InsertCPU(Core.Models.CPU CPU);
         bool DeleteCPU(int Id);
+        bool DeleteCPUFromDeletedlist(int Id);
+
         bool RestoreCPU(int Id);
         bool UpadteCPU(Core.Models.CPU CPU);
     }

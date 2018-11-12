@@ -68,6 +68,7 @@
                         else
                         {
                             <a class="btn btn-success" name="@item.Id" href="@Url.Action("Restore","Computer",new { Id = item.Id})">Restore</a>
+                            <a class="btn btn-danger" name="@item.Id" href="@Url.Action("Remove","Computer",new { Id = item.Id})">Delete</a>
                         }
 
                     </td>

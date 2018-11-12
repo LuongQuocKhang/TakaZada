@@ -11,6 +11,8 @@ namespace TakaZada.API.Hardware
         Core.Models.Hardware CreateHardware();
         bool InsertHardware(Core.Models.Hardware Hardware);
         bool DeleteHardware(int Id);
+        bool DeleteHardwareFromDeletedlist(int Id);
+
         bool RestoreHardware(int Id);
         bool UpadteHardware(Core.Models.Hardware Hardware);
     }

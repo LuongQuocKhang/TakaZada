@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TakaZada.API.Handle;
 using TakaZada.Core.Models;
 
 namespace TakaZada.API.Mainboard
@@ -11,17 +12,57 @@ namespace TakaZada.API.Mainboard
     {
         public MainBoard CreateMainboard()
         {
-            throw new NotImplementedException();
+            return new MainBoard();
+        }
+
+        public bool DeleteMainboardFromDeletedlist(int Id)
+        {
+            try
+            {
+                using (var db = new DBContext())
+                {
+                    var mainboard = db.MainBoards.FirstOrDefault(x => x.Id == Id);
+                    db.MainBoards.Remove(mainboard);
+                    db.SaveChanges();
+                    ActivityLogFunction.WriteActivity("Delete Mainboard");
+                    return true;
+                }
+            }
+            catch (Exception e) { }
+            return false;
         }
 
         public bool DeleteMainboard(int Id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (var db = new DBContext())
+                {
+                    var mainboard = db.MainBoards.FirstOrDefault(x => x.Id == Id);
+                    mainboard.IsDeleted = true;
+                    db.SaveChanges();
+                    ActivityLogFunction.WriteActivity("Delete Mainboard");
+                    return true;
+                }
+            }
+            catch (Exception e) { }
+            return false;
         }
 
         public bool InsertMainboard(MainBoard Mainboard)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (var db = new DBContext())
+                {
+                    db.MainBoards.Add(Mainboard);
+                    db.SaveChanges();
+                    ActivityLogFunction.WriteActivity("Insert Mainboard");
+                    return true;
+                }
+            }
+            catch (Exception e) { }
+            return false;
         }
 
         public IEnumerable<MainBoard> Load()
@@ -36,17 +77,51 @@ namespace TakaZada.API.Mainboard
 
         public Core.Models.MainBoard LoadById(int Id)
         {
-            throw new NotImplementedException();
+            MainBoard mainboard = null;
+            using (var db = new DBContext())
+            {
+                mainboard = db.MainBoards.FirstOrDefault(x => x.Id == Id);
+            }
+            return mainboard;
         }
 
         public bool RestoreMainboard(int Id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (var db = new DBContext())
+                {
+                    var mainboard = db.MainBoards.FirstOrDefault(x => x.Id == Id);
+                    mainboard.IsDeleted = false;
+                    db.SaveChanges();
+                    ActivityLogFunction.WriteActivity("Restore Mainboard");
+                    return true;
+                }
+            }
+            catch (Exception e) { }
+            return false;
         }
 
         public bool UpadteMainboard(MainBoard Mainboard)
         {
-            throw new NotImplementedException();
+            if (Mainboard == null) return false;
+            try
+            {
+                using (var db = new DBContext())
+                {
+                    int id = Mainboard.Id;
+                    var temp = db.MainBoards.FirstOrDefault(x => x.Id == id);
+                    PropertyCopier<Core.Models.MainBoard, Core.Models.MainBoard>.Copy(Mainboard, temp);
+                    db.SaveChanges();
+                    ActivityLogFunction.WriteActivity("Update Mainboard");
+                    return true;
+                }
+            }
+            catch (Exception e)
+            {
+
+            }
+            return false;
         }
     }
 }

@@ -11,6 +11,7 @@ namespace TakaZada.API.Computer
         Core.Models.Computer CreateComputer();
         bool InsertComputer(Core.Models.Computer computer);
         bool DeleteComputer(int Id);
+        bool DeleteComputerFromDeletedlist(int Id);
         bool RestoreComputer(int Id);
         bool UpadteComputer(Core.Models.Computer computer);
 

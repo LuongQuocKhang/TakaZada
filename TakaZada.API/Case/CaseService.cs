@@ -12,17 +12,68 @@ namespace TakaZada.API.Case
     {
         public Core.Models.Case CreateCase()
         {
-            throw new NotImplementedException();
+            return new Core.Models.Case();
         }
 
         public bool DeleteCase(int Id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (var db = new DBContext())
+                { 
+                    var Case = db.Cases.FirstOrDefault(x => x.Id == Id);
+                    Case.IsDelete = true;
+                    db.SaveChanges();
+
+                    ActivityLogFunction.WriteActivity("Delete Case");
+                    return true;
+                }
+            }
+            catch(Exception e)
+            {
+
+            }
+            return false;
+        }
+
+        public bool DeleteCaseFromDeletedlist(int Id)
+        {
+            try
+            {
+                using (var db = new DBContext())
+                {
+                    var Case = db.Cases.FirstOrDefault(x => x.Id == Id);
+                    db.Cases.Remove(Case);
+                    db.SaveChanges();
+
+                    ActivityLogFunction.WriteActivity("Delete Case");
+                    return true;
+                }
+            }
+            catch (Exception e)
+            {
+
+            }
+            return false;
         }
 
         public bool InsertCase(Core.Models.Case Case)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (var db = new DBContext())
+                {
+                    db.Cases.Add(Case);
+                    db.SaveChanges();
+                    ActivityLogFunction.WriteActivity("Insert case");
+                }
+                return true;
+            }
+            catch (Exception e)
+            {
+
+            }
+            return false;
         }
 
         public IEnumerable<Core.Models.Case> Load()
@@ -37,17 +88,54 @@ namespace TakaZada.API.Case
 
         public Core.Models.Case LoadById(int Id)
         {
-            throw new NotImplementedException();
+            Core.Models.Case Case = null;
+            using (var db = new DBContext())
+            {
+                Case = db.Cases.FirstOrDefault(x => x.Id == Id);
+            }
+            return Case;
         }
 
         public bool RestoreCase(int Id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (var db = new DBContext())
+                {
+                    var Case = db.Cases.FirstOrDefault(x => x.Id == Id);
+                    Case.IsDelete = false;
+                    db.SaveChanges();
+                    ActivityLogFunction.WriteActivity("Restore case");
+                    return true;
+                }
+            }
+            catch(Exception e)
+            {
+
+            }
+            return false;
         }
 
         public bool UpadteCase(Core.Models.Case Case)
         {
-            throw new NotImplementedException();
+            if (Case == null) return false;
+            try
+            {
+                using (var db = new DBContext())
+                {
+                    int id = Case.Id;
+                    var temp = db.Cases.FirstOrDefault(x => x.Id == id);
+                    PropertyCopier<Core.Models.Case, Core.Models.Case>.Copy(Case, temp);
+                    db.SaveChanges();
+                    ActivityLogFunction.WriteActivity("Update case");
+                    return true;
+                }
+            }
+            catch (Exception e)
+            {
+
+            }
+            return false;
         }
     }
 }

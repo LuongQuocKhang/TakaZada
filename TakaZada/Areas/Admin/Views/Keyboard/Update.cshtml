@@ -1,0 +1,52 @@
+﻿@using TakaZada.Core.Models;
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPage.cshtml";
+    var keyboard = (Keyboard)ViewBag.SelectedKeyboard;
+}
+@Scripts.Render("~/bundles/jquery")
+<h2>Update form</h2>
+<form method="post">
+    @{
+        if (null != Session["submit_message"])
+        {
+            @Html.Raw("<h3 class='error-mesage' style='display: none;'>" + Session["submit_message"] + "</h3>");
+            <script type="text/javascript">
+                $(function () {
+                    $('.error-mesage').delay(500).fadeIn('normal', function () {
+                        $(this).delay(2500).fadeOut();
+                    });
+                });
+            </script>
+            Session["submit_message"] = null;
+        }
+    }
+    <div class="form-group">
+        <input class="form-control" type="hidden" name="Id" value="@keyboard.Id" />
+    </div>
+    <div class="form-group">
+        <label>Name</label>
+        <input class="form-control" type="text" id="Name" name="Name" value="@keyboard.Name" />
+    </div>
+    <div class="form-group">
+        <label>WarrantyPeriod</label>
+        <input class="form-control" type="number" id="WarrantyPeriod" name="WarrantyPeriod" value="@keyboard.WarrantyPeriod" />
+    </div>
+    <div class="form-group">
+        <label>TradeMark</label>
+        <input class="form-control" type="text" id="TradeMark" name="TradeMark" value="@keyboard.TradeMark" />
+    </div>
+    <div class="form-group">
+        <label>Price</label>
+        <input class="form-control" type="text" id="Price" name="Price" value="@keyboard.Price" />
+    </div>
+    <div class="form-group">
+        <label>Description</label>
+        <textarea class="form-control" id="Description" name="Description" rows="8">
+          @keyboard.Description
+        </textarea>
+    </div>
+    <button class="btn btn-success" type="submit">Submit</button>
+    <a class="btn btn-danger" href="@Url.Action("Index","Keyboard")">Cancel</a>
+</form>
+
