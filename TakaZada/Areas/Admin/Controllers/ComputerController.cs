@@ -72,7 +72,7 @@ namespace TakaZada.Areas.Admin.Controllers
             try { computer.Description = Request.Form["Description"]; } catch (Exception e) { }
             #endregion
 
-            if (_ComputerService.UpadteComputer(computer))
+            if (_ComputerService.UpdateComputer(computer))
             {
                 Session["submit_message"] =
                         "<p class='font-green-sharp' style='font-size: 20px;color: #009614!important;font-weight: bold;'>Update computer successful</p>";

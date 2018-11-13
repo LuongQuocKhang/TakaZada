@@ -1791,6 +1791,9 @@
     <Content Include="Areas\Admin\Views\Radiator\Update.cshtml" />
     <Content Include="Areas\Admin\Views\Radiator\Add.cshtml" />
     <Content Include="Areas\Admin\Views\RAM\Update.cshtml" />
+    <Content Include="Areas\Admin\Views\RAM\Add.cshtml" />
+    <Content Include="Areas\Admin\Views\VGA\Update.cshtml" />
+    <Content Include="Areas\Admin\Views\VGA\Add.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

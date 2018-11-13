@@ -64,7 +64,7 @@ namespace TakaZada.Areas.Admin.Controllers
             try { Case.Price = Request.Form["Price"]; } catch (Exception e) { }
             try { Case.Description = Request.Form["Description"]; } catch (Exception e) { }
             #endregion
-            if ( _CaseService.UpadteCase(Case))
+            if ( _CaseService.UpdateCase(Case))
             {
                 Session["submit_message"] ="<p class='font-green-sharp' style='font-size: 20px;color: #009614!important;font-weight: bold;'>Update case successful</p>";
                 return RedirectToAction("Update", new { Id = Case.Id });

@@ -65,16 +65,16 @@ namespace TakaZada.Areas.Admin.Controllers
             try { radiator.Price = Request.Form["Price"]; } catch (Exception e) { }
             #endregion
 
-            if (_RadiatorService.UpadteRadiator(radiator))
+            if (_RadiatorService.UpdateRadiator(radiator))
             {
                 Session["submit_message"] =
-                        "<p class='font-green-sharp' style='font-size: 20px;color: #009614!important;font-weight: bold;'>Update computer successful</p>";
+                        "<p class='font-green-sharp' style='font-size: 20px;color: #009614!important;font-weight: bold;'>Update radiator successful</p>";
                 return RedirectToAction("Update", new { Id = radiator.Id });
             }
             else
             {
                 Session["submit_message"] =
-                        "<p class='font-green-sharp' style='font-size: 20px;color: #dd0808!important;font-weight: bold;'>Update computer failed</p>";
+                        "<p class='font-green-sharp' style='font-size: 20px;color: #dd0808!important;font-weight: bold;'>Update radiator failed</p>";
             }
             return RedirectToAction("Update", new { Id = radiator.Id });
         }

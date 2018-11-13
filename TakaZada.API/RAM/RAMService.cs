@@ -106,7 +106,7 @@ namespace TakaZada.API.RAM
             return false;
         }
 
-        public bool UpadteRAM(Core.Models.RAM RAM)
+        public bool UpdateRAM(Core.Models.RAM RAM)
         {
             if (RAM == null) return false;
             try

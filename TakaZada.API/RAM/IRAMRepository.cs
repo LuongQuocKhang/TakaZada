@@ -14,6 +14,6 @@ namespace TakaZada.API.RAM
         bool DeleteRAMFromDeletedlist(int Id);
 
         bool RestoreRAM(int Id);
-        bool UpadteRAM(Core.Models.RAM RAM);
+        bool UpdateRAM(Core.Models.RAM RAM);
     }
 }

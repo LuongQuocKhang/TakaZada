@@ -116,7 +116,7 @@ namespace TakaZada.API.Case
             return false;
         }
 
-        public bool UpadteCase(Core.Models.Case Case)
+        public bool UpdateCase(Core.Models.Case Case)
         {
             if (Case == null) return false;
             try

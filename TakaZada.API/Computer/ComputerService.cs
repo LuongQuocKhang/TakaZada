@@ -86,7 +86,7 @@ namespace TakaZada.API.Computer
             return false;
         }
 
-        public bool UpadteComputer(Core.Models.Computer computer)
+        public bool UpdateComputer(Core.Models.Computer computer)
         {
             if ( computer != null || computer.Id.ToString() != "")
             {

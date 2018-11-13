@@ -58,7 +58,7 @@ namespace TakaZada.Areas.Admin.Controllers
             try { hardware.Price = Request.Form["Price"]; } catch (Exception e) { }
             #endregion
 
-            if (_HardwareService.UpadteHardware(hardware))
+            if (_HardwareService.UpdateHardware(hardware))
             {
                 Session["submit_message"] =
                                            "<p class='font-green-sharp' style='font-size: 20px;color: #009614!important;font-weight: bold;'>Update hardware successful</p>";

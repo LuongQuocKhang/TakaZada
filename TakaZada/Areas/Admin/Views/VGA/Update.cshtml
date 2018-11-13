@@ -1,0 +1,93 @@
+﻿@using TakaZada.Core.Models;
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPage.cshtml";
+    var vga = (VGA)ViewBag.Selectedvga;
+}
+@Scripts.Render("~/bundles/jquery")
+<h2>Update form</h2>
+<form method="post">
+    @{
+        if (null != Session["submit_message"])
+        {
+            @Html.Raw("<h3 class='error-mesage' style='display: none;'>" + Session["submit_message"] + "</h3>");
+            <script type="text/javascript">
+                $(function () {
+                    $('.error-mesage').delay(500).fadeIn('normal', function () {
+                        $(this).delay(2500).fadeOut();
+                    });
+                });
+            </script>
+            Session["submit_message"] = null;
+        }
+    }
+    <div class="form-group">
+        <input class="form-control" type="hidden" name="Id" value="@vga.Id" />
+    </div>
+    <div class="form-group">
+        <label>Name</label>
+        <input class="form-control" type="text" id="Name" name="Name" value="@vga.Name" />
+    </div>
+    <div class="form-group">
+        <label>TradeMark</label>
+        <input class="form-control" type="text" id="TradeMark" name="TradeMark" value="@vga.TradeMark" />
+    </div>
+    <div class="form-group">
+        <label>Label</label>
+        <input class="form-control" type="text" id="Label" name="Label" value="@vga.Label" />
+    </div>
+    <div class="form-group">
+        <label>ChipsetManufacturer</label>
+        <input class="form-control" type="text" id="ChipsetManufacturer" name="ChipsetManufacturer" value="@vga.ChipsetManufacturer" />
+    </div>
+    <div class="form-group">
+        <label>Model</label>
+        <input class="form-control" type="text" id="Model" name="Model" value="@vga.Model" />
+    </div>
+    <div class="form-group">
+        <label>VGA</label>
+        <input class="form-control" type="text" id="VGA" name="VGA" value="@vga.VGA1" />
+    </div>    
+    <div class="form-group">
+        <label>BoostClock</label>
+        <input class="form-control" type="text" id="BoostClock" name="BoostClock" value="@vga.BoostClock" />
+    </div>
+    <div class="form-group">
+        <label>VGAMemory</label>
+        <input class="form-control" type="text" id="VGAMemory" name="VGAMemory" value="@vga.VGAMemory" />
+    </div> 
+    <div class="form-group">
+        <label>RamType</label>
+        <input class="form-control" type="text" id="RamType" name="RamType" value="@vga.RamType" />
+    </div>  
+    <div class="form-group">
+        <label>MaxResolution</label>
+        <input class="form-control" type="text" id="MaxResolution" name="MaxResolution" value="@vga.MaxResolution" />
+    </div> 
+    <div class="form-group">
+        <label>Directx</label>
+        <input class="form-control" type="text" id="Directx" name="Directx" value="@vga.Directx" />
+    </div>  
+    <div class="form-group">
+        <label>Size</label>
+        <input class="form-control" type="text" id="Size" name="Size" value="@vga.Size" />
+    </div> 
+    <div class="form-group">
+        <label>WarrantyPeriod</label>
+        <input class="form-control" type="number" id="WarrantyPeriod" name="WarrantyPeriod" value="@vga.WarrantyPeriod" />
+    </div>
+
+    <div class="form-group">
+        <label>Price</label>
+        <input class="form-control" type="text" id="Price" name="Price" value="@vga.Price" />
+    </div>
+    <div class="form-group">
+        <label>Description</label>
+        <textarea class="form-control" id="Description" name="Description" rows="8">
+          @vga.Description
+        </textarea>
+    </div>
+    <button class="btn btn-success" type="submit">Submit</button>
+    <a class="btn btn-danger" href="@Url.Action("Index","RAM")">Cancel</a>
+</form>
+

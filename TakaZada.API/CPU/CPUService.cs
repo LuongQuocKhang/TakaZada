@@ -111,7 +111,7 @@ namespace TakaZada.API.CPU
             return false;
         }
 
-        public bool UpadteCPU(Core.Models.CPU CPU)
+        public bool UpdateCPU(Core.Models.CPU CPU)
         {
             if (CPU == null) return false;
             try

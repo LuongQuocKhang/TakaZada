@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TakaZada.API.Handle;
 using TakaZada.Core.Models;
 
 namespace TakaZada.API.VGA
@@ -11,17 +12,57 @@ namespace TakaZada.API.VGA
     {
         public Core.Models.VGA CreateVGA()
         {
-            throw new NotImplementedException();
+            return new Core.Models.VGA();
         }
 
         public bool DeleteVGA(int Id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (var db = new DBContext())
+                {
+                    var vga = db.VGAs.FirstOrDefault(x => x.Id == Id);
+                    vga.IsDeleted = true;
+                    db.SaveChanges();
+                    ActivityLogFunction.WriteActivity("Delete VGA");
+                    return true;
+                }
+            }
+            catch (Exception e) { }
+            return false;
+        }
+
+        public bool DeleteVGAFromDeletedlist(int Id)
+        {
+            try
+            {
+                using (var db = new DBContext())
+                {
+                    var vga = db.VGAs.FirstOrDefault(x => x.Id == Id);
+                    db.VGAs.Remove(vga);
+                    db.SaveChanges();
+                    ActivityLogFunction.WriteActivity("Delete VGA");
+                    return true;
+                }
+            }
+            catch (Exception e) { }
+            return false;
         }
 
         public bool InsertVGA(Core.Models.VGA VGA)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (var db = new DBContext())
+                {
+                    db.VGAs.Add(VGA);
+                    db.SaveChanges();
+                    ActivityLogFunction.WriteActivity("Insert VGA");
+                    return true;
+                }
+            }
+            catch (Exception e) { }
+            return false;
         }
 
         public IEnumerable<Core.Models.VGA> Load()
@@ -36,17 +77,51 @@ namespace TakaZada.API.VGA
 
         public Core.Models.VGA LoadById(int Id)
         {
-            throw new NotImplementedException();
+            Core.Models.VGA vga = null;
+            using (var db = new DBContext())
+            {
+                vga = db.VGAs.FirstOrDefault(x => x.Id == Id);
+            }
+            return vga;
         }
 
         public bool RestoreVGA(int Id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (var db = new DBContext())
+                {
+                    var vga = db.VGAs.FirstOrDefault(x => x.Id == Id);
+                    vga.IsDeleted = false;
+                    db.SaveChanges();
+                    ActivityLogFunction.WriteActivity("Restore VGA");
+                    return true;
+                }
+            }
+            catch (Exception e) { }
+            return false;
         }
 
-        public bool UpadteVGA(Core.Models.VGA VGA)
+        public bool UpdateVGA(Core.Models.VGA VGA)
         {
-            throw new NotImplementedException();
+            if (VGA == null) return false;
+            try
+            {
+                using (var db = new DBContext())
+                {
+                    int id = VGA.Id;
+                    var temp = db.VGAs.FirstOrDefault(x => x.Id == id);
+                    PropertyCopier<Core.Models.VGA, Core.Models.VGA>.Copy(VGA, temp);
+                    db.SaveChanges();
+                    ActivityLogFunction.WriteActivity("Update VGA");
+                    return true;
+                }
+            }
+            catch (Exception e)
+            {
+
+            }
+            return false;
         }
     }
 }

@@ -13,7 +13,7 @@ namespace TakaZada.API.Computer
         bool DeleteComputer(int Id);
         bool DeleteComputerFromDeletedlist(int Id);
         bool RestoreComputer(int Id);
-        bool UpadteComputer(Core.Models.Computer computer);
+        bool UpdateComputer(Core.Models.Computer computer);
 
     }
 }

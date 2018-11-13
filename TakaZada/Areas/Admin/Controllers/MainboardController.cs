@@ -62,7 +62,7 @@ namespace TakaZada.Areas.Admin.Controllers
             try { mainboard.RamNum = Int32.Parse(Request.Form["RamNum"]); } catch (Exception e) { }
             try { mainboard.WarrantyPeriod = Int32.Parse(Request.Form["WarrantyPeriod"]); } catch (Exception e) { }
 
-            if ( _MainboardService.UpadteMainboard(mainboard))
+            if ( _MainboardService.UpdateMainboard(mainboard))
             {
                 Session["submit_message"] =
                                             "<p class='font-green-sharp' style='font-size: 20px;color: #009614!important;font-weight: bold;'>Update mainboard successful</p>";

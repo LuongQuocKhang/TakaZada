@@ -57,5 +57,8 @@ namespace TakaZada.Core.Models
 
         [StringLength(25)]
         public string Price { get; set; }
+
+        [StringLength(4000)]
+        public string Description { get; set; }
     }
 }

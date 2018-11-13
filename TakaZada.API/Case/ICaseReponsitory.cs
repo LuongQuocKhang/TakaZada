@@ -13,6 +13,6 @@ namespace TakaZada.API.Case
         bool DeleteCase(int Id);
         bool DeleteCaseFromDeletedlist(int Id);
         bool RestoreCase(int Id);
-        bool UpadteCase(Core.Models.Case Case);
+        bool UpdateCase(Core.Models.Case Case);
     }
 }

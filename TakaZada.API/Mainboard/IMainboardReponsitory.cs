@@ -14,6 +14,6 @@ namespace TakaZada.API.Mainboard
         bool DeleteMainboardFromDeletedlist(int Id);
 
         bool RestoreMainboard(int Id);
-        bool UpadteMainboard(Core.Models.MainBoard Mainboard);
+        bool UpdateMainboard(Core.Models.MainBoard Mainboard);
     }
 }

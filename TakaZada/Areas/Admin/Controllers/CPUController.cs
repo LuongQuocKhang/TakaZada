@@ -64,7 +64,7 @@ namespace TakaZada.Areas.Admin.Controllers
             try { cpu.Description = Request.Form["Description"]; } catch (Exception e) { }
             try { cpu.Price = Request.Form["Price"]; } catch (Exception e) { }
             #endregion
-            if ( _CPUService.UpadteCPU(cpu))
+            if ( _CPUService.UpdateCPU(cpu))
             {
                 Session["submit_message"] =
                                            "<p class='font-green-sharp' style='font-size: 20px;color: #009614!important;font-weight: bold;'>Update cpu successful</p>";

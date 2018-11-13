@@ -14,6 +14,6 @@ namespace TakaZada.API.Radiator
         bool DeleteRadiatorFromDeletedlist(int Id);
 
         bool RestoreRadiator(int Id);
-        bool UpadteRadiator(Core.Models.Radiator Radiator);
+        bool UpdateRadiator(Core.Models.Radiator Radiator);
     }
 }

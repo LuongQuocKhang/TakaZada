@@ -105,7 +105,7 @@ namespace TakaZada.API.Hardware
             return false;
         }
 
-        public bool UpadteHardware(Core.Models.Hardware Hardware)
+        public bool UpdateHardware(Core.Models.Hardware Hardware)
         {
             if (Hardware == null) return false;
             try

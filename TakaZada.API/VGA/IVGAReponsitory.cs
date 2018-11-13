@@ -11,7 +11,9 @@ namespace TakaZada.API.VGA
         Core.Models.VGA CreateVGA();
         bool InsertVGA(Core.Models.VGA VGA);
         bool DeleteVGA(int Id);
+        bool DeleteVGAFromDeletedlist(int Id);
+
         bool RestoreVGA(int Id);
-        bool UpadteVGA(Core.Models.VGA VGA);
+        bool UpdateVGA(Core.Models.VGA VGA);
     }
 }

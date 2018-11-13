@@ -54,7 +54,7 @@ namespace TakaZada.Areas.Admin.Controllers
             try { keyboard.Price = Request.Form["Price"]; } catch (Exception e) { }
             #endregion
 
-            if (_KeyboardService.UpadteKeyboard(keyboard))
+            if (_KeyboardService.UpdateKeyboard(keyboard))
             {
                 Session["submit_message"] =
                                             "<p class='font-green-sharp' style='font-size: 20px;color: #009614!important;font-weight: bold;'>Update keyboard successful</p>";

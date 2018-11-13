@@ -102,7 +102,7 @@ namespace TakaZada.API.Mainboard
             return false;
         }
 
-        public bool UpadteMainboard(MainBoard Mainboard)
+        public bool UpdateMainboard(MainBoard Mainboard)
         {
             if (Mainboard == null) return false;
             try

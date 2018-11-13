@@ -106,7 +106,7 @@ namespace TakaZada.API.Radiator
             return false;
         }
 
-        public bool UpadteRadiator(Core.Models.Radiator Radiator)
+        public bool UpdateRadiator(Core.Models.Radiator Radiator)
         {
             if (Radiator == null) return false;
             try

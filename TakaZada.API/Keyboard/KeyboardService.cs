@@ -106,7 +106,7 @@ namespace TakaZada.API.Keyboard
             return false;
         }
 
-        public bool UpadteKeyboard(Core.Models.Keyboard Keyboard)
+        public bool UpdateKeyboard(Core.Models.Keyboard Keyboard)
         {
             if (Keyboard == null) return false;
             try

@@ -11,7 +11,7 @@ namespace TakaZada.Tests.Admin
         public void Test_UpdateComputer()
         {
             ComputerService service = new ComputerService();
-            Assert.AreEqual(true, service.UpadteComputer(new Core.Models.Computer()));
+            Assert.AreEqual(true, service.UpdateComputer(new Core.Models.Computer()));
         }
     }
 }
