@@ -47,7 +47,7 @@ namespace TakaZada.Areas.Admin.Controllers
         public ActionResult Update_Post()
         {
             // Get computer and update it properties
-            var computer = _LoadService.LoadById(Int32.Parse(Request.Form["Id"]));
+            var computer = _LoadService.LoadById(Int32.Parse(Request.Form["ComputerId"]));
 
             #region update properties
             try { computer.Name = Request.Form["Name"]; } catch (Exception e) { }
