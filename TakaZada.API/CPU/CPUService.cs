@@ -91,6 +91,32 @@ namespace TakaZada.API.CPU
             return cpu;
         }
 
+        public IEnumerable<Core.Models.CPU> LoadByName(string name)
+        {
+            List<Core.Models.CPU> list = new List<Core.Models.CPU>();
+            using (var db = new DBContext())
+            {
+                if ( name.Equals("Tất cả"))
+                    list = db.CPUs.ToList();
+                else
+                    list = db.CPUs.Where(x => x.Name.Trim().ToLower().Contains(name.ToLower())).ToList();
+            }
+            return list;
+        }
+
+        public IEnumerable<Core.Models.CPU> LoadByTradeMark(string Trademark)
+        {
+            List<Core.Models.CPU> list = new List<Core.Models.CPU>();
+            using (var db = new DBContext())
+            {
+                if (Trademark.Equals("Tất cả"))
+                    list = db.CPUs.ToList();
+                else
+                    list = db.CPUs.Where(x => x.TradeMark.Trim().ToLower().Contains(Trademark.ToLower())).ToList();
+            }
+            return list;
+        }
+
         public bool RestoreCPU(int Id)
         {
             try

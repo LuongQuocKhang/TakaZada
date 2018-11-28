@@ -124,5 +124,21 @@ namespace TakaZada.API.Computer
             }
             return false;
         }
+        public IEnumerable<Core.Models.Computer> LoadByTradeMark(string Trademark)
+        {
+            List<Core.Models.Computer> list = new List<Core.Models.Computer>();
+            using (var db = new DBContext())
+            {
+                if (Trademark.Equals("Tất cả"))
+                {
+                    list = db.Computers.ToList();
+                }
+                else
+                {
+                    list = db.Computers.Where(x => x.Trademark.Trim().ToLower().Contains(Trademark.ToLower())).ToList();
+                }
+            }
+            return list;
+        }
     }
 }

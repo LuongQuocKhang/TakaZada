@@ -11,5 +11,6 @@ namespace TakaZada.API.Computer
     {
         IEnumerable<TakaZada.Core.Models.Computer> Load();
         TakaZada.Core.Models.Computer LoadById(int Id);
+        IEnumerable<TakaZada.Core.Models.Computer> LoadByTradeMark(string Trademark);
     }
 }

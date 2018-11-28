@@ -9,6 +9,7 @@ namespace TakaZada.API.Hardware
     public interface ILoadHardware
     {
         IEnumerable<Core.Models.Hardware> Load();
+        IEnumerable<Core.Models.Hardware> LoadByTrademark(string Trademark);
         Core.Models.Hardware LoadById(int Id);
     }
 }

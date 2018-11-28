@@ -96,6 +96,23 @@ namespace TakaZada.API.Case
             return Case;
         }
 
+        public IEnumerable<Core.Models.Case> LoadByTrademark(string Trademark)
+        {
+            List<Core.Models.Case> list = new List<Core.Models.Case>();
+            using (var db = new DBContext())
+            {
+                if (Trademark == "Tất cả")
+                {
+                    list = db.Cases.ToList();
+                }
+                else
+                {
+                    list = db.Cases.Where(x => x.TradeMark.Trim().ToLower() == Trademark.ToLower()).ToList();
+                }
+            }
+            return list;
+        }
+
         public bool RestoreCase(int Id)
         {
             try

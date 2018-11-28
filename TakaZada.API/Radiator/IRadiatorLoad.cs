@@ -9,6 +9,7 @@ namespace TakaZada.API.Radiator
     public interface IRadiatorLoad
     {
         IEnumerable<Core.Models.Radiator> Load();
+        IEnumerable<Core.Models.Radiator> LoadByTrademark(string Trademark);
         Core.Models.Radiator LoadById(int Id);
     }
 }

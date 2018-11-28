@@ -88,6 +88,23 @@ namespace TakaZada.API.RAM
             return ram;
         }
 
+        public IEnumerable<Core.Models.RAM> LoadByTrademark(string Name)
+        {
+            List<Core.Models.RAM> list = new List<Core.Models.RAM>();
+            using (var db = new DBContext())
+            {
+                if (Name == "Tất cả")
+                {
+                    list = db.RAMs.ToList();
+                }
+                else
+                {
+                    list = db.RAMs.Where(x => x.TradeMark == Name).ToList();
+                }
+            }
+            return list;
+        }
+
         public bool RestoreRAM(int Id)
         {
             try

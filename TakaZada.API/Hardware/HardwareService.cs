@@ -87,6 +87,23 @@ namespace TakaZada.API.Hardware
             return hardware;
         }
 
+        public IEnumerable<Core.Models.Hardware> LoadByTrademark(string Trademark)
+        {
+            List<Core.Models.Hardware> list = new List<Core.Models.Hardware>();
+            using (var db = new DBContext())
+            {
+                if (Trademark == "Tất cả")
+                {
+                    list = db.Hardwares.ToList();
+                }
+                else
+                {
+                    list = db.Hardwares.Where(x => x.TradeMark.Trim().ToLower() == Trademark.ToLower()).ToList();
+                }
+            }
+            return list;
+        }
+
         public bool RestoreHardware(int Id)
         {
             try

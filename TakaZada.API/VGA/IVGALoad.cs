@@ -9,6 +9,7 @@ namespace TakaZada.API.VGA
     public interface IVGALoad
     {
         IEnumerable<Core.Models.VGA> Load();
+        IEnumerable<Core.Models.VGA> LoadByTrademark(string Trademark);
         Core.Models.VGA LoadById(int Id);
     }
 }

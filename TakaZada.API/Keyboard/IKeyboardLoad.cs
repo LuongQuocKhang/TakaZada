@@ -9,6 +9,7 @@ namespace TakaZada.API.Keyboard
     public interface IKeyboardLoad
     {
         IEnumerable<Core.Models.Keyboard> Load();
+        IEnumerable<Core.Models.Keyboard> LoadByTradeMark(string Trademark);
         Core.Models.Keyboard LoadById(int Id);
     }
 }

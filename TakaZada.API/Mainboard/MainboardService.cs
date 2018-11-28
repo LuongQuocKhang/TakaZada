@@ -123,5 +123,22 @@ namespace TakaZada.API.Mainboard
             }
             return false;
         }
+
+        public IEnumerable<MainBoard> LoadByTrademark(string Trademark)
+        {
+            List<Core.Models.MainBoard> list = new List<Core.Models.MainBoard>();
+            using (var db = new DBContext())
+            {
+                if (Trademark == "Tất cả")
+                {
+                    list = db.MainBoards.ToList();
+                }
+                else
+                {
+                    list = db.MainBoards.Where(x => x.TradeMark.Trim().ToLower() == Trademark.ToLower()).ToList();
+                }
+            }
+            return list;
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -25,6 +26,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>3.0</TypeScriptToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -1597,6 +1599,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\css\bootstrap.css" />
+    <Content Include="Content\css\Carousel.css" />
     <Content Include="Content\css\fasthover.css" />
     <Content Include="Content\css\flexslider.css" />
     <Content Include="Content\css\jquery.countdown.css" />
@@ -1604,6 +1607,7 @@
     <Content Include="Content\css\style.css" />
     <Content Include="Content\DropdownMenu.css" />
     <Content Include="Content\Pictures\banner.jpg" />
+    <Content Include="Content\Pictures\banner1.jpg" />
     <Content Include="Content\Pictures\Case\Case Corsair Crystal Series 570X RGB ATX Mid-Tower Red.png" />
     <Content Include="Content\Pictures\Case\Case PC CoolerMaster MasterBox 5 White.jpg" />
     <Content Include="Content\Pictures\Case\Thùng máy Case CM-N200.jpg" />
@@ -1624,6 +1628,9 @@
     <Content Include="Content\Pictures\CPU\Bộ vi xử lý CPU Core I7-8700.jpg" />
     <Content Include="Content\Pictures\CPU\Bộ vi xử lý CPU Pentium Dual Core-G4600.jpg" />
     <Content Include="Content\Pictures\CPU\Bộ vi xử lý CPU Pentium G5500.jpg" />
+    <Content Include="Content\Pictures\deal1.png" />
+    <Content Include="Content\Pictures\deal2.png" />
+    <Content Include="Content\Pictures\deal3.jpg" />
     <Content Include="Content\Pictures\Hardware\Ổ cứng HDD HP 3.5 1TB 6G SATA 7.2K.jpg" />
     <Content Include="Content\Pictures\Hardware\Ổ cứng HDD Seagate 4TB Backup Plus 3.0, 2.5.png" />
     <Content Include="Content\Pictures\Hardware\Ổ cứng HDD Transcend 4TB Cloud 110K+Box.png" />
@@ -1684,6 +1691,8 @@
     <Content Include="Content\Pictures\Ram\Bộ nhớ laptop DDR3 G.Skill 8GB %281600%29 F3-1600C11S-8GRSL.jpg" />
     <Content Include="Content\Pictures\Ram\Bộ nhớ Ram Team Vulcan 8GB DDR3 1600 Heatsink.jpg" />
     <Content Include="Content\Pictures\Ram\ddr3-kingmax-4gb-1600-8-chip-1_2.jpg" />
+    <Content Include="Content\Pictures\Sale.jpg" />
+    <Content Include="Content\Pictures\Sale1.jpg" />
     <Content Include="Content\Pictures\VGA\Card màn hình Asus 2GB EX-GTX1050-02G.jpg" />
     <Content Include="Content\Pictures\VGA\Card màn hình Asus 4GB CERBERUS-GTX1050TI-O4G.png" />
     <Content Include="Content\Pictures\VGA\Card màn hình Asus 4GB PH-GTX1050TI-4G.jpg" />
@@ -1881,8 +1890,6 @@
     <Content Include="Content\images\w7.jpg" />
     <Content Include="Content\images\w8.jpg" />
     <Content Include="Content\images\w9.jpg" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -1984,6 +1991,24 @@
     <Content Include="Areas\Admin\Views\RAM\Add.cshtml" />
     <Content Include="Areas\Admin\Views\VGA\Update.cshtml" />
     <Content Include="Areas\Admin\Views\VGA\Add.cshtml" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\esm\popper-utils.js" />
+    <Content Include="Scripts\esm\popper-utils.min.js" />
+    <Content Include="Scripts\esm\popper.js" />
+    <Content Include="Scripts\esm\popper.min.js" />
+    <Content Include="Scripts\esm\popper.min.js.map" />
+    <Content Include="Scripts\esm\popper.js.map" />
+    <Content Include="Scripts\esm\popper-utils.min.js.map" />
+    <Content Include="Scripts\esm\popper-utils.js.map" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\Dropdown.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -1996,6 +2021,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\js\bootstrap-3.1.1.min.js" />
+    <Content Include="Scripts\js\Carousel.js" />
     <Content Include="Scripts\js\easyResponsiveTabs.js" />
     <Content Include="Scripts\js\imagezoom.js" />
     <Content Include="Scripts\js\jquery.countdown.js" />
@@ -2007,6 +2033,14 @@
     <Content Include="Scripts\js\script.js" />
     <Content Include="Scripts\js\simpleCart.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\popper-utils.js" />
+    <Content Include="Scripts\popper-utils.min.js" />
+    <Content Include="Scripts\popper.js" />
+    <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\umd\popper-utils.js" />
+    <Content Include="Scripts\umd\popper-utils.min.js" />
+    <Content Include="Scripts\umd\popper.js" />
+    <Content Include="Scripts\umd\popper.min.js" />
     <Content Include="Scripts\UploadImage.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -2022,30 +2056,32 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Login.cshtml" />
+    <Content Include="Scripts\umd\popper.min.js.map" />
+    <Content Include="Scripts\umd\popper.js.map" />
+    <Content Include="Scripts\umd\popper-utils.min.js.map" />
+    <Content Include="Scripts\umd\popper-utils.js.map" />
+    <Content Include="Scripts\README.md" />
+    <Content Include="Scripts\popper.min.js.map" />
+    <Content Include="Scripts\popper.js.map" />
+    <Content Include="Scripts\popper-utils.min.js.map" />
+    <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\Computer\Index.cshtml" />
+    <Content Include="Views\CPU\Index.cshtml" />
+    <Content Include="Views\RAM\Index.cshtml" />
+    <Content Include="Views\VGA\Index.cshtml" />
+    <Content Include="Views\Case\Index.cshtml" />
+    <Content Include="Views\MainBoard\Index.cshtml" />
+    <Content Include="Views\Hardware\Index.cshtml" />
+    <Content Include="Views\Keyboard\Index.cshtml" />
+    <Content Include="Views\Radiator\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Case\" />
-    <Folder Include="Views\Computer\" />
-    <Folder Include="Views\CPU\" />
-    <Folder Include="Views\Hardware\" />
-    <Folder Include="Views\Keyboard\" />
-    <Folder Include="Views\MainBoard\" />
-    <Folder Include="Views\Radiator\" />
-    <Folder Include="Views\RAM\" />
-    <Folder Include="Views\VGA\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\bootstrap.min.css.map" />
-    <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Content\bootstrap-theme.min.css.map" />
-    <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
@@ -2060,11 +2096,18 @@
       <Name>TakaZada.Core</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Scripts\index.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">

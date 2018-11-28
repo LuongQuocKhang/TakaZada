@@ -7,18 +7,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Women's Fashion a Ecommerce Online Shopping Category Flat Bootstrap Responsive Website Template | Home :: w3layouts</title>
+    <title>TakaZada - Selling cmputer components ecommerce websites</title>
     <!-- for-mobile-apps -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="keywords" content="Women's Fashion Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    
     <script src="~/Scripts/jquery-3.3.1.min.js"></script>
     <script type="application/x-javascript">
         addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
                function hideURLbar(){ window.scrollTo(0,1); } </script>
     <!-- //for-mobile-apps -->
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
     <link href="~/Content/css/style.css" rel="stylesheet" />
     <link href="~/Content/css/bootstrap.css" rel="stylesheet" />
     <link href="~/Content/css/fasthover.css" rel="stylesheet" />
@@ -48,6 +49,167 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 
 <body>
+    <!-- login -->
+    @Html.Partial("~/Views/Shared/Login.cshtml")
+    <!-- header -->
+    <div class="header">
+        <div class="container">
+            <div class="w3l_login">
+                <a href="#" data-toggle="modal" data-target="#myModal88"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
+            </div>
+            <div class="w3l_logo">
+                <h1><a href="@Url.Action("Index","Home")">TakaZada</a></h1>
+            </div>
+            <div class="search">
+                <input class="search_box" type="checkbox" id="search_box">
+                <label class="icon-search" for="search_box"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></label>
+                <div class="search_form">
+                    <form action="#" method="post">
+                        <input type="text" name="Search" placeholder="Search..." class="col-md-6">
+                        <input type="submit" value="Send" class="col-md-2">
+                    </form>
+                </div>
+            </div>
+            <div class="cart box_1">
+                <a href="checkout.html">
+                    <div class="total">
+                        <span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)
+                    </div>
+                    <img src="~/Content/images/bag.png" alt="" />
+                </a>
+                <p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
+                <div class="clearfix"> </div>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+    <div class="navigation">
+        <div class="container">
+            <nav class="navbar navbar-default">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header nav_2">
+                    <button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="@Url.Action("Index","Home")" class="act">Home</a></li>
+                        <!-- Mega Menu -->
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Linh kiện <b class="caret"></b></a>
+                            <ul class="dropdown-menu multi-column columns-3">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <ul class="multi-column-dropdown">
+                                            <h6>CPU - bộ vi xử lý</h6>
+                                            <li><a href="@Url.Action("Index","CPU", new { Name = "Core i3",filter="Name"})">Core i3</a></li>
+                                            <li><a href="@Url.Action("Index","CPU", new { Name = "Core i5",filter="Name"})">Core i5</a></li>
+                                            <li><a href="@Url.Action("Index","CPU", new { Name = "Core i7",filter="Name"})">Core i7</a></li>
+                                            <li><a href="@Url.Action("Index","CPU", new { Name = "Ryzen",filter="Name"})">Ryzen</a></li>
+                                            <li><a href="@Url.Action("Index","CPU", new { Name = "Tất cả",filter="Name"})">Tất cả</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <ul class="multi-column-dropdown">
+                                            <h6>RAM</h6>
+                                            <li><a href="@Url.Action("Index","RAM", new { Name = "ADATA"})">ADATA<span>Mới</span></a></li>
+                                            <li><a href="@Url.Action("Index","RAM", new { Name = "Kingmax"})">Kingmax</a></li>
+                                            <li><a href="@Url.Action("Index","RAM", new { Name = "G.Skill"})">G.Skill </a></li>
+                                            <li><a href="@Url.Action("Index","RAM", new { Name = "Kingston"})">Kingston</a></li>
+                                            <li><a href="@Url.Action("Index","RAM", new { Name = "APACER"})">APACER</a></li>
+                                            <li><a href="@Url.Action("Index","RAM", new { Name = "Tất cả"})">Tất cả</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <ul class="multi-column-dropdown">
+                                            <h6>VGA</h6>
+                                            <li><a href="@Url.Action("Index","VGA", new { Name = "GIGABYTE"})">GIGABYTE<span>Mới</span></a></li>
+                                            <li><a href="@Url.Action("Index","VGA", new { Name = "Asus"})">Asus</a></li>
+                                            <li><a href="@Url.Action("Index","VGA", new { Name = "MSI"})">MSI</a></li>
+                                            <li><a href="@Url.Action("Index","VGA", new { Name = "Galax"})">Galax</a></li>
+                                            <li><a href="@Url.Action("Index","VGA", new { Name = "Tất cả"})">Tất cả</a></li>
+
+                                        </ul>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <ul class="multi-column-dropdown">
+                                            <h6>Case</h6>
+                                            <li><a href="@Url.Action("Index","Case", new { Name = "Corsair"})">Corsair</a></li>
+                                            <li><a href="@Url.Action("Index","Case", new { Name = "Cooler Master"})">Cooler Master</a></li>
+                                            <li><a href="@Url.Action("Index","Case", new { Name = "Golden Field"})">Golden Field</a></li>
+                                            <li><a href="@Url.Action("Index","Case", new { Name = "Sahara"})">Sahara</a></li>
+                                            <li><a href="@Url.Action("Index","Case", new { Name = "Tất cả"})">Tất cả</a></li>
+                                        </ul>
+                                    </div><div class="col-sm-2">
+                                        <ul class="multi-column-dropdown">
+                                            <h6>Mainboard</h6>
+                                            <li><a href="@Url.Action("Index","MainBoard", new { Name = "MSI"})">MSI</a></li>
+                                            <li><a href="@Url.Action("Index","MainBoard", new { Name = "Asrock"})">Cooler Master</a></li>
+                                            <li><a href="@Url.Action("Index","MainBoard", new { Name = "Gigabyte"})">Golden Field</a></li>
+                                            <li><a href="@Url.Action("Index","MainBoard", new { Name = "Asus"})">Sahara</a></li>
+                                            <li><a href="@Url.Action("Index","MainBoard", new { Name = "Tất cả"})">Tất cả</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </ul>
+                        </li>
+                        <li><a href="@Url.Action("Index","Computer",new { Trademark = "Tất cả"})">Máy tính</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Phụ kiện <b class="caret"></b></a>
+                            <ul class="dropdown-menu multi-column columns-3">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <ul class="multi-column-dropdown">
+                                            <h6>Hardware</h6>
+                                            <li><a href="@Url.Action("Index","Hardware", new { Name = "Western Digital"})">Western Digital<span>New</span></a></li>
+                                            <li><a href="@Url.Action("Index","Hardware", new { Name = "Seagate"})">Seagate</a></li>
+                                            <li><a href="@Url.Action("Index","Hardware", new { Name = "Western"})">Western</a></li>
+                                            <li><a href="@Url.Action("Index","Hardware", new { Name = "IBM"})">IBM </a></li>
+                                            <li><a href="@Url.Action("Index","Hardware", new { Name = "Seagate"})">Seagate </a></li>
+                                            <li><a href="@Url.Action("Index","Hardware", new { Name = "HP"})">HP </a></li>
+                                            <li><a href="@Url.Action("Index","Hardware", new { Name = "Corsair"})">Corsair </a></li>
+                                            <li><a href="@Url.Action("Index","Hardware", new { Name = "Samsung"})">Samsung </a></li>
+                                            <li><a href="@Url.Action("Index","Hardware", new { Name = "Tất cả"})">Tất cả</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <ul class="multi-column-dropdown">
+                                            <h6>Keyboard</h6>
+                                            <li><a href="@Url.Action("Index","Keyboard", new { Name = "Logitech"})">Logitech</a></li>
+                                            <li><a href="@Url.Action("Index","Keyboard", new { Name = "Zidli"})">Zidli</a></li>
+                                            <li><a href="@Url.Action("Index","Keyboard", new { Name = "Zic"})">Zic </a></li>
+                                            <li><a href="@Url.Action("Index","Keyboard", new { Name = "Sumtax"})">Sumtax </a></li>
+                                            <li><a href="@Url.Action("Index","Keyboard", new { Name = "Tất cả"})">Tất cả</a></li>
+
+                                        </ul>
+                                    </div> <div class="col-sm-3">
+                                        <ul class="multi-column-dropdown">
+                                            <h6>Radiator</h6>
+                                            <li><a href="@Url.Action("Index","Radiator", new { Name = "Gigabyte"})">Gigabyte</a></li>
+                                            <li><a href="@Url.Action("Index","Radiator", new { Name = "Deepcool"})">Deepcool</a></li>
+                                            <li><a href="@Url.Action("Index","Radiator", new { Name = "Corsair"})">Corsair </a></li>
+                                            <li><a href="@Url.Action("Index","Radiator", new { Name = "Aigo"})">Aigo </a></li>
+                                            <li><a href="@Url.Action("Index","Radiator", new { Name = "Tất cả"})">Tất cả</a></li>
+
+                                        </ul>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </ul>
+                        </li>
+                        <li><a href="about.html">Thông tin</a></li>
+                        <li><a href="about.html">Vấn đề máy tính</a></li>
+                        <li><a href="mail.html" style="background-color:#ff9b05;color:white;">Tư vấn</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>                      
     @RenderBody()
     <!-- footer -->
     <div class="footer">

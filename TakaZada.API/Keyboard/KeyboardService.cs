@@ -78,6 +78,23 @@ namespace TakaZada.API.Keyboard
             return list;
         }
 
+        public IEnumerable<Core.Models.Keyboard> LoadByTradeMark(string Trademark)
+        {
+            List<Core.Models.Keyboard> list = new List<Core.Models.Keyboard>();
+            using (var db = new DBContext())
+            {
+                if (Trademark == "Tất cả")
+                {
+                    list = db.Keyboards.ToList();
+                }
+                else
+                {
+                    list = db.Keyboards.Where(x => x.TradeMark.Trim().ToLower() == Trademark.ToLower()).ToList();
+                }
+            }
+            return list;
+        }
+
         public Core.Models.Keyboard LoadById(int Id)
         {
             Core.Models.Keyboard keyboard = null;

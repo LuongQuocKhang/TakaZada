@@ -10,5 +10,7 @@ namespace TakaZada.API.CPU
     {
         IEnumerable<Core.Models.CPU> Load();
         Core.Models.CPU LoadById(int Id);
+        IEnumerable<Core.Models.CPU> LoadByName(string name);
+        IEnumerable<Core.Models.CPU> LoadByTradeMark(string Trademark);
     }
 }

@@ -88,6 +88,23 @@ namespace TakaZada.API.Radiator
             return radiator;
         }
 
+        public IEnumerable<Core.Models.Radiator> LoadByTrademark(string Trademark)
+        {
+            List<Core.Models.Radiator> list = new List<Core.Models.Radiator>();
+            using (var db = new DBContext())
+            {
+                if (Trademark == "Tất cả")
+                {
+                    list = db.Radiators.ToList();
+                }
+                else
+                {
+                    list = db.Radiators.Where(x => x.TradeMark.Trim().ToLower() == Trademark.ToLower()).ToList();
+                }
+            }
+            return list;
+        }
+
         public bool RestoreRadiator(int Id)
         {
             try

@@ -39,7 +39,7 @@ input[type="submit"],.panel-body ul li a,.checkout-right-basket a,.additional_in
 }
 .w3l_logo{
 	float:left;
-	margin-left:22em;
+	margin-left:30em;
 }
 .w3l_logo h1 a{
 	font-size:1.1em;
@@ -436,13 +436,14 @@ ul.multi-column-dropdown h6 {
     border: none;
 }
 .video-img {
-    background: url(../Pictures/banner.jpg)no-repeat center;
+    background: url(../../Content/Pictures/banner.jpg)no-repeat center;
     -webkit-background-size: cover;
     background-size: cover;
+    object-fit: cover;
     -moz-background-size: cover;
-	-o-background-size: cover;
-	-ms-background-size: cover;
-	min-height: 455px;
+    -o-background-size: cover;
+    -ms-background-size: cover;
+    min-height: 455px;
 }
 .video-img a {
     display: inline-block;
@@ -948,13 +949,14 @@ ul.wmuSliderPagination {
 }
 /*-- //new-products --*/
 /*-- banner-bottom1 --*/
-.agileinfo_banner_bottom1_grid_left{
-	background:url(../images/44.jpg) no-repeat 0px 0px;
-	background-size:cover;
-	-webkit-background-size:cover;
-	-moz-background-size:cover;
-	-o-background-size:cover;
-	-ms-background-size:cover;
+.agileinfo_banner_bottom1_grid_left {
+    background: url(../Pictures/Sale.jpg) no-repeat 0px 0px;
+    background-size: cover;
+    object-fit: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    -ms-background-size: cover;
 }
 .agileinfo_banner_bottom1_grid_left,.agileinfo_banner_bottom1_grid_right{
 	padding:0;
@@ -965,7 +967,7 @@ ul.wmuSliderPagination {
 }
 .agileinfo_banner_bottom1_grid_left h3{
 	font-size: 14px;
-    color: #212121;
+    color: #fff;
     text-transform: capitalize;
 	margin-bottom:4em;
 }
@@ -977,7 +979,7 @@ ul.wmuSliderPagination {
     color: #ff9b05;
 }
 .agileinfo_banner_bottom1_grid_left h3 span i{
-	color:#212121;
+	color:#fff;
 }
 .agileinfo_banner_bottom1_grid_left a,.team-bottom a{
 	text-align: right;
@@ -993,13 +995,15 @@ ul.wmuSliderPagination {
 	color:#212121;
 	background:url(../images/img-sp.png) no-repeat 112px -38px;
 }
-.agileinfo_banner_bottom1_grid_right{
-	background:url(../images/45.jpg) no-repeat 0px 0px;
-	background-size:cover;
-	-webkit-background-size:cover;
-	-moz-background-size:cover;
-	-o-background-size:cover;
-	-ms-background-size:cover;
+.agileinfo_banner_bottom1_grid_right {
+    background: url(../../Content//Pictures/Sale1.jpg) no-repeat 0px 0px;
+    background-size: cover;
+    background-position: 50% 50%;
+    -webkit-background-size: cover;
+    object-fit: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    -ms-background-size: cover;
 }
 .agileinfo_banner_bottom1_grid_left,.agileinfo_banner_bottom1_grid_right{
 	min-height:400px;

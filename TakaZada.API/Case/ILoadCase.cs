@@ -9,6 +9,7 @@ namespace TakaZada.API.Case
     public interface ILoadCase
     {
         IEnumerable<Core.Models.Case> Load();
+        IEnumerable<Core.Models.Case> LoadByTrademark(string Trademark);
         Core.Models.Case LoadById(int Id);
 
     }

@@ -1,203 +1,19 @@
 ﻿@using TakaZada.Core.Models
-@{ 
+@{
     var collection = (List<Computer>)ViewBag.ListComputer;
     var listvga = (List<VGA>)ViewBag.ListVGA;
-}    
+    var listRam = (List<RAM>)ViewBag.ListRAM;
+    var listCPU = (List<CPU>)ViewBag.ListCPU;
+    var listCase = (List<Case>)ViewBag.ListCase;
 
-<!-- header -->
-<div class="modal fade" id="myModal88" tabindex="-1" role="dialog" aria-labelledby="myModal88"
-     aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                    &times;
-                </button>
-                <h4 class="modal-title" id="myModalLabel">
-                    Don't Wait, Login now!
-                </h4>
-            </div>
-            <div class="modal-body modal-body-sub">
-                <div class="row">
-                    <div class="col-md-8 modal_body_left modal_body_left1" style="border-right: 1px dotted #C2C2C2;padding-right:3em;">
-                        <div class="sap_tabs">
-                            <div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
-                                <ul>
-                                    <li class="resp-tab-item" aria-controls="tab_item-0"><span>Sign in</span></li>
-                                    <li class="resp-tab-item" aria-controls="tab_item-1"><span>Sign up</span></li>
-                                </ul>
-                                <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
-                                    <div class="facts">
-                                        <div class="register">
-                                            <form action="#" method="post">
-                                                <input name="Email" placeholder="Email Address" type="text" required="">
-                                                <input name="Password" placeholder="Password" type="password" required="">
-                                                <div class="sign-up">
-                                                    <input type="submit" value="Sign in" />
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="tab-2 resp-tab-content" aria-labelledby="tab_item-1">
-                                    <div class="facts">
-                                        <div class="register">
-                                            <form action="#" method="post">
-                                                <input placeholder="Name" name="Name" type="text" required="">
-                                                <input placeholder="Email Address" name="Email" type="email" required="">
-                                                <input placeholder="Password" name="Password" type="password" required="">
-                                                <input placeholder="Confirm Password" name="Password" type="password" required="">
-                                                <div class="sign-up">
-                                                    <input type="submit" value="Create Account" />
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <script src="~/Scripts/js/easyResponsiveTabs.js"></script>
-                        <script type="text/javascript">
-                            $(document).ready(function () {
-                                $('#horizontalTab').easyResponsiveTabs({
-                                    type: 'default', //Types: default, vertical, accordion
-                                    width: 'auto', //auto or any width like 600px
-                                    fit: true   // 100% fit in a container
-                                });
-                            });
-                        </script>
-                        <div id="OR" class="hidden-xs">
-                            OR
-                        </div>
-                    </div>
-                    <div class="col-md-4 modal_body_right modal_body_right1">
-                        <div class="row text-center sign-with">
-                            <div class="col-md-12">
-                                <h3 class="other-nw">
-                                    Sign in with
-                                </h3>
-                            </div>
-                            <div class="col-md-12">
-                                <ul class="social">
-                                    <li class="social_facebook"><a href="#" class="entypo-facebook"></a></li>
-                                    <li class="social_dribbble"><a href="#" class="entypo-dribbble"></a></li>
-                                    <li class="social_twitter"><a href="#" class="entypo-twitter"></a></li>
-                                    <li class="social_behance"><a href="#" class="entypo-behance"></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<script>
-    $('#myModal88').modal('show');
-</script>
-<div class="header">
-    <div class="container">
-        <div class="w3l_login">
-            <a href="#" data-toggle="modal" data-target="#myModal88"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
-        </div>
-        <div class="w3l_logo">
-            <h1><a href="index.html">Women's Fashion<span>For Fashion Lovers</span></a></h1>
-        </div>
-        <div class="search">
-            <input class="search_box" type="checkbox" id="search_box">
-            <label class="icon-search" for="search_box"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></label>
-            <div class="search_form">
-                <form action="#" method="post">
-                    <input type="text" name="Search" placeholder="Search...">
-                    <input type="submit" value="Send">
-                </form>
-            </div>
-        </div>
-        <div class="cart box_1">
-            <a href="checkout.html">
-                <div class="total">
-                    <span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)
-                </div>
-                <img src="~/Content/images/bag.png" alt="" />
-            </a>
-            <p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
-            <div class="clearfix"> </div>
-        </div>
-        <div class="clearfix"> </div>
-    </div>
-</div>
-<div class="navigation">
-    <div class="container">
-        <nav class="navbar navbar-default">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header nav_2">
-                <button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-            </div>
-            <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="index.html" class="act">Home</a></li>
-                    <!-- Mega Menu -->
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Linh kiện <b class="caret"></b></a>
-                        <ul class="dropdown-menu multi-column columns-3">
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <ul class="multi-column-dropdown">
-                                        <h6>RAM</h6>
-                                        <li><a href="dresses.html">Razer<span>New</span></a></li>
-                                        <li><a href="sweaters.html">Logitech</a></li>
-                                        <li><a href="skirts.html">SteelSeries </a></li>
-                                        <li><a href="jeans.html">Fuhlen</a></li>
-                                    </ul>
-                                </div>
-                                <div class="col-sm-3">
-                                    <ul class="multi-column-dropdown">
-                                        <h6>VGA</h6>
-                                        <li><a href="dresses.html">Razer<span>New</span></a></li>
-                                        <li><a href="sweaters.html">Logitech</a></li>
-                                        <li><a href="skirts.html">SteelSeries </a></li>
-                                        <li><a href="jeans.html">Fuhlen</a></li>
-
-                                    </ul>
-                                </div>
-                                <div class="col-sm-2">
-                                    <ul class="multi-column-dropdown">
-                                        <h6>Case</h6>
-                                        <li><a href="sandals.html">Flats</a></li>
-                                        <li><a href="sandals.html">Sandals</a></li>
-                                        <li><a href="sandals.html">Boots</a></li>
-                                        <li><a href="sandals.html">Heels</a></li>
-                                    </ul>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="w3ls_products_pos">
-                                        <h4>50%<i>Off/-</i></h4>
-                                        <img src="~/Content/images/1.jpg" alt=" " class="img-responsive" />
-                                    </div>
-                                </div>
-                                <div class="clearfix"></div>
-                            </div>
-                        </ul>
-                    </li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="short-codes.html">Short Codes</a></li>
-                    <li><a href="mail.html">Mail Us</a></li>
-                </ul>
-            </div>
-        </nav>
-    </div>
-</div>
-<!-- //header -->
-<!-- banner -->
+    Random random = new Random();
+    int num = 0;
+}
+<link href="~/Content/css/Carousel.css" rel="stylesheet" />
+<script src="~/Scripts/js/Carousel.js"></script>
 <div class="banner" id="home1">
     <div class="container">
-        <h3>fashions fade, <span>style is eternal</span></h3>
+        <h3>TakaZada <span>Computer world</span></h3>
     </div>
 </div>
 <!-- //banner -->
@@ -206,842 +22,116 @@
     <div class="container">
         <div class="col-md-5 wthree_banner_bottom_left">
             <div class="video-img">
-                <a class="play-icon popup-with-zoom-anim" href="#small-dialog">
-                    <span class="glyphicon glyphicon-expand" aria-hidden="true"></span>
-                </a>
-            </div>
-            <!-- pop-up-box -->
-            <link href="~/Content/css/popuo-box.css" rel="stylesheet" />
-            <script src="~/Scripts/js/jquery.magnific-popup.js"></script>
-            <!--//pop-up-box -->
-            <div id="small-dialog" class="mfp-hide">
-                <iframe src="~/https://player.vimeo.com/video/23259282?title=0&byline=0&portrait=0"></iframe>
-            </div>
-            <script>
-                $(document).ready(function () {
-                    $('.popup-with-zoom-anim').magnificPopup({
-                        type: 'inline',
-                        fixedContentPos: false,
-                        fixedBgPos: true,
-                        overflowY: 'auto',
-                        closeBtnInside: true,
-                        preloader: false,
-                        midClick: true,
-                        removalDelay: 300,
-                        mainClass: 'my-mfp-zoom-in'
-                    });
 
-                });
-            </script>
+            </div>
         </div>
         <div class="col-md-7 wthree_banner_bottom_right">
             <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
                 <ul id="myTab" class="nav nav-tabs" role="tablist">
-                    <li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home">Computer</a></li>
-                    <li role="presentation"><a href="#skirts" role="tab" id="skirts-tab" data-toggle="tab" aria-controls="skirts">VGA</a></li>
-                    <li role="presentation"><a href="#watches" role="tab" id="watches-tab" data-toggle="tab" aria-controls="watches">Watches</a></li>
-                    <li role="presentation"><a href="#sandals" role="tab" id="sandals-tab" data-toggle="tab" aria-controls="sandals">Sandals</a></li>
-                    <li role="presentation"><a href="#jewellery" role="tab" id="jewellery-tab" data-toggle="tab" aria-controls="jewellery">Jewellery</a></li>
+                    <li role="presentation" class="active"><a href="#RAM" id="RAM-tab" role="tab" data-toggle="tab" aria-controls="RAM">RAM</a></li>
+                    <li role="presentation"><a href="#VGA" role="tab" id="VGA-tab" data-toggle="tab" aria-controls="VGA">VGA</a></li>
+                    <li role="presentation"><a href="#CPU" role="tab" id="CPU-tab" data-toggle="tab" aria-controls="watches">CPU</a></li>
+                    <li role="presentation"><a href="#Case" role="tab" id="Case-tab" data-toggle="tab" aria-controls="Case">Case</a></li>
                 </ul>
                 <div id="myTabContent" class="tab-content">
-                    <div role="tabpanel" class="tab-pane fade active in" id="home" aria-labelledby="home-tab">
+                    <div role="tabpanel" class="tab-pane fade active in" id="RAM" aria-labelledby="RAM-tab">
                         <div class="agile_ecommerce_tabs">
-                            <div class="col-md-4 agile_ecommerce_tab_left">
-                                <div class="hs-wrapper">
-     
-                                    @foreach (var item in collection)
-                                    {
-                                        <img src="~/Content/Pictures/Laptop/@item.Image" alt=" " class="img-responsive" />
-                                    }
-                                    <div class="w3_hs_bottom">
-                                        <ul>
-                                            <li>
-                                                <a href="#" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
-                                            </li>
-                                        </ul>
+                            @for (int i = 0; i < 3; i++)
+                            {
+                                <div class="col-md-4 agile_ecommerce_tab_left">
+                                    <div class="card" style="width:215px;height: 385px;margin:10px;">
+                                        @{
+                                            num = random.Next(1, listRam.Count);
+                                            var item = listRam[num];
+                                        }
+                                        <a href="@Url.Action("Index","RAM",new { name = item.Name })">
+                                            <img class="card-img-top" src="~/Content/Pictures/RAM/@item.Image" style="width: 200px;height:215px;mix-blend-mode: multiply;" alt="Card image cap">
+                                        </a>
+                                        <div class="card-body">
+                                            <h5 class="card-title">@item.Name</h5>
+                                            <div class="simpleCart_shelfItem">
+                                                <p> <i class="item_price">@item.Price</i></p>
+                                                <p><a class="item_add" href="#" style="bottom: 5px;">Add to cart</a></p>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <h5><a href="single.html">Computer</a></h5>
-                                <div class="simpleCart_shelfItem">
-                                    <p><span>$320</span> <i class="item_price">$250</i></p>
-                                    <p><a class="item_add" href="#">Add to cart</a></p>
-                                </div>
-                            </div>
-                            <div class="col-md-4 agile_ecommerce_tab_left">
-                                <div class="hs-wrapper">
-                                    @foreach (var item in listvga)
-                                    {
-                                        <img src="~/Content/Pictures/VGA/@item.Image" alt=" " class="img-responsive" />
-                                    }
-                                    <div class="w3_hs_bottom">
-                                        <ul>
-                                            <li>
-                                                <a href="#" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <h5><a href="single.html">VGA</a></h5>
-                                <div class="simpleCart_shelfItem">
-                                    <p><span>$320</span> <i class="item_price">$250</i></p>
-                                    <p><a class="item_add" href="#">Add to cart</a></p>
-                                </div>
-                            </div>
-                            <div class="col-md-4 agile_ecommerce_tab_left">
-                                <div class="hs-wrapper">
-                                    <img src="~/Content/images/5.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/6.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/4.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/3.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/7.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/3.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/5.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/6.jpg" alt=" " class="img-responsive" />
-                                    <div class="w3_hs_bottom">
-                                        <ul>
-                                            <li>
-                                                <a href="#" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <h5><a href="single.html">T-Shirt</a></h5>
-                                <div class="simpleCart_shelfItem">
-                                    <p><span>$320</span> <i class="item_price">$250</i></p>
-                                    <p><a class="item_add" href="#">Add to cart</a></p>
-                                </div>
-                            </div>
+                            }
+
                             <div class="clearfix"> </div>
                         </div>
                     </div>
-                    <div role="tabpanel" class="tab-pane fade" id="skirts" aria-labelledby="skirts-tab">
+                    <div role="tabpanel" class="tab-pane fade" id="VGA" aria-labelledby="VGA-tab">
                         <div class="agile_ecommerce_tabs">
-                            <div class="col-md-4 agile_ecommerce_tab_left">
-                                <div class="hs-wrapper">
-                                    <img src="~/Content/images/8.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/9.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/10.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/8.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/9.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/10.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/8.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/9.jpg" alt=" " class="img-responsive" />
-                                    <div class="w3_hs_bottom">
-                                        <ul>
-                                            <li>
-                                                <a href="#" data-toggle="modal" data-target="#myModal6"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
-                                            </li>
-                                        </ul>
+                            @for (int i = 0; i < 3; i++)
+                            {
+                                <div class="col-md-4 agile_ecommerce_tab_left">
+                                    <div class="card" style="width:215px;height: 385px;margin:10px;">
+                                        @{
+                                            num = random.Next(1, listvga.Count);
+                                            var item = listvga.FirstOrDefault(x => x.Id == num);
+                                        }
+                                        <img class="card-img-top" src="~/Content/Pictures/VGA/@item.Image" style="width: 200px;height:215px;mix-blend-mode: multiply;" alt="Card image cap">
+                                        <div class="card-body">
+                                            <h5 class="card-title">@item.Name</h5>
+                                            <div class="simpleCart_shelfItem">
+                                                <p><i class="item_price">@item.Price</i></p>
+                                                <p><a class="item_add" href="#">Add to cart</a></p>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <h5><a href="single.html">Skirt</a></h5>
-                                <div class="simpleCart_shelfItem">
-                                    <p><span>$320</span> <i class="item_price">$250</i></p>
-                                    <p><a class="item_add" href="#">Add to cart</a></p>
-                                </div>
-                            </div>
-                            <div class="col-md-4 agile_ecommerce_tab_left">
-                                <div class="hs-wrapper">
-                                    <img src="~/Content/images/9.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/8.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/10.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/8.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/9.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/10.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/8.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/9.jpg" alt=" " class="img-responsive" />
-                                    <div class="w3_hs_bottom">
-                                        <ul>
-                                            <li>
-                                                <a href="#" data-toggle="modal" data-target="#myModal6"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <h5><a href="single.html">Skirt</a></h5>
-                                <div class="simpleCart_shelfItem">
-                                    <p><span>$320</span> <i class="item_price">$250</i></p>
-                                    <p><a class="item_add" href="#">Add to cart</a></p>
-                                </div>
-                            </div>
-                            <div class="col-md-4 agile_ecommerce_tab_left">
-                                <div class="hs-wrapper">
-                                    <img src="~/Content/images/10.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/8.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/9.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/8.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/9.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/10.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/8.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/9.jpg" alt=" " class="img-responsive" />
-                                    <div class="w3_hs_bottom">
-                                        <ul>
-                                            <li>
-                                                <a href="#" data-toggle="modal" data-target="#myModal6"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <h5><a href="single.html">Skirt</a></h5>
-                                <div class="simpleCart_shelfItem">
-                                    <p><span>$320</span> <i class="item_price">$250</i></p>
-                                    <p><a class="item_add" href="#">Add to cart</a></p>
-                                </div>
-                            </div>
+                            }
                             <div class="clearfix"> </div>
                         </div>
                     </div>
-                    <div role="tabpanel" class="tab-pane fade" id="watches" aria-labelledby="watches-tab">
+                    <div role="tabpanel" class="tab-pane fade" id="CPU" aria-labelledby="CPU-tab">
                         <div class="agile_ecommerce_tabs">
-                            <div class="col-md-4 agile_ecommerce_tab_left">
-                                <div class="hs-wrapper">
-                                    <img src="~/Content/images/11.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/12.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/13.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/11.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/12.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/13.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/11.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/12.jpg" alt=" " class="img-responsive" />
-                                    <div class="w3_hs_bottom">
-                                        <ul>
-                                            <li>
-                                                <a href="#" data-toggle="modal" data-target="#myModal2"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
-                                            </li>
-                                        </ul>
+                            @for (int i = 0; i < 3; i++)
+                            {
+                                <div class="col-md-4 agile_ecommerce_tab_left">
+                                    <div class="card" style="width:215px;height: 385px;margin:10px;">
+                                        @{
+                                            num = random.Next(1, listCPU.Count);
+                                            var item = listCPU.FirstOrDefault(x => x.Id == num);
+                                        }
+                                        <img class="card-img-top" src="~/Content/Pictures/CPU/@item.Image" style="width: 200px;height:215px;mix-blend-mode: multiply;" alt="Card image cap">
+                                        <div class="card-body">
+                                            <h5 class="card-title">@item.Name</h5>
+                                            <div class="simpleCart_shelfItem">
+                                                <p><i class="item_price">@item.Price</i></p>
+                                                <p><a class="item_add" href="#">Add to cart</a></p>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <h5><a href="single.html">Watch</a></h5>
-                                <div class="simpleCart_shelfItem">
-                                    <p><span>$320</span> <i class="item_price">$250</i></p>
-                                    <p><a class="item_add" href="#">Add to cart</a></p>
-                                </div>
-                            </div>
-                            <div class="col-md-4 agile_ecommerce_tab_left">
-                                <div class="hs-wrapper">
-                                    <img src="~/Content/images/12.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/11.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/13.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/11.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/12.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/13.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/11.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/12.jpg" alt=" " class="img-responsive" />
-                                    <div class="w3_hs_bottom">
-                                        <ul>
-                                            <li>
-                                                <a href="#" data-toggle="modal" data-target="#myModal2"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <h5><a href="single.html">Watch</a></h5>
-                                <div class="simpleCart_shelfItem">
-                                    <p><span>$320</span> <i class="item_price">$250</i></p>
-                                    <p><a class="item_add" href="#">Add to cart</a></p>
-                                </div>
-                            </div>
-                            <div class="col-md-4 agile_ecommerce_tab_left">
-                                <div class="hs-wrapper">
-                                    <img src="~/Content/images/13.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/11.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/12.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/11.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/12.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/13.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/11.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/12.jpg" alt=" " class="img-responsive" />
-                                    <div class="w3_hs_bottom">
-                                        <ul>
-                                            <li>
-                                                <a href="#" data-toggle="modal" data-target="#myModal2"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <h5><a href="single.html">Watch</a></h5>
-                                <div class="simpleCart_shelfItem">
-                                    <p><span>$320</span> <i class="item_price">$250</i></p>
-                                    <p><a class="item_add" href="#">Add to cart</a></p>
-                                </div>
-                            </div>
+                            }
                             <div class="clearfix"> </div>
                         </div>
                     </div>
-                    <div role="tabpanel" class="tab-pane fade" id="sandals" aria-labelledby="sandals-tab">
+                    <div role="tabpanel" class="tab-pane fade" id="Case" aria-labelledby="Case-tab">
                         <div class="agile_ecommerce_tabs">
-                            <div class="col-md-4 agile_ecommerce_tab_left">
-                                <div class="hs-wrapper">
-                                    <img src="~/Content/images/14.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/15.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/16.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/14.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/15.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/16.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/14.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/15.jpg" alt=" " class="img-responsive" />
-                                    <div class="w3_hs_bottom">
-                                        <ul>
-                                            <li>
-                                                <a href="#" data-toggle="modal" data-target="#myModal3"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
-                                            </li>
-                                        </ul>
+                            @for (int i = 0; i < 3; i++)
+                            {
+                                <div class="col-md-4 agile_ecommerce_tab_left">
+                                    <div class="card" style="width:215px;height: 385px;margin:10px;">
+                                        @{
+                                            num = random.Next(1, listCase.Count);
+                                            var item = listCase.FirstOrDefault(x => x.Id == num);
+                                        }
+                                        <img class="card-img-top" src="~/Content/Pictures/Case/@item.Image" style="width: 200px;height:215px;mix-blend-mode: multiply;" alt="Card image cap">
+                                        <div class="card-body">
+                                            <h5 class="card-title">@item.Name</h5>
+                                            <div class="simpleCart_shelfItem">
+                                                <p><i class="item_price">@item.Price</i></p>
+                                                <p><a class="item_add" href="#">Add to cart</a></p>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <h5><a href="single.html">Sandal</a></h5>
-                                <div class="simpleCart_shelfItem">
-                                    <p><span>$320</span> <i class="item_price">$250</i></p>
-                                    <p><a class="item_add" href="#">Add to cart</a></p>
-                                </div>
-                            </div>
-                            <div class="col-md-4 agile_ecommerce_tab_left">
-                                <div class="hs-wrapper">
-                                    <img src="~/Content/images/15.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/14.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/16.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/14.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/15.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/16.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/14.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/15.jpg" alt=" " class="img-responsive" />
-                                    <div class="w3_hs_bottom">
-                                        <ul>
-                                            <li>
-                                                <a href="#" data-toggle="modal" data-target="#myModal3"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <h5><a href="single.html">Sandal</a></h5>
-                                <div class="simpleCart_shelfItem">
-                                    <p><span>$320</span> <i class="item_price">$250</i></p>
-                                    <p><a class="item_add" href="#">Add to cart</a></p>
-                                </div>
-                            </div>
-                            <div class="col-md-4 agile_ecommerce_tab_left">
-                                <div class="hs-wrapper">
-                                    <img src="~/Content/images/16.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/14.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/15.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/14.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/15.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/16.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/14.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/15.jpg" alt=" " class="img-responsive" />
-                                    <div class="w3_hs_bottom">
-                                        <ul>
-                                            <li>
-                                                <a href="#" data-toggle="modal" data-target="#myModal3"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <h5><a href="single.html">Sandal</a></h5>
-                                <div class="simpleCart_shelfItem">
-                                    <p><span>$320</span> <i class="item_price">$250</i></p>
-                                    <p><a class="item_add" href="#">Add to cart</a></p>
-                                </div>
-                            </div>
+                            }
                             <div class="clearfix"> </div>
                         </div>
-                    </div>
-                    <div role="tabpanel" class="tab-pane fade" id="jewellery" aria-labelledby="jewellery-tab">
-                        <div class="agile_ecommerce_tabs">
-                            <div class="col-md-4 agile_ecommerce_tab_left">
-                                <div class="hs-wrapper">
-                                    <img src="~/Content/images/17.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/18.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/19.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/17.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/18.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/19.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/17.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/18.jpg" alt=" " class="img-responsive" />
-                                    <div class="w3_hs_bottom">
-                                        <ul>
-                                            <li>
-                                                <a href="#" data-toggle="modal" data-target="#myModal4"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <h5><a href="single.html">Jewellery</a></h5>
-                                <div class="simpleCart_shelfItem">
-                                    <p><span>$320</span> <i class="item_price">$250</i></p>
-                                    <p><a class="item_add" href="#">Add to cart</a></p>
-                                </div>
-                            </div>
-                            <div class="col-md-4 agile_ecommerce_tab_left">
-                                <div class="hs-wrapper">
-                                    <img src="~/Content/images/18.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/17.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/19.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/17.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/18.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/19.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/17.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/18.jpg" alt=" " class="img-responsive" />
-                                    <div class="w3_hs_bottom">
-                                        <ul>
-                                            <li>
-                                                <a href="#" data-toggle="modal" data-target="#myModal4"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <h5><a href="single.html">Jewellery</a></h5>
-                                <div class="simpleCart_shelfItem">
-                                    <p><span>$320</span> <i class="item_price">$250</i></p>
-                                    <p><a class="item_add" href="#">Add to cart</a></p>
-                                </div>
-                            </div>
-                            <div class="col-md-4 agile_ecommerce_tab_left">
-                                <div class="hs-wrapper">
-                                    <img src="~/Content/images/19.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/17.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/18.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/17.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/18.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/19.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/17.jpg" alt=" " class="img-responsive" />
-                                    <img src="~/Content/images/18.jpg" alt=" " class="img-responsive" />
-                                    <div class="w3_hs_bottom">
-                                        <ul>
-                                            <li>
-                                                <a href="#" data-toggle="modal" data-target="#myModal4"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <h5><a href="single.html">Jewellery</a></h5>
-                                <div class="simpleCart_shelfItem">
-                                    <p><span>$320</span> <i class="item_price">$250</i></p>
-                                    <p><a class="item_add" href="#">Add to cart</a></p>
-                                </div>
-                            </div>
-                            <div class="clearfix"> </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--modal-video-->
-            <div class="modal video-modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        </div>
-                        <section>
-                            <div class="modal-body">
-                                <div class="col-md-5 modal_body_left">
-                                    <img src="~/Content/images/20.jpg" alt=" " class="img-responsive" />
-                                </div>
-                                <div class="col-md-7 modal_body_right">
-                                    <h4>a good look women's shirt</h4>
-                                    <p>
-                                        Ut enim ad minim veniam, quis nostrud
-                                        exercitation ullamco laboris nisi ut aliquip ex ea
-                                        commodo consequat.Duis aute irure dolor in
-                                        reprehenderit in voluptate velit esse cillum dolore
-                                        eu fugiat nulla pariatur. Excepteur sint occaecat
-                                        cupidatat non proident, sunt in culpa qui officia
-                                        deserunt mollit anim id est laborum.
-                                    </p>
-                                    <div class="rating">
-                                        <div class="rating-left">
-                                            <img src="~/Content/images/star-.png" alt=" " class="img-responsive" />
-                                        </div>
-                                        <div class="rating-left">
-                                            <img src="~/Content/images/star-.png" alt=" " class="img-responsive" />
-                                        </div>
-                                        <div class="rating-left">
-                                            <img src="~/Content/images/star-.png" alt=" " class="img-responsive" />
-                                        </div>
-                                        <div class="rating-left">
-                                            <img src="~/Content/images/star.png" alt=" " class="img-responsive" />
-                                        </div>
-                                        <div class="rating-left">
-                                            <img src="~/Content/images/star.png" alt=" " class="img-responsive" />
-                                        </div>
-                                        <div class="clearfix"> </div>
-                                    </div>
-                                    <div class="modal_body_right_cart simpleCart_shelfItem">
-                                        <p><span>$320</span> <i class="item_price">$250</i></p>
-                                        <p><a class="item_add" href="#">Add to cart</a></p>
-                                    </div>
-                                    <h5>Color</h5>
-                                    <div class="color-quality">
-                                        <ul>
-                                            <li><a href="#"><span></span>Red</a></li>
-                                            <li><a href="#" class="brown"><span></span>Yellow</a></li>
-                                            <li><a href="#" class="purple"><span></span>Purple</a></li>
-                                            <li><a href="#" class="gray"><span></span>Violet</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="clearfix"> </div>
-                            </div>
-                        </section>
-                    </div>
-                </div>
-            </div>
-            <div class="modal video-modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModal1">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        </div>
-                        <section>
-                            <div class="modal-body">
-                                <div class="col-md-5 modal_body_left">
-                                    <img src="~/Content/images/63.jpg" alt=" " class="img-responsive" />
-                                </div>
-                                <div class="col-md-7 modal_body_right">
-                                    <h4>a good look black women's jeans</h4>
-                                    <p>
-                                        Ut enim ad minim veniam, quis nostrud
-                                        exercitation ullamco laboris nisi ut aliquip ex ea
-                                        commodo consequat.Duis aute irure dolor in
-                                        reprehenderit in voluptate velit esse cillum dolore
-                                        eu fugiat nulla pariatur. Excepteur sint occaecat
-                                        cupidatat non proident, sunt in culpa qui officia
-                                        deserunt mollit anim id est laborum.
-                                    </p>
-                                    <div class="rating">
-                                        <div class="rating-left">
-                                            <img src="~/Content/images/star-.png" alt=" " class="img-responsive" />
-                                        </div>
-                                        <div class="rating-left">
-                                            <img src="~/Content/images/star-.png" alt=" " class="img-responsive" />
-                                        </div>
-                                        <div class="rating-left">
-                                            <img src="~/Content/images/star-.png" alt=" " class="img-responsive" />
-                                        </div>
-                                        <div class="rating-left">
-                                            <img src="~/Content/images/star.png" alt=" " class="img-responsive" />
-                                        </div>
-                                        <div class="rating-left">
-                                            <img src="~/Content/images/star.png" alt=" " class="img-responsive" />
-                                        </div>
-                                        <div class="clearfix"> </div>
-                                    </div>
-                                    <div class="modal_body_right_cart simpleCart_shelfItem">
-                                        <p><span>$320</span> <i class="item_price">$250</i></p>
-                                        <p><a class="item_add" href="#">Add to cart</a></p>
-                                    </div>
-                                    <h5>Color</h5>
-                                    <div class="color-quality">
-                                        <ul>
-                                            <li><a href="#"><span></span>Red</a></li>
-                                            <li><a href="#" class="brown"><span></span>Yellow</a></li>
-                                            <li><a href="#" class="purple"><span></span>Purple</a></li>
-                                            <li><a href="#" class="gray"><span></span>Violet</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="clearfix"> </div>
-                            </div>
-                        </section>
-                    </div>
-                </div>
-            </div>
-            <div class="modal video-modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModal2">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        </div>
-                        <section>
-                            <div class="modal-body">
-                                <div class="col-md-5 modal_body_left">
-                                    <img src="~/Content/images/23.jpg" alt=" " class="img-responsive" />
-                                </div>
-                                <div class="col-md-7 modal_body_right">
-                                    <h4>a good look women's Watch</h4>
-                                    <p>
-                                        Ut enim ad minim veniam, quis nostrud
-                                        exercitation ullamco laboris nisi ut aliquip ex ea
-                                        commodo consequat.Duis aute irure dolor in
-                                        reprehenderit in voluptate velit esse cillum dolore
-                                        eu fugiat nulla pariatur. Excepteur sint occaecat
-                                        cupidatat non proident, sunt in culpa qui officia
-                                        deserunt mollit anim id est laborum.
-                                    </p>
-                                    <div class="rating">
-                                        <div class="rating-left">
-                                            <img src="~/Content/images/star-.png" alt=" " class="img-responsive" />
-                                        </div>
-                                        <div class="rating-left">
-                                            <img src="~/Content/images/star-.png" alt=" " class="img-responsive" />
-                                        </div>
-                                        <div class="rating-left">
-                                            <img src="~/Content/images/star-.png" alt=" " class="img-responsive" />
-                                        </div>
-                                        <div class="rating-left">
-                                            <img src="~/Content/images/star.png" alt=" " class="img-responsive" />
-                                        </div>
-                                        <div class="rating-left">
-                                            <img src="~/Content/images/star.png" alt=" " class="img-responsive" />
-                                        </div>
-                                        <div class="clearfix"> </div>
-                                    </div>
-                                    <div class="modal_body_right_cart simpleCart_shelfItem">
-                                        <p><span>$320</span> <i class="item_price">$250</i></p>
-                                        <p><a class="item_add" href="#">Add to cart</a></p>
-                                    </div>
-                                    <h5>Color</h5>
-                                    <div class="color-quality">
-                                        <ul>
-                                            <li><a href="#"><span></span>Red</a></li>
-                                            <li><a href="#" class="brown"><span></span>Yellow</a></li>
-                                            <li><a href="#" class="purple"><span></span>Purple</a></li>
-                                            <li><a href="#" class="gray"><span></span>Violet</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="clearfix"> </div>
-                            </div>
-                        </section>
-                    </div>
-                </div>
-            </div>
-            <div class="modal video-modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModal3">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        </div>
-                        <section>
-                            <div class="modal-body">
-                                <div class="col-md-5 modal_body_left">
-                                    <img src="~/Content/images/24.jpg" alt=" " class="img-responsive" />
-                                </div>
-                                <div class="col-md-7 modal_body_right">
-                                    <h4>a good look women's Sandal</h4>
-                                    <p>
-                                        Ut enim ad minim veniam, quis nostrud
-                                        exercitation ullamco laboris nisi ut aliquip ex ea
-                                        commodo consequat.Duis aute irure dolor in
-                                        reprehenderit in voluptate velit esse cillum dolore
-                                        eu fugiat nulla pariatur. Excepteur sint occaecat
-                                        cupidatat non proident, sunt in culpa qui officia
-                                        deserunt mollit anim id est laborum.
-                                    </p>
-                                    <div class="rating">
-                                        <div class="rating-left">
-                                            <img src="~/Content/images/star-.png" alt=" " class="img-responsive" />
-                                        </div>
-                                        <div class="rating-left">
-                                            <img src="~/Content/images/star-.png" alt=" " class="img-responsive" />
-                                        </div>
-                                        <div class="rating-left">
-                                            <img src="~/Content/images/star-.png" alt=" " class="img-responsive" />
-                                        </div>
-                                        <div class="rating-left">
-                                            <img src="~/Content/images/star.png" alt=" " class="img-responsive" />
-                                        </div>
-                                        <div class="rating-left">
-                                            <img src="~/Content/images/star.png" alt=" " class="img-responsive" />
-                                        </div>
-                                        <div class="clearfix"> </div>
-                                    </div>
-                                    <div class="modal_body_right_cart simpleCart_shelfItem">
-                                        <p><span>$320</span> <i class="item_price">$250</i></p>
-                                        <p><a class="item_add" href="#">Add to cart</a></p>
-                                    </div>
-                                    <h5>Color</h5>
-                                    <div class="color-quality">
-                                        <ul>
-                                            <li><a href="#"><span></span>Red</a></li>
-                                            <li><a href="#" class="brown"><span></span>Yellow</a></li>
-                                            <li><a href="#" class="purple"><span></span>Purple</a></li>
-                                            <li><a href="#" class="gray"><span></span>Violet</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="clearfix"> </div>
-                            </div>
-                        </section>
-                    </div>
-                </div>
-            </div>
-            <div class="modal video-modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModal4">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        </div>
-                        <section>
-                            <div class="modal-body">
-                                <div class="col-md-5 modal_body_left">
-                                    <img src="~/Content/images/22.jpg" alt=" " class="img-responsive" />
-                                </div>
-                                <div class="col-md-7 modal_body_right">
-                                    <h4>a good look women's Necklace</h4>
-                                    <p>
-                                        Ut enim ad minim veniam, quis nostrud
-                                        exercitation ullamco laboris nisi ut aliquip ex ea
-                                        commodo consequat.Duis aute irure dolor in
-                                        reprehenderit in voluptate velit esse cillum dolore
-                                        eu fugiat nulla pariatur. Excepteur sint occaecat
-                                        cupidatat non proident, sunt in culpa qui officia
-                                        deserunt mollit anim id est laborum.
-                                    </p>
-                                    <div class="rating">
-                                        <div class="rating-left">
-                                            <img src="~/Content/images/star-.png" alt=" " class="img-responsive" />
-                                        </div>
-                                        <div class="rating-left">
-                                            <img src="~/Content/images/star-.png" alt=" " class="img-responsive" />
-                                        </div>
-                                        <div class="rating-left">
-                                            <img src="~/Content/images/star-.png" alt=" " class="img-responsive" />
-                                        </div>
-                                        <div class="rating-left">
-                                            <img src="~/Content/images/star.png" alt=" " class="img-responsive" />
-                                        </div>
-                                        <div class="rating-left">
-                                            <img src="~/Content/images/star.png" alt=" " class="img-responsive" />
-                                        </div>
-                                        <div class="clearfix"> </div>
-                                    </div>
-                                    <div class="modal_body_right_cart simpleCart_shelfItem">
-                                        <p><span>$320</span> <i class="item_price">$250</i></p>
-                                        <p><a class="item_add" href="#">Add to cart</a></p>
-                                    </div>
-                                    <h5>Color</h5>
-                                    <div class="color-quality">
-                                        <ul>
-                                            <li><a href="#"><span></span>Red</a></li>
-                                            <li><a href="#" class="brown"><span></span>Yellow</a></li>
-                                            <li><a href="#" class="purple"><span></span>Purple</a></li>
-                                            <li><a href="#" class="gray"><span></span>Violet</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="clearfix"> </div>
-                            </div>
-                        </section>
-                    </div>
-                </div>
-            </div>
-            <div class="modal video-modal fade" id="myModal5" tabindex="-1" role="dialog" aria-labelledby="myModal5">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        </div>
-                        <section>
-                            <div class="modal-body">
-                                <div class="col-md-5 modal_body_left">
-                                    <img src="~/Content/images/35.jpg" alt=" " class="img-responsive" />
-                                </div>
-                                <div class="col-md-7 modal_body_right">
-                                    <h4>a good look women's Jacket</h4>
-                                    <p>
-                                        Ut enim ad minim veniam, quis nostrud
-                                        exercitation ullamco laboris nisi ut aliquip ex ea
-                                        commodo consequat.Duis aute irure dolor in
-                                        reprehenderit in voluptate velit esse cillum dolore
-                                        eu fugiat nulla pariatur. Excepteur sint occaecat
-                                        cupidatat non proident, sunt in culpa qui officia
-                                        deserunt mollit anim id est laborum.
-                                    </p>
-                                    <div class="rating">
-                                        <div class="rating-left">
-                                            <img src="~/Content/images/star-.png" alt=" " class="img-responsive" />
-                                        </div>
-                                        <div class="rating-left">
-                                            <img src="~/Content/images/star-.png" alt=" " class="img-responsive" />
-                                        </div>
-                                        <div class="rating-left">
-                                            <img src="~/Content/images/star-.png" alt=" " class="img-responsive" />
-                                        </div>
-                                        <div class="rating-left">
-                                            <img src="~/Content/images/star.png" alt=" " class="img-responsive" />
-                                        </div>
-                                        <div class="rating-left">
-                                            <img src="~/Content/images/star.png" alt=" " class="img-responsive" />
-                                        </div>
-                                        <div class="clearfix"> </div>
-                                    </div>
-                                    <div class="modal_body_right_cart simpleCart_shelfItem">
-                                        <p><span>$320</span> <i class="item_price">$250</i></p>
-                                        <p><a class="item_add" href="#">Add to cart</a></p>
-                                    </div>
-                                    <h5>Color</h5>
-                                    <div class="color-quality">
-                                        <ul>
-                                            <li><a href="#"><span></span>Red</a></li>
-                                            <li><a href="#" class="brown"><span></span>Yellow</a></li>
-                                            <li><a href="#" class="purple"><span></span>Purple</a></li>
-                                            <li><a href="#" class="gray"><span></span>Violet</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="clearfix"> </div>
-                            </div>
-                        </section>
-                    </div>
-                </div>
-            </div>
-            <div class="modal video-modal fade" id="myModal6" tabindex="-1" role="dialog" aria-labelledby="myModal6">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        </div>
-                        <section>
-                            <div class="modal-body">
-                                <div class="col-md-5 modal_body_left">
-                                    <img src="~/Content/images/39.jpg" alt=" " class="img-responsive" />
-                                </div>
-                                <div class="col-md-7 modal_body_right">
-                                    <h4>a good look women's Long Skirt</h4>
-                                    <p>
-                                        Ut enim ad minim veniam, quis nostrud
-                                        exercitation ullamco laboris nisi ut aliquip ex ea
-                                        commodo consequat.Duis aute irure dolor in
-                                        reprehenderit in voluptate velit esse cillum dolore
-                                        eu fugiat nulla pariatur. Excepteur sint occaecat
-                                        cupidatat non proident, sunt in culpa qui officia
-                                        deserunt mollit anim id est laborum.
-                                    </p>
-                                    <div class="rating">
-                                        <div class="rating-left">
-                                            <img src="~/Content/images/star-.png" alt=" " class="img-responsive" />
-                                        </div>
-                                        <div class="rating-left">
-                                            <img src="~/Content/images/star-.png" alt=" " class="img-responsive" />
-                                        </div>
-                                        <div class="rating-left">
-                                            <img src="~/Content/images/star-.png" alt=" " class="img-responsive" />
-                                        </div>
-                                        <div class="rating-left">
-                                            <img src="~/Content/images/star.png" alt=" " class="img-responsive" />
-                                        </div>
-                                        <div class="rating-left">
-                                            <img src="~/Content/images/star.png" alt=" " class="img-responsive" />
-                                        </div>
-                                        <div class="clearfix"> </div>
-                                    </div>
-                                    <div class="modal_body_right_cart simpleCart_shelfItem">
-                                        <p><span>$320</span> <i class="item_price">$250</i></p>
-                                        <p><a class="item_add" href="#">Add to cart</a></p>
-                                    </div>
-                                    <h5>Color</h5>
-                                    <div class="color-quality">
-                                        <ul>
-                                            <li><a href="#"><span></span>Red</a></li>
-                                            <li><a href="#" class="brown"><span></span>Yellow</a></li>
-                                            <li><a href="#" class="purple"><span></span>Purple</a></li>
-                                            <li><a href="#" class="gray"><span></span>Violet</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="clearfix"> </div>
-                            </div>
-                        </section>
                     </div>
                 </div>
             </div>
@@ -1053,11 +143,11 @@
 <!-- banner-bottom1 -->
 <div class="banner-bottom1">
     <div class="agileinfo_banner_bottom1_grids">
-        <div class="col-md-7 agileinfo_banner_bottom1_grid_left">
-            <h3>Grand Opening Event With flat<span>20% <i>Discount</i></span></h3>
+        <div class="col-md-7 agileinfo_banner_bottom1_grid_left" style="height: 265px;">
+            <h3>Black friday<span>49% <i>Discount</i></span></h3>
             <a href="products.html">Shop Now</a>
         </div>
-        <div class="col-md-5 agileinfo_banner_bottom1_grid_right">
+        <div class="col-md-5 agileinfo_banner_bottom1_grid_right" style="height: 265px;">
             <h4>hot deal</h4>
             <div class="timer_wrap">
                 <div id="counter"> </div>
@@ -1076,12 +166,12 @@
         <div class="w3agile_special_deals_grids">
             <div class="col-md-7 w3agile_special_deals_grid_left">
                 <div class="w3agile_special_deals_grid_left_grid">
-                    <img src="~/Content/images/26.jpg" alt=" " class="img-responsive" />
+                    <img src="~/Content/Pictures/banner1.jpg" style="object-fit: cover;height: 287px;" alt=" " class="img-responsive" />
                     <div class="w3agile_special_deals_grid_left_grid_pos1">
                         <h5>30%<span>Off/-</span></h5>
                     </div>
                     <div class="w3agile_special_deals_grid_left_grid_pos">
-                        <h4>We Offer <span>Best Products</span></h4>
+                        <h4 >We Offer <span style="color: #fff">Best Products</span></h4>
                     </div>
                 </div>
                 <div class="wmuSlider example1">
@@ -1133,10 +223,14 @@
                 </script>
             </div>
             <div class="col-md-5 w3agile_special_deals_grid_right">
-                <img src="~/Content/images/25.jpg" alt=" " class="img-responsive" />
-                <div class="w3agile_special_deals_grid_right_pos">
-                    <h4>Women's <span>Special</span></h4>
-                    <h5>save up <span>to</span> 30%</h5>
+                <div class="row">
+                    <img src="~/Content/Pictures/deal1.png" style="object-fit: cover;margin-bottom: 5px;" alt=" " class="img-responsive" />
+                </div>
+                <div class="row">
+                    <img src="~/Content/Pictures/deal2.png" style="object-fit: cover;margin-bottom: 5px;" alt=" " class="img-responsive" />
+                </div>
+                <div class="row">
+                    <img src="~/Content/Pictures/deal3.jpg" style="object-fit: cover;" alt=" " class="img-responsive" />
                 </div>
             </div>
             <div class="clearfix"> </div>
@@ -1147,110 +241,34 @@
 <!-- new-products -->
 <div class="new-products">
     <div class="container">
-        <h3>New Products</h3>
+        <h3>Computer</h3>
         <div class="agileinfo_new_products_grids">
-            <div class="col-md-3 agileinfo_new_products_grid">
-                <div class="agile_ecommerce_tab_left agileinfo_new_products_grid1">
-                    <div class="hs-wrapper hs-wrapper1">
-                        <img src="~/Content/images/27.jpg" alt=" " class="img-responsive" />
-                        <img src="~/Content/images/28.jpg" alt=" " class="img-responsive" />
-                        <img src="~/Content/images/29.jpg" alt=" " class="img-responsive" />
-                        <img src="~/Content/images/30.jpg" alt=" " class="img-responsive" />
-                        <img src="~/Content/images/27.jpg" alt=" " class="img-responsive" />
-                        <img src="~/Content/images/28.jpg" alt=" " class="img-responsive" />
-                        <img src="~/Content/images/29.jpg" alt=" " class="img-responsive" />
-                        <img src="~/Content/images/30.jpg" alt=" " class="img-responsive" />
-                        <div class="w3_hs_bottom w3_hs_bottom_sub">
-                            <ul>
-                                <li>
-                                    <a href="#" data-toggle="modal" data-target="#myModal6"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
-                                </li>
-                            </ul>
-                        </div>
+
+            <div class="row">
+                <div class="MultiCarousel" data-items="1,3,5,6" data-slide="1" id="MultiCarousel" data-interval="1000" style="height: 450px;">
+                    <div class="MultiCarousel-inner">
+                        @foreach (var item in collection.Take(10))
+                        {
+                            <div class="item" style="margin: 20px;">
+                                <div class="col-md-4 agile_ecommerce_tab_left" style="width:255px;height: 340px;background-color: transparent;">
+                                    <div class="card" style="width: 215px;">
+                                        <a href="@Url.Action("Index","Computer",new { name = item.Name })">
+                                            <img class="card-img-top" src="~/Content/Pictures/Laptop/@item.Image" style="width: 200px;height:215px;mix-blend-mode: multiply;" alt="Card image cap">
+                                        </a>
+                                        <div class="card-body">
+                                            <h5 class="card-title">@item.Name</h5>
+                                            <div class="simpleCart_shelfItem">
+                                                <p> <i class="item_price">@item.Price</i></p>
+                                                <p><a class="item_add" href="#" style="bottom: 5px;">Add to cart</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
                     </div>
-                    <h5><a href="single.html">Skirts</a></h5>
-                    <div class="simpleCart_shelfItem">
-                        <p><span>$320</span> <i class="item_price">$250</i></p>
-                        <p><a class="item_add" href="#">Add to cart</a></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 agileinfo_new_products_grid">
-                <div class="agile_ecommerce_tab_left agileinfo_new_products_grid1">
-                    <div class="hs-wrapper hs-wrapper1">
-                        <img src="~/Content/images/31.jpg" alt=" " class="img-responsive" />
-                        <img src="~/Content/images/32.jpg" alt=" " class="img-responsive" />
-                        <img src="~/Content/images/33.jpg" alt=" " class="img-responsive" />
-                        <img src="~/Content/images/34.jpg" alt=" " class="img-responsive" />
-                        <img src="~/Content/images/31.jpg" alt=" " class="img-responsive" />
-                        <img src="~/Content/images/32.jpg" alt=" " class="img-responsive" />
-                        <img src="~/Content/images/33.jpg" alt=" " class="img-responsive" />
-                        <img src="~/Content/images/34.jpg" alt=" " class="img-responsive" />
-                        <div class="w3_hs_bottom w3_hs_bottom_sub">
-                            <ul>
-                                <li>
-                                    <a href="#" data-toggle="modal" data-target="#myModal5"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <h5><a href="single.html">Jackets</a></h5>
-                    <div class="simpleCart_shelfItem">
-                        <p><span>$320</span> <i class="item_price">$250</i></p>
-                        <p><a class="item_add" href="#">Add to cart</a></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 agileinfo_new_products_grid">
-                <div class="agile_ecommerce_tab_left agileinfo_new_products_grid1">
-                    <div class="hs-wrapper hs-wrapper1">
-                        <img src="~/Content/images/37.jpg" alt=" " class="img-responsive" />
-                        <img src="~/Content/images/30.jpg" alt=" " class="img-responsive" />
-                        <img src="~/Content/images/36.jpg" alt=" " class="img-responsive" />
-                        <img src="~/Content/images/38.jpg" alt=" " class="img-responsive" />
-                        <img src="~/Content/images/37.jpg" alt=" " class="img-responsive" />
-                        <img src="~/Content/images/30.jpg" alt=" " class="img-responsive" />
-                        <img src="~/Content/images/36.jpg" alt=" " class="img-responsive" />
-                        <img src="~/Content/images/38.jpg" alt=" " class="img-responsive" />
-                        <div class="w3_hs_bottom w3_hs_bottom_sub">
-                            <ul>
-                                <li>
-                                    <a href="#" data-toggle="modal" data-target="#myModal6"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <h5><a href="single.html">Dresses</a></h5>
-                    <div class="simpleCart_shelfItem">
-                        <p><span>$320</span> <i class="item_price">$250</i></p>
-                        <p><a class="item_add" href="#">Add to cart</a></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 agileinfo_new_products_grid">
-                <div class="agile_ecommerce_tab_left agileinfo_new_products_grid1">
-                    <div class="hs-wrapper hs-wrapper1">
-                        <img src="~/Content/images/40.jpg" alt=" " class="img-responsive" />
-                        <img src="~/Content/images/41.jpg" alt=" " class="img-responsive" />
-                        <img src="~/Content/images/42.jpg" alt=" " class="img-responsive" />
-                        <img src="~/Content/images/43.jpg" alt=" " class="img-responsive" />
-                        <img src="~/Content/images/40.jpg" alt=" " class="img-responsive" />
-                        <img src="~/Content/images/41.jpg" alt=" " class="img-responsive" />
-                        <img src="~/Content/images/42.jpg" alt=" " class="img-responsive" />
-                        <img src="~/Content/images/43.jpg" alt=" " class="img-responsive" />
-                        <div class="w3_hs_bottom w3_hs_bottom_sub">
-                            <ul>
-                                <li>
-                                    <a href="#" data-toggle="modal" data-target="#myModal1"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <h5><a href="single.html">Jeans</a></h5>
-                    <div class="simpleCart_shelfItem">
-                        <p><span>$320</span> <i class="item_price">$250</i></p>
-                        <p><a class="item_add" href="#">Add to cart</a></p>
-                    </div>
+                    <button class="btn btn-primary leftLst"><</button>
+                    <button class="btn btn-primary rightLst">></button>
                 </div>
             </div>
             <div class="clearfix"> </div>
