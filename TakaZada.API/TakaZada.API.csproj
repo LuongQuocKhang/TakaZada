@@ -93,8 +93,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Admin\AdminService.cs" />
-    <Compile Include="Admin\ILogin.cs" />
-    <Compile Include="Admin\ILogOut.cs" />
+    <Compile Include="Admin\ILog.cs" />
     <Compile Include="Case\CaseService.cs" />
     <Compile Include="Case\ICaseReponsitory.cs" />
     <Compile Include="Case\ILoadCase.cs" />

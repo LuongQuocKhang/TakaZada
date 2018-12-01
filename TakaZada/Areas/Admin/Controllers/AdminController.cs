@@ -11,9 +11,9 @@ namespace TakaZada.Areas.Admin.Controllers
 {
     public class AdminController : Controller
     {
-        private readonly ILogin _LoginService;
+        private readonly ILog _LoginService;
         private readonly IUser _UserService;
-        public AdminController(ILogin LoginService , IUser UserService)
+        public AdminController(ILog LoginService , IUser UserService)
         {
             _LoginService = LoginService;
             _UserService = UserService;
@@ -40,9 +40,9 @@ namespace TakaZada.Areas.Admin.Controllers
                 try { username = Request.Form["Username"]; } catch (Exception e) { }
                 try { password = Request.Form["Password"]; } catch (Exception e) { }
 
-                if (_LoginService.LogIn(username, password) == true )
+                if (_LoginService.AdminLogIn(username, password) == true )
                 {
-                    var user = _UserService.CreateUser(username,password,"admin");
+                    var user = _UserService.CreateUser(username,Constants.ADMIN_ID,"admin");
                     Session[Constants.ADMIN_SESSION] = user;
                     // write history
                     ActivityLogFunction.WriteActivity(user.Name + " Login");

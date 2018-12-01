@@ -30,11 +30,9 @@ namespace TakaZada.API
         {
             // Inject dependencies
             // admin
-            _kernel.Bind<ILogin>().To<AdminService>().InSingletonScope();
             _kernel.Bind<ILoad>().To<ComputerService>().InSingletonScope();
             //computer
             _kernel.Bind<IComputerReponsitory>().To<ComputerService>().InSingletonScope();
-            _kernel.Bind<IUser>().To<AdminService>().InSingletonScope();
             //case
             _kernel.Bind<ILoadCase>().To<CaseService>().InSingletonScope();
             _kernel.Bind<ICaseReponsitory>().To<CaseService>().InSingletonScope();
@@ -59,6 +57,9 @@ namespace TakaZada.API
             // VGA
             _kernel.Bind<IVGALoad>().To<VGAService>().InSingletonScope();
             _kernel.Bind<IVGAReponsitory>().To<VGAService>().InSingletonScope();
+
+            _kernel.Bind<ILog>().To<AdminService>().InSingletonScope();
+            _kernel.Bind<IUser>().To<AdminService>().InSingletonScope();
         }
         public IDependencyScope BeginScope()
         {

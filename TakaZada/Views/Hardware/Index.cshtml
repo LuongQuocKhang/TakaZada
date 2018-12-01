@@ -133,7 +133,7 @@
                         <div class="col-md-4 agileinfo_new_products_grid agileinfo_new_products_grid_dresses">
                             <div class="agile_ecommerce_tab_left dresses_grid">
                                 <img src="~/Content/Pictures/Hardware/@item.Image" alt=" " class="img-responsive" style=" width: 200px;height: 170px;" />
-                                <h5><a href="single.html">@item.Name</a></h5>
+                                <h5><a href="@Url.Action("Details","Hardware",new { Id = item.Id})">@item.Name</a></h5>
                                 <div class="simpleCart_shelfItem">
                                     <p><span>$420</span> <i class="item_price">@item.Price</i></p>
                                     <p><a class="item_add" href="#">Add to cart</a></p>

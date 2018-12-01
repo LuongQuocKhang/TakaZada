@@ -20,5 +20,16 @@ namespace TakaZada.Controllers
             ViewBag.ListVGA = _LoadService.LoadByTrademark(Name);
             return View();
         }
+        public ActionResult Details(int Id)
+        {
+            try
+            {
+                var VGA = _LoadService.LoadById(Id);
+                ViewBag.SelectedVGA = VGA;
+                ViewBag.TheSameTrademark = _LoadService.LoadByTrademark(VGA.TradeMark).Where(x => x.Id != VGA.Id).ToList();
+            }
+            catch (Exception e) { }
+            return View();
+        }
     }
 }

@@ -10,14 +10,25 @@ namespace TakaZada.Controllers
     public class KeyboardController : Controller
     {
         // GET: Keyboard
-        private readonly IKeyboardLoad _loadService;
+        private readonly IKeyboardLoad _LoadService;
         public KeyboardController(IKeyboardLoad loadService)
         {
-            _loadService = loadService;
+            _LoadService = loadService;
         }
         public ActionResult Index(string Name)
         {
-            ViewBag.ListKeyboard = _loadService.LoadByTradeMark(Name);
+            ViewBag.ListKeyboard = _LoadService.LoadByTradeMark(Name);
+            return View();
+        }
+        public ActionResult Details(int Id)
+        {
+            try
+            {
+                var Keyboard = _LoadService.LoadById(Id);
+                ViewBag.SelectedKeyboard = Keyboard;
+                ViewBag.TheSameTrademark = _LoadService.LoadByTradeMark(Keyboard.TradeMark).Where(x => x.Id != Keyboard.Id).ToList();
+            }
+            catch (Exception e) { }
             return View();
         }
     }

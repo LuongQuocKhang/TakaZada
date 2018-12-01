@@ -102,7 +102,7 @@
                             </ul>
                         </div>
                     </div>
-                </div>       
+                </div>
             </div>
             <div class="col-md-8 w3ls_dresses_grid_right">
 
@@ -129,23 +129,23 @@
                     if (i % 3 == 0 || i == 1)
                     {
                         @:<div class="w3ls_dresses_grid_right_grid3">
-                    }
-                    var item = collection[i - 1];
-                    <div class="col-md-4 agileinfo_new_products_grid agileinfo_new_products_grid_dresses">
-                        <div class="agile_ecommerce_tab_left dresses_grid">
-                            <img src="~/Content/Pictures/Laptop/@item.Image" alt=" " class="img-responsive" style=" width: 200px;height: 170px;" />
-                            <h5><a href="single.html">@item.Name</a></h5>
-                            <div class="simpleCart_shelfItem">
-                                <p><span>$420</span> <i class="item_price">@item.Price</i></p>
-                                <p><a class="item_add" href="#">Add to cart</a></p>
+                        }
+                        var item = collection[i - 1];
+                        <div class="col-md-4 agileinfo_new_products_grid agileinfo_new_products_grid_dresses">
+                            <div class="agile_ecommerce_tab_left dresses_grid">
+                                <img src="~/Content/Pictures/Laptop/@item.Image" alt=" " class="img-responsive" style=" width: 200px;height: 170px;" />
+                                <h5><a href="@Url.Action("Details","Computer",new { Id = item.Id})">@item.Name</a></h5>
+                                <div class="simpleCart_shelfItem">
+                                    <p><span>$420</span> <i class="item_price">@item.Price</i></p>
+                                    <p><a class="item_add" href="#">Add to cart</a></p>
+                                </div>
+                                @*<div class="dresses_grid_pos">
+                                        <h6>New</h6>
+                                    </div>*@
                             </div>
-                            @*<div class="dresses_grid_pos">
-                                <h6>New</h6>
-                            </div>*@
                         </div>
-                    </div>
-                    if (i % 3 == 0)
-                    {
+                        if (i % 3 == 0)
+                        {
                         @:</div>
                         @:<div class="clearfix"> </div>
                     }

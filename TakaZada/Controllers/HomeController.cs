@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TakaZada.API.Admin;
 using TakaZada.API.Case;
 using TakaZada.API.Computer;
 using TakaZada.API.CPU;
+using TakaZada.API.Handle;
 using TakaZada.API.RAM;
 using TakaZada.API.VGA;
+using TakaZada.Core;
 
 namespace TakaZada.Controllers
 {
@@ -18,15 +21,20 @@ namespace TakaZada.Controllers
         private readonly IRAMLoad _LoadRAM;
         private readonly ILoadCPU _LoadCPU;
         private readonly ILoadCase _LoadCase;
+        private readonly ILog _LogService;
+        private readonly IUser _UserService;
 
-        public HomeController(ILoad load, IVGALoad LoadVGA, IRAMLoad LoadRAM, ILoadCPU LoadCPU, ILoadCase LoadCase)
+        public HomeController(ILoad load, IVGALoad LoadVGA, IRAMLoad LoadRAM, ILoadCPU LoadCPU, ILoadCase LoadCase, ILog LogService , IUser UserService)
         {
             _LoadComputer = load;
             _LoadVGA = LoadVGA;
             _LoadRAM = LoadRAM;
             _LoadCPU = LoadCPU;
             _LoadCase = LoadCase;
+            _LogService = LogService;
+            _UserService = UserService;
         }
+
         public ActionResult Index()
         {
             ViewBag.ListComputer = _LoadComputer.Load();
@@ -50,6 +58,24 @@ namespace TakaZada.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+        [HttpPost]
+        public ActionResult Login()
+        {
+            string Email = Request.Form["Email"],
+                   Password = Request.Form["Password"];
+            if ( _LogService.LogIn(Email,Password) == true)
+            {
+                var User = _UserService.GetUserByEmail(Email);
+                Session[Constants.USER_SESSION] = User;
+                return RedirectToAction("Index");
+            }
+            return RedirectToAction("Index");
+        }
+        public ActionResult Logout()
+        {
+            Session[Constants.USER_SESSION] = null;
+            return RedirectToAction("Index");
         }
     }
 }

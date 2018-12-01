@@ -112,7 +112,7 @@ namespace TakaZada.API.CPU
                 if (Trademark.Equals("Tất cả"))
                     list = db.CPUs.ToList();
                 else
-                    list = db.CPUs.Where(x => x.TradeMark.Trim().ToLower().Contains(Trademark.ToLower())).ToList();
+                    list = db.CPUs.Where(x => x.TradeMark.Trim().ToLower().Contains(Trademark.Trim().ToLower())).ToList();
             }
             return list;
         }

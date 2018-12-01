@@ -135,7 +135,7 @@ namespace TakaZada.API.Mainboard
                 }
                 else
                 {
-                    list = db.MainBoards.Where(x => x.TradeMark.Trim().ToLower() == Trademark.ToLower()).ToList();
+                    list = db.MainBoards.Where(x => x.TradeMark.Trim().ToLower() == Trademark.Trim().ToLower()).ToList();
                 }
             }
             return list;

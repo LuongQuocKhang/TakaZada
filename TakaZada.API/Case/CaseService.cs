@@ -107,7 +107,7 @@ namespace TakaZada.API.Case
                 }
                 else
                 {
-                    list = db.Cases.Where(x => x.TradeMark.Trim().ToLower() == Trademark.ToLower()).ToList();
+                    list = db.Cases.Where(x => x.TradeMark.Trim().ToLower() == Trademark.Trim().ToLower()).ToList();
                 }
             }
             return list;

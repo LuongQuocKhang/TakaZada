@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace TakaZada.API.Admin
 {
-    public interface ILogin
+    public interface ILog
     {
         bool LogIn(string username, string password = "");
+        bool AdminLogIn(string username, string password = "");
+        bool Logout();
     }
 }

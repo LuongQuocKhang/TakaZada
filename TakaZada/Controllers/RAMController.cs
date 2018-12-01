@@ -20,5 +20,16 @@ namespace TakaZada.Controllers
             ViewBag.ListRAM = _LoadService.LoadByTrademark(Name);
             return View();
         }
+        public ActionResult Details(int Id)
+        {
+            try
+            {
+                var RAM = _LoadService.LoadById(Id);
+                ViewBag.SelectedRAM = RAM;
+                ViewBag.TheSameTrademark = _LoadService.LoadByTrademark(RAM.TradeMark).Where(x => x.Id != RAM.Id).ToList();
+            }
+            catch (Exception e) { }
+            return View();
+        }
     }
 }

@@ -20,5 +20,16 @@ namespace TakaZada.Controllers
             ViewBag.ListCase = _LoadService.LoadByTrademark(Name);
             return View();
         }
+        public ActionResult Details(int Id)
+        {
+            try
+            {
+                var Case = _LoadService.LoadById(Id);
+                ViewBag.SelectedCase = Case;
+                ViewBag.TheSameTrademark = _LoadService.LoadByTrademark(Case.TradeMark).Where(x => x.Id != Case.Id).ToList();
+            }
+            catch (Exception e) { }
+            return View();
+        }
     }
 }

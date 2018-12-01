@@ -89,7 +89,7 @@ namespace TakaZada.API.Keyboard
                 }
                 else
                 {
-                    list = db.Keyboards.Where(x => x.TradeMark.Trim().ToLower() == Trademark.ToLower()).ToList();
+                    list = db.Keyboards.Where(x => x.TradeMark.Trim().ToLower() == Trademark.Trim().ToLower()).ToList();
                 }
             }
             return list;

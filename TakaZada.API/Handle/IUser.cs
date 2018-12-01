@@ -9,7 +9,8 @@ namespace TakaZada.API.Handle
 {
     public interface IUser
     {
-        UserLogin CreateUser(string username , string password , string type);
+        UserLogin CreateUser(string username , int Id , string type);
         UserLogin GetCurrentUser();
+        UserLogin GetUserByEmail(string Email);
     }
 }

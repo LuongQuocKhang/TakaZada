@@ -99,7 +99,7 @@ namespace TakaZada.API.Radiator
                 }
                 else
                 {
-                    list = db.Radiators.Where(x => x.TradeMark.Trim().ToLower() == Trademark.ToLower()).ToList();
+                    list = db.Radiators.Where(x => x.TradeMark.Trim().ToLower() == Trademark.Trim().ToLower()).ToList();
                 }
             }
             return list;

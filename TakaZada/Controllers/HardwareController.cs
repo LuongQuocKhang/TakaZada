@@ -20,5 +20,16 @@ namespace TakaZada.Controllers
             ViewBag.ListHardware = _LoadService.LoadByTrademark(Name);
             return View();
         }
+        public ActionResult Details(int Id)
+        {
+            try
+            {
+                var Hardware = _LoadService.LoadById(Id);
+                ViewBag.SelectedHardware = Hardware;
+                ViewBag.TheSameTrademark = _LoadService.LoadByTrademark(Hardware.TradeMark).Where(x => x.Id != Hardware.Id).ToList();
+            }
+            catch (Exception e) { }
+            return View();
+        }
     }
 }

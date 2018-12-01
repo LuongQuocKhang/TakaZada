@@ -27,5 +27,16 @@ namespace TakaZada.Controllers
             }
             return View();
         }
+        public ActionResult Details(int Id)
+        {
+            try
+            {
+                var cpu = _LoadService.LoadById(Id);
+                ViewBag.SelectedCPU = cpu;
+                ViewBag.TheSameTrademark = _LoadService.LoadByTradeMark(cpu.TradeMark).Where(x => x.Id != cpu.Id).ToList();
+            }
+            catch (Exception e) { }
+            return View();
+        }
     }
 }

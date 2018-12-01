@@ -129,13 +129,13 @@ namespace TakaZada.API.Computer
             List<Core.Models.Computer> list = new List<Core.Models.Computer>();
             using (var db = new DBContext())
             {
-                if (Trademark.Equals("Tất cả"))
+                if (Trademark.Trim().Equals("Tất cả"))
                 {
                     list = db.Computers.ToList();
                 }
                 else
                 {
-                    list = db.Computers.Where(x => x.Trademark.Trim().ToLower().Contains(Trademark.ToLower())).ToList();
+                    list = db.Computers.Where(x => x.Trademark.Trim().ToLower().Contains(Trademark.Trim().ToLower())).ToList();
                 }
             }
             return list;

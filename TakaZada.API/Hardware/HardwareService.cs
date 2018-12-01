@@ -98,7 +98,7 @@ namespace TakaZada.API.Hardware
                 }
                 else
                 {
-                    list = db.Hardwares.Where(x => x.TradeMark.Trim().ToLower() == Trademark.ToLower()).ToList();
+                    list = db.Hardwares.Where(x => x.TradeMark.Trim().ToLower() == Trademark.Trim().ToLower()).ToList();
                 }
             }
             return list;

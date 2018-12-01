@@ -6,16 +6,36 @@ using System.Threading.Tasks;
 using System.Web;
 using TakaZada.API.Handle;
 using TakaZada.Core;
+using TakaZada.Core.Models;
 
 namespace TakaZada.API.Admin
 {
-    public class AdminService : ILogin , IUser
+    public class AdminService : ILog , IUser
     {
         public AdminService() { }
 
-        public UserLogin CreateUser(string username, string id, string type)
+        public bool AdminLogIn(string username, string password = "")
         {
-            return new UserLogin(username, Constants.ADMIN_ID, type);
+            if (!String.IsNullOrEmpty(username))
+            {
+                if (username == "admin" && password == "123")
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public UserLogin CreateUser(string username, int Id, string type)
+        {
+            if ( type == "Admin")
+            {
+               return new UserLogin(username,Id, type);
+            }
+            else
+            {
+               return new UserLogin(username,Id, type);
+            }
         }
 
         public UserLogin GetCurrentUser()
@@ -27,19 +47,30 @@ namespace TakaZada.API.Admin
             return (UserLogin)HttpContext.Current.Session[Constants.ADMIN_SESSION];
         }
 
+        public UserLogin GetUserByEmail(string Email)
+        {
+            using (var db = new DBContext())
+            {
+                var user = db.UserAccounts.FirstOrDefault(x => x.Email == Email);
+                if ( user != null)
+                    return new UserLogin(user.Email, user.Id, user.FirstName);
+            }
+            return null;
+        }
+
         public bool LogIn(string username, string password = "")
         {
             if (!String.IsNullOrEmpty(username))
             {
-                if ( username == "admin" && password == "123")
+                using (var db = new DBContext())
                 {
-                    return true;
+                    var user = db.UserAccounts.FirstOrDefault(x => x.Email == username && x.Password == password);
+                    if (user != null) return true;
                 }
             }
             return false;
         }
-
-        public bool LogOut()
+        public bool Logout()
         {
             throw new NotImplementedException();
         }

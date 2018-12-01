@@ -85,18 +85,18 @@ namespace TakaZada.API.VGA
             return vga;
         }
 
-        public IEnumerable<Core.Models.VGA> LoadByTrademark(string Name)
+        public IEnumerable<Core.Models.VGA> LoadByTrademark(string Trademark)
         {
             List<Core.Models.VGA> list = new List<Core.Models.VGA>();
             using (var db = new DBContext())
             {
-                if ( Name == "Tất cả")
+                if (Trademark == "Tất cả")
                 {
                     list = db.VGAs.ToList();
                 }
                 else
                 {
-                    list = db.VGAs.Where(x => x.TradeMark.Trim().ToLower() == Name.ToLower()).ToList();
+                    list = db.VGAs.Where(x => x.TradeMark.Trim().ToLower() == Trademark.Trim().ToLower()).ToList();
                 }
             }
             return list;

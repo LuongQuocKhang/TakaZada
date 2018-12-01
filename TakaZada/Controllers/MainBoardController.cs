@@ -20,5 +20,16 @@ namespace TakaZada.Controllers
             ViewBag.ListMainboard = _LoadService.LoadByTrademark(Name);
             return View();
         }
+        public ActionResult Details(int Id)
+        {
+            try
+            {
+                var Mainboard = _LoadService.LoadById(Id);
+                ViewBag.SelectedMainboard = Mainboard;
+                ViewBag.TheSameTrademark = _LoadService.LoadByTrademark(Mainboard.TradeMark).Where(x => x.Id != Mainboard.Id).ToList();
+            }
+            catch (Exception e) { }
+            return View();
+        }
     }
 }
