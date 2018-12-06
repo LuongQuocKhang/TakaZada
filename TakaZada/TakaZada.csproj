@@ -173,6 +173,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KeyboardController.cs" />
     <Compile Include="Controllers\MainBoardController.cs" />
+    <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\RadiatorController.cs" />
     <Compile Include="Controllers\RAMController.cs" />
     <Compile Include="Controllers\VGAController.cs" />
@@ -1598,6 +1599,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Consult.css" />
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\Carousel.css" />
     <Content Include="Content\css\fasthover.css" />
@@ -1606,6 +1608,7 @@
     <Content Include="Content\css\popuo-box.css" />
     <Content Include="Content\css\style.css" />
     <Content Include="Content\DropdownMenu.css" />
+    <Content Include="Content\News.css" />
     <Content Include="Content\Pictures\banner.jpg" />
     <Content Include="Content\Pictures\banner1.jpg" />
     <Content Include="Content\Pictures\Case\Case Corsair Crystal Series 570X RGB ATX Mid-Tower Red.png" />
@@ -2021,6 +2024,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\js\AddtoCart.js" />
     <Content Include="Scripts\js\bootstrap-3.1.1.min.js" />
     <Content Include="Scripts\js\Carousel.js" />
     <Content Include="Scripts\js\easyResponsiveTabs.js" />
@@ -2085,6 +2089,9 @@
     <Content Include="Views\Radiator\Details.cshtml" />
     <Content Include="Views\RAM\Details.cshtml" />
     <Content Include="Views\VGA\Details.cshtml" />
+    <Content Include="Views\News\Index.cshtml" />
+    <Content Include="Views\News\Consult.cshtml" />
+    <Content Include="Views\Home\Cart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

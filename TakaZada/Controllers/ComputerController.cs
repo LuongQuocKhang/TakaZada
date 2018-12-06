@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TakaZada.API.Cart;
 using TakaZada.API.Computer;
+using TakaZada.Core;
 
 namespace TakaZada.Controllers
 {
@@ -12,10 +14,12 @@ namespace TakaZada.Controllers
         private readonly ILoad _LoadService;
         private readonly IComputerReponsitory _ConputerService;
 
+
         public ComputerController(ILoad LoadService, IComputerReponsitory ConputerService)
         {
             _LoadService = LoadService;
             _ConputerService = ConputerService;
+
         }
         // GET: Computer
         public ActionResult Index(string Trademark)
@@ -34,5 +38,6 @@ namespace TakaZada.Controllers
             catch (Exception e) { }
             return View();
         }
+        
     }
 }

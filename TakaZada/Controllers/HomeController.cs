@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TakaZada.API.Admin;
+using TakaZada.API.Cart;
 using TakaZada.API.Case;
 using TakaZada.API.Computer;
 using TakaZada.API.CPU;
@@ -23,8 +24,11 @@ namespace TakaZada.Controllers
         private readonly ILoadCase _LoadCase;
         private readonly ILog _LogService;
         private readonly IUser _UserService;
+        private readonly ILoadCart _LoadCartService;
+        private readonly ICartRepository _CartService;
 
-        public HomeController(ILoad load, IVGALoad LoadVGA, IRAMLoad LoadRAM, ILoadCPU LoadCPU, ILoadCase LoadCase, ILog LogService , IUser UserService)
+        public HomeController(ILoad load, IVGALoad LoadVGA, IRAMLoad LoadRAM, ILoadCPU LoadCPU, ILoadCase LoadCase, ILog LogService , IUser UserService
+            , ILoadCart LoadCartService, ICartRepository CartService)
         {
             _LoadComputer = load;
             _LoadVGA = LoadVGA;
@@ -33,6 +37,8 @@ namespace TakaZada.Controllers
             _LoadCase = LoadCase;
             _LogService = LogService;
             _UserService = UserService;
+            _LoadCartService = LoadCartService;
+            _CartService = CartService;
         }
 
         public ActionResult Index()
@@ -76,6 +82,56 @@ namespace TakaZada.Controllers
         {
             Session[Constants.USER_SESSION] = null;
             return RedirectToAction("Index");
+        }
+
+        public ActionResult Cart()
+        {
+            if (_UserService.GetCurrentUser() != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }
+        }
+        [HttpGet]
+        [ActionName("AddToCart")]
+        public ActionResult AddToCart(string type, string ItemId, int Quantity, string price, int Id)
+        {
+            var user = (UserLogin)Session[Constants.USER_SESSION];
+            if (user != null)
+            {
+                int CartId = _LoadCartService.LoadCartByEmail(user.UserName).CartId;
+                var cartdetail = _CartService.CreateCartDetails(type, CartId, ItemId, Quantity, price);
+                _CartService.AddToCart(cartdetail);
+            }
+            return RedirectToAction("Details",type, new { Id = Id });
+
+        }
+        [HttpPost]
+        [ActionName("AddToCart")]
+        public ActionResult AddToCart_Post()
+        {
+            try
+            {
+                var user = (UserLogin)Session[Constants.USER_SESSION];
+                string type = Request.Form["type"], ItemId = Request.Form["ItemId"], price = Request.Form["price"];
+                string Quantity = Request.Form["Quantity"];
+                int Id = Int32.Parse(Request.Form["Id"]);
+
+                if (user != null)
+                {
+
+                    int CartId = _LoadCartService.LoadCartByEmail(user.UserName).CartId;
+                    var cartdetail = _CartService.CreateCartDetails(type, CartId, ItemId, Int32.Parse(Quantity), price);
+                    _CartService.AddToCart(cartdetail);
+                    return Json(new { result = true }, JsonRequestBehavior.AllowGet);
+                }
+                
+            }
+            catch (Exception e) { }
+            return Json(new { result = false }, JsonRequestBehavior.AllowGet);
         }
     }
 }

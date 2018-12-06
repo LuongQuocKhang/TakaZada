@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Web.Http.Dependencies;
 using TakaZada.API.Admin;
+using TakaZada.API.Cart;
 using TakaZada.API.Case;
 using TakaZada.API.Computer;
 using TakaZada.API.CPU;
@@ -60,6 +61,9 @@ namespace TakaZada.API
 
             _kernel.Bind<ILog>().To<AdminService>().InSingletonScope();
             _kernel.Bind<IUser>().To<AdminService>().InSingletonScope();
+
+            _kernel.Bind<ILoadCart>().To<CartService>().InSingletonScope();
+            _kernel.Bind<ICartRepository>().To<CartService>().InSingletonScope();
         }
         public IDependencyScope BeginScope()
         {

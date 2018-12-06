@@ -23,6 +23,8 @@ namespace TakaZada.Core.Models
         public virtual DbSet<Keyboard> Keyboards { get; set; }
         public virtual DbSet<Radiator> Radiators { get; set; }
         public virtual DbSet<UserAccount> UserAccounts { get; set; }
+        public virtual DbSet<Cart> Carts { get; set; }
+        public virtual DbSet<CartDetails> CartDetails { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

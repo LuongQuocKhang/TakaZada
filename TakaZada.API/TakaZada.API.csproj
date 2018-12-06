@@ -94,6 +94,9 @@
   <ItemGroup>
     <Compile Include="Admin\AdminService.cs" />
     <Compile Include="Admin\ILog.cs" />
+    <Compile Include="Cart\CartService.cs" />
+    <Compile Include="Cart\ICartRepository.cs" />
+    <Compile Include="Cart\ILoadCart.cs" />
     <Compile Include="Case\CaseService.cs" />
     <Compile Include="Case\ICaseReponsitory.cs" />
     <Compile Include="Case\ILoadCase.cs" />

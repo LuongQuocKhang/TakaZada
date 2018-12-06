@@ -1,9 +1,4 @@
-﻿@{
-    ViewBag.Title = "Details";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
-
-@using TakaZada.Core.Models
+﻿@using TakaZada.Core.Models
 @{
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -30,6 +25,12 @@
 <!-- single -->
 <div class="single">
     <div class="container">
+        <h3 class='success-mesage font-green-sharp' style='display: none;font-size: 20px;color: #009614!important;font-weight: bold;'>
+            Cập nhật giỏ hàng thành công
+        </h3>
+        <h3 class='error-mesage font-green-sharp' style='display: none;font-size: 20px;color: #009614!important;font-weight: bold;'>
+            Lỗi xảy ra khi cập nhật giỏ hàng !!
+        </h3>
         <div class="col-md-4 single-left">
             <div class="flexslider">
                 <ul class="slides">
@@ -105,7 +106,9 @@
 
                         $('.value-minus1').on('click', function () {
                             var divUpd = $(this).parent().find('.value1'), newVal = parseInt(divUpd.text(), 10) - 1;
-                            if (newVal >= 1) divUpd.text(newVal);
+                            if (newVal >= 1) {
+                                divUpd.text(newVal);
+                            }
                         });
                     </script>
                     <!--quantity-->
@@ -115,7 +118,7 @@
             </div>
             <div class="simpleCart_shelfItem">
                 <p><i class="item_price"></i>@SelectedVGA.Price</p>
-                <p><a class="item_add" href="#">Add to cart</a></p>
+                <p><a class="item_add" href="#" id="btnBuy">Add to cart</a></p>
             </div>
 
         </div>
@@ -285,7 +288,7 @@
                             <h5><a href="@Url.Action("Details", "VGA", new { Id = item.Id })">@item.Name</a></h5>
                             <div class="simpleCart_shelfItem">
                                 <p class="flexisel_ecommerce_cart"><i class="item_price">@item.Price</i></p>
-                                <p><a class="item_add" href="#">Add to cart</a></p>
+                                <p><a class="item_add" href="@Url.Action("AddToCart","Home",new { type = "VGA",ItemId = SelectedVGA.Id,Quantity = 1 , price = SelectedVGA.Price , Id = SelectedVGA.Id})">Add to cart</a></p>
                             </div>
                         </div>
                     </div>
@@ -323,4 +326,29 @@
         <script src="~/Scripts/js/jquery.flexisel.js"></script>
     </div>
 </div>
-
+<script>
+    $("#btnBuy").on('click', function () {
+            $.ajax(
+                {
+                    url: "@Request.Url.GetLeftPart(UriPartial.Authority)" + "@Url.Action("AddToCart", "Home")",
+                    method: "POST",
+                    data: { "type": "VGA", "ItemId": "@SelectedVGA.Id", "Quantity": $(".value1").text(), "price": "@SelectedVGA.Price", "Id": "@SelectedVGA.Id" },
+                    success: function (response) {
+                        if (response != null && response.result == true) {
+                            $(function () {
+                                $('.success-mesage').delay(500).fadeIn('normal', function () {
+                                    $(this).delay(2500).fadeOut();
+                                });
+                            });
+                        }
+                        else {
+                            $(function () {
+                                $('.error-mesage').delay(500).fadeIn('normal', function () {
+                                    $(this).delay(2500).fadeOut();
+                                });
+                            });
+                        }
+                    }
+                })
+        });
+</script>

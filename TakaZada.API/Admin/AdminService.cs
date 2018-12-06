@@ -40,11 +40,11 @@ namespace TakaZada.API.Admin
 
         public UserLogin GetCurrentUser()
         {
-            if (HttpContext.Current.Session[Constants.ADMIN_SESSION] == null)
+            if (HttpContext.Current.Session[Constants.USER_SESSION] == null)
             {
-                throw new Exception("User is not defined");
+                return null;
             }
-            return (UserLogin)HttpContext.Current.Session[Constants.ADMIN_SESSION];
+            return (UserLogin)HttpContext.Current.Session[Constants.USER_SESSION];
         }
 
         public UserLogin GetUserByEmail(string Email)
