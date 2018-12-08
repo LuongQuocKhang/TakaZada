@@ -14,6 +14,11 @@ namespace TakaZada.Core.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
+        [StringLength(1000)]
+        public string Name { get; set; }
+
+        [StringLength(255)]
+        public string Image { get; set; }
 
         public string type { get; set; }
         [ForeignKey("Cart")]
@@ -21,6 +26,7 @@ namespace TakaZada.Core.Models
         public string ItemId { get; set; }
         public int Quantity { get; set; }
         public string price { get; set; }
+
         public virtual Cart Cart { get; set; }
     }
 }

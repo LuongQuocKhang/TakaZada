@@ -140,7 +140,8 @@
                         @SelectedCase.Description
                     </p>
                 </div>
-
+                <input type="hidden" name="Name" id="Name" value="@SelectedCase.Name" />
+                <input type="hidden" name="Image" id="Image" value="@SelectedCase.Image" />
                 <div class="tab-2 resp-tab-content additional_info_grid" aria-labelledby="tab_item-1">
                     <h4>Chi tiết sản phẩm</h4>
                     <h3>@SelectedCase.Name</h3>
@@ -264,7 +265,7 @@
                             <h5><a href="@Url.Action("Details","Case",new { Id = item.Id})">@item.Name</a></h5>
                             <div class="simpleCart_shelfItem">
                                 <p class="flexisel_ecommerce_cart"><i class="item_price">@item.Price</i></p>
-                                <p><a class="item_add" href="@Url.Action("AddToCart","Home",new { type = "Case",ItemId = item.Id,Quantity = 1 , price = item.Price , Id = item.Id})">Add to cart</a></p>
+                                <p><a class="item_add" href="@Url.Action("AddToCart","Home",new { type = "Case",ItemId = item.Id,Quantity = 1 , price = item.Price , Id = item.Id,Name = item.Name,Image = item.Image})">Add to cart</a></p>
                             </div>
                         </div>
                     </div>
@@ -309,7 +310,7 @@
                 {
                     url: "@Request.Url.GetLeftPart(UriPartial.Authority)" + "@Url.Action("AddToCart", "Home")",
                     method: "POST",
-                    data: { "type": "Case", "ItemId": "@SelectedCase.Id", "Quantity": $(".value1").text(), "price": "@SelectedCase.Price", "Id": "@SelectedCase.Id" },
+                    data: { "type": "Case", "ItemId": "@SelectedCase.Id", "Quantity": $(".value1").text(), "price": "@SelectedCase.Price", "Id": "@SelectedCase.Id", "Name": $("#Name").val(), "Image": $("#Image").val() },
                     success: function (response) {
                         if (response != null && response.result == true) {
                             $(function () {

@@ -51,7 +51,8 @@
                                             <h5 class="card-title">@item.Name</h5>
                                             <div class="simpleCart_shelfItem">
                                                 <p> <i class="item_price">@item.Price</i></p>
-                                                <p><a class="item_add" href="#" style="bottom: 5px;">Add to cart</a></p>
+                                                <p><a class="item_add" href="@Url.Action("AddToCart","Home",new { type = "RAM",ItemId = item.Id,Quantity = 1 , price = item.Price , Id = item.Id , Name = item.Name , Image = item.Image})">Add to cart</a></p>
+
                                             </div>
                                         </div>
                                     </div>
@@ -76,7 +77,8 @@
                                             <h5 class="card-title">@item.Name</h5>
                                             <div class="simpleCart_shelfItem">
                                                 <p><i class="item_price">@item.Price</i></p>
-                                                <p><a class="item_add" href="#">Add to cart</a></p>
+                                                <p><a class="item_add" href="@Url.Action("AddToCart","Home",new { type = "VGA",ItemId = item.Id,Quantity = 1 , price = item.Price , Id = item.Id , Name = item.Name , Image = item.Image})">Add to cart</a></p>
+
                                             </div>
                                         </div>
                                     </div>
@@ -100,7 +102,8 @@
                                             <h5 class="card-title">@item.Name</h5>
                                             <div class="simpleCart_shelfItem">
                                                 <p><i class="item_price">@item.Price</i></p>
-                                                <p><a class="item_add" href="#">Add to cart</a></p>
+                                                <p><a class="item_add" href="@Url.Action("AddToCart","Home",new { type = "CPU",ItemId = item.Id,Quantity = 1 , price = item.Price , Id = item.Id , Name = item.Name , Image = item.Image})">Add to cart</a></p>
+
                                             </div>
                                         </div>
                                     </div>
@@ -124,7 +127,8 @@
                                             <h5 class="card-title">@item.Name</h5>
                                             <div class="simpleCart_shelfItem">
                                                 <p><i class="item_price">@item.Price</i></p>
-                                                <p><a class="item_add" href="#">Add to cart</a></p>
+                                                <p><a class="item_add" href="@Url.Action("AddToCart","Home",new { type = "Case",ItemId = item.Id,Quantity = 1 , price = item.Price , Id = item.Id , Name = item.Name , Image = item.Image})">Add to cart</a></p>
+
                                             </div>
                                         </div>
                                     </div>
@@ -253,13 +257,14 @@
                                 <div class="col-md-4 agile_ecommerce_tab_left" style="width:255px;height: 340px;background-color: transparent;">
                                     <div class="card" style="width: 215px;">
                                         <a href="@Url.Action("Index","Computer",new { name = item.Name })">
-                                            <img class="card-img-top" src="~/Content/Pictures/Laptop/@item.Image" style="width: 200px;height:215px;mix-blend-mode: multiply;" alt="Card image cap">
+                                            <img class="card-img-top" src="~/Content/Pictures/Computer/@item.Image" style="width: 200px;height:215px;mix-blend-mode: multiply;" alt="Card image cap">
                                         </a>
                                         <div class="card-body">
                                             <h5 class="card-title">@item.Name</h5>
                                             <div class="simpleCart_shelfItem">
                                                 <p> <i class="item_price">@item.Price</i></p>
-                                                <p><a class="item_add" href="#" style="bottom: 5px;">Add to cart</a></p>
+                                                <p><a class="item_add" href="@Url.Action("AddToCart","Home",new { type = "Computer",ItemId = item.Id,Quantity = 1 , price = item.Price , Id = item.Id , Name = item.Name , Image = item.Image})">Add to cart</a></p>
+
                                             </div>
                                         </div>
                                     </div>

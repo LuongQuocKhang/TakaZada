@@ -35,14 +35,14 @@
         <div class="col-md-4 single-left">
             <div class="flexslider">
                 <ul class="slides">
-                    <li data-thumb="/Content/Pictures/Laptop/@SelectedComputer.Image">
-                        <div class="thumb-image"> <img src="~/Content/Pictures/Laptop/@SelectedComputer.Image" data-imagezoom="true" class="img-responsive"> </div>
+                    <li data-thumb="/Content/Pictures/Computer/@SelectedComputer.Image">
+                        <div class="thumb-image"> <img src="~/Content/Pictures/Computer/@SelectedComputer.Image" data-imagezoom="true" class="img-responsive"> </div>
                     </li>
-                    <li data-thumb="/Content/Pictures/Laptop/@SelectedComputer.Image">
-                        <div class="thumb-image"> <img src="~/Content/Pictures/Laptop/@SelectedComputer.Image" data-imagezoom="true" class="img-responsive"> </div>
+                    <li data-thumb="/Content/Pictures/Computer/@SelectedComputer.Image">
+                        <div class="thumb-image"> <img src="~/Content/Pictures/Computer/@SelectedComputer.Image" data-imagezoom="true" class="img-responsive"> </div>
                     </li>
-                    <li data-thumb="/Content/Pictures/Laptop/@SelectedComputer.Image">
-                        <div class="thumb-image"> <img src="~/Content/Pictures/Laptop/@SelectedComputer.Image" data-imagezoom="true" class="img-responsive"> </div>
+                    <li data-thumb="/Content/Pictures/Computer/@SelectedComputer.Image">
+                        <div class="thumb-image"> <img src="~/Content/Pictures/Computer/@SelectedComputer.Image" data-imagezoom="true" class="img-responsive"> </div>
                     </li>
                 </ul>
             </div>
@@ -141,7 +141,8 @@
                         @SelectedComputer.Description
                     </p>
                 </div>
-
+                <input type="hidden" name="Name" id="Name" value="@SelectedComputer.Name" />
+                <input type="hidden" name="Image" id="Image" value="@SelectedComputer.Image" />
                 <div class="tab-2 resp-tab-content additional_info_grid" aria-labelledby="tab_item-1">
                     <h4>Chi tiết sản phẩm</h4>
                     <h3>@SelectedComputer.Name</h3>
@@ -316,12 +317,12 @@
                     <div class="w3l_related_products_grid">
                         <div class="agile_ecommerce_tab_left dresses_grid">
                             <div class="hs-wrapper3">
-                                <img src="~/Content/Pictures/Laptop/@item.Image" alt=" " class="img-responsive">
+                                <img src="~/Content/Pictures/Computer/@item.Image" alt=" " class="img-responsive">
                             </div>
                             <h5><a href="@Url.Action("Details","Computer",new { Id = item.Id})">@item.Name</a></h5>
                             <div class="simpleCart_shelfItem">
                                 <p class="flexisel_ecommerce_cart"><i class="item_price">@item.Price</i></p>
-                                <p><a class="item_add" href="@Url.Action("AddToCart","Home",new { type = "Computer",ItemId = item.Id,Quantity = 1 , price = item.Price , Id = SelectedComputer.Id})">Add to cart</a></p>
+                                <p><a class="item_add" href="@Url.Action("AddToCart","Home",new { type = "Computer",ItemId = item.Id,Quantity = 1 , price = item.Price , Id = SelectedComputer.Id,Name = item.Name,Image = item.Image})">Add to cart</a></p>
                             </div>
                         </div>
                     </div>
@@ -359,13 +360,13 @@
         <script src="~/Scripts/js/jquery.flexisel.js"></script>
     </div>
 </div>
-<script>
+<script charset="utf-8">
     $("#btnBuy").on('click', function () {
-            $.ajax(
-                {
-                    url: "@Request.Url.GetLeftPart(UriPartial.Authority)" + "@Url.Action("AddToCart", "Home")",
-                    method: "POST",
-                    data: { "type": "Computer", "ItemId": "@SelectedComputer.Id", "Quantity": $(".value1").text(), "price": "@SelectedComputer.Price", "Id": "@SelectedComputer.Id" },
+        $.ajax(
+            {
+                url: "@Request.Url.GetLeftPart(UriPartial.Authority)" + "@Url.Action("AddToCart", "Home")",
+                method: "POST",
+                data: { "type": "Computer", "ItemId": "@SelectedComputer.Id", "Quantity": $(".value1").text(), "price": "@SelectedComputer.Price", "Id": "@SelectedComputer.Id", "Name": $("#Name").val(), "Image": $("#Image").val() },
                     success: function (response) {
                         if (response != null && response.result == true) {
                             $(function () {

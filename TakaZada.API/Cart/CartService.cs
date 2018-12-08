@@ -16,7 +16,7 @@ namespace TakaZada.API.Cart
                 using (var db = new DBContext())
                 {
                     string id = details.ItemId.ToString();
-                    var item = db.CartDetails.FirstOrDefault(x => x.ItemId == id);
+                    var item = db.CartDetails.FirstOrDefault(x => x.ItemId == id && x.type == details.type);
                     if (item == null)
                     {
                         db.CartDetails.Add(details);
@@ -34,9 +34,9 @@ namespace TakaZada.API.Cart
             return false;
         }
 
-        public CartDetails CreateCartDetails(string type, int CartId, string ItemId, int Quantity, string price)
+        public CartDetails CreateCartDetails(string type, int CartId, string ItemId, int Quantity, string price,string Name , string Image)
         {
-            return new CartDetails() { type = type, CartId = CartId, ItemId = ItemId, Quantity = Quantity, price = price };
+            return new CartDetails() { type = type, CartId = CartId, ItemId = ItemId, Quantity = Quantity, price = price , Name  = Name , Image = Image };
         }
 
         public Core.Models.Cart LoadCartByEmail(string Email)

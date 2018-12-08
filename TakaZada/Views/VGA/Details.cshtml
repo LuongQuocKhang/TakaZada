@@ -140,7 +140,8 @@
                         @SelectedVGA.Description
                     </p>
                 </div>
-
+                <input type="hidden" name="Name" id="Name" value="@SelectedVGA.Name" />
+                <input type="hidden" name="Image" id="Image" value="@SelectedVGA.Image" />
                 <div class="tab-2 resp-tab-content additional_info_grid" aria-labelledby="tab_item-1">
                     <h4>Chi tiết sản phẩm</h4>
                     <h3>@SelectedVGA.Name</h3>
@@ -181,7 +182,7 @@
                                     ChipsetManufacturer
                                 </td>
                                 <td style="column-span:all;">
-                                    @SelectedVGA.ChipsetManufacturer    
+                                    @SelectedVGA.ChipsetManufacturer
                                 </td>
                             </tr>
                             <tr>
@@ -223,7 +224,7 @@
                                 <td style="column-span:all;">
                                     @SelectedVGA.RamType
                                 </td>
-                            </tr> 
+                            </tr>
                             <tr>
                                 <td>
                                     MaxResolution
@@ -288,7 +289,7 @@
                             <h5><a href="@Url.Action("Details", "VGA", new { Id = item.Id })">@item.Name</a></h5>
                             <div class="simpleCart_shelfItem">
                                 <p class="flexisel_ecommerce_cart"><i class="item_price">@item.Price</i></p>
-                                <p><a class="item_add" href="@Url.Action("AddToCart","Home",new { type = "VGA",ItemId = SelectedVGA.Id,Quantity = 1 , price = SelectedVGA.Price , Id = SelectedVGA.Id})">Add to cart</a></p>
+                                <p><a class="item_add" href="@Url.Action("AddToCart","Home",new { type = "VGA",ItemId = SelectedVGA.Id,Quantity = 1 , price = SelectedVGA.Price , Id = SelectedVGA.Id,Name = item.Name,Image = item.Image})">Add to cart</a></p>
                             </div>
                         </div>
                     </div>
@@ -332,7 +333,7 @@
                 {
                     url: "@Request.Url.GetLeftPart(UriPartial.Authority)" + "@Url.Action("AddToCart", "Home")",
                     method: "POST",
-                    data: { "type": "VGA", "ItemId": "@SelectedVGA.Id", "Quantity": $(".value1").text(), "price": "@SelectedVGA.Price", "Id": "@SelectedVGA.Id" },
+                    data: { "type": "VGA", "ItemId": "@SelectedVGA.Id", "Quantity": $(".value1").text(), "price": "@SelectedVGA.Price", "Id": "@SelectedVGA.Id", "Name": $("#Name").val(), "Image": $("#Image").val() },
                     success: function (response) {
                         if (response != null && response.result == true) {
                             $(function () {
