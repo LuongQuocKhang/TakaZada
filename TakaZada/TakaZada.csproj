@@ -166,6 +166,7 @@
     <Compile Include="Areas\Admin\Controllers\RadiatorController.cs" />
     <Compile Include="Areas\Admin\Controllers\RAMController.cs" />
     <Compile Include="Areas\Admin\Controllers\VGAController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CaseController.cs" />
     <Compile Include="Controllers\ComputerController.cs" />
     <Compile Include="Controllers\CPUController.cs" />
@@ -2092,6 +2093,7 @@
     <Content Include="Views\News\Index.cshtml" />
     <Content Include="Views\News\Consult.cshtml" />
     <Content Include="Views\Home\Cart.cshtml" />
+    <Content Include="Views\Cart\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

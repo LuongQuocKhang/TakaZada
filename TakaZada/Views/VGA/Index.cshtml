@@ -132,7 +132,7 @@
                                 <h5><a href="@Url.Action("Details", "VGA", new { Id = item.Id })">@item.Name</a></h5>
                                 <div class="simpleCart_shelfItem">
                                     <p><span>$420</span> <i class="item_price">@item.Price</i></p>
-                                    <p><a class="item_add" href="@Url.Action("AddToCart","Home",new { type = "VGA",ItemId = item.Id,Quantity = 1 , price = item.Price , Id = item.Id , Name = item.Name , Image = item.Image})">Add to cart</a></p>
+                                    <p><a class="item_add" href="@Url.Action("AddToCart","Cart",new { type = "VGA",ItemId = item.Id,Quantity = 1 , price = item.Price , Id = item.Id , Name = item.Name , Image = item.Image})">Add to cart</a></p>
                                 </div>
                             </div>
                         </div>

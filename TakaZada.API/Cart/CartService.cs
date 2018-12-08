@@ -57,12 +57,12 @@ namespace TakaZada.API.Cart
             return cart;
         }
 
-        public CartDetails LoadCartDetails(int Id)
+        public IEnumerable<CartDetails> LoadCartDetails(int Id)
         {
-            Core.Models.CartDetails CartDetails = null;
+            List<Core.Models.CartDetails> CartDetails = null;
             using (var db = new DBContext())
             {
-                CartDetails = db.CartDetails.FirstOrDefault(x => x.CartId == Id);
+                CartDetails = db.CartDetails.Where(x => x.CartId == Id).ToList();
             }
             return CartDetails;
         }

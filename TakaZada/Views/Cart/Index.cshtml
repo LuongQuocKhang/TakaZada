@@ -1,0 +1,104 @@
+﻿@using TakaZada.Core.Models
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var Cart = (TakaZada.Core.Models.Cart)ViewBag.Cart;
+    var CartDetails = (List<TakaZada.Core.Models.CartDetails>)ViewBag.CartDetails;
+    double price = 0.0;
+}
+<div class="checkout">
+    <div class="container">
+        <h3>Your shopping cart contains: <span>3 Products</span></h3>
+
+        <div class="checkout-right">
+            <table class="timetable_sub">
+                <thead>
+                    <tr>
+                        <th>Item id</th>
+                        <th>Image</th>
+                        <th>Type</th>
+                        <th>Service Charges</th>
+                        <th>Price</th>
+                        <th>Remove</th>
+                    </tr>
+                </thead>
+                @for (int i = 0; i < CartDetails.Count; i++)
+                {
+                <tr class="rem@(i + 1)">
+                    <td class="invert">1</td>
+                    <td class="invert-image">
+                        <a href="single.html">
+                            <img src="~/Content/Pictures/@CartDetails[i].type/@CartDetails[i].Image" alt=" " class="img-responsive" style=" width: 150px;height: 150px;" />
+                        </a>
+                    </td>
+                    <td class="invert">
+                        <div class="quantity">
+                            <div class="quantity-select">
+                                <div class="entry value-minus" id="@(i + 1)">&nbsp;</div>
+                                <div class="entry value"><span>@CartDetails[i].Quantity</span></div>
+                                <div class="entry value-plus active" id="@(i + 1)">&nbsp;</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="invert">$5.00</td>
+                    <td class="invert">@CartDetails[i].price</td>
+                    <td class="invert">
+                        <div class="rem@(i + 1) rem" style="height: 164px;">
+                            <div class="close@(i + 1) close" style="margin-right: 75px;margin-top: 65px;"> </div>
+                        </div>
+                        <script>
+                                $(document).ready(function (c) {
+                                    $('.close@(i + 1)').on('click', function (c) {
+                                        $('.rem@(i + 1)').fadeOut('slow', function (c) {
+                                            $('.rem@(i + 1)').remove();
+                                        });
+                                    });
+                                });
+                        </script>
+                    </td>
+                    <script>
+                        $("#@(i + 1).value-plus ").on('click', function () {
+                            var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10) + 1;
+                            divUpd.text(newVal);
+                        });
+                        $("#@(i + 1).value-minus ").on('click', function () {
+                            var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10) - 1;
+                            if (newVal >= 1) divUpd.text(newVal);
+                        });
+                    </script>
+                </tr>
+                    <!--quantity-->
+
+                }
+                <!--quantity-->
+            </table>
+        </div>
+        <div class="checkout-left">
+            <div class="checkout-left-basket">
+                <h4>Continue to basket</h4>
+                <ul>
+                    @{ 
+                        double total = 0.0;
+                    }
+                    @foreach (var item in CartDetails)
+                    {
+                        {
+                            price += Int32.Parse(item.price.Replace(".", "").Replace("đ", ""));
+                        }
+                        <li>item.Name <i>-</i> <span> @(price*@item.Quantity) </span></li>
+                        { 
+                            total += price * item.Quantity;
+                        }
+                            }
+                    <li>Total Service Charges <i>-</i> <span>15.000 đ</span></li>
+                    <li>Total <i>-</i> <span> @(total + 15000)</span></li>
+                </ul>
+            </div>
+            <div class="checkout-right-basket">
+                <a href="products.html"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>Continue Shopping</a>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+</div>

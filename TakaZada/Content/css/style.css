@@ -2542,14 +2542,11 @@ td.invert-image a img {
 .rem{
 	position:relative;
 }
-.close1,.close2,.close3 {
+.close1,.close2,.close3 ,.close {
     background: url('../images/close.png') no-repeat 0px 0px;
     cursor: pointer;
     width: 32px;
     height: 32px;
-    position: absolute;
-    right: 15px;
-    top: -13px;
     -webkit-transition: color 0.2s ease-in-out;
     -moz-transition: color 0.2s ease-in-out;
     -o-transition: color 0.2s ease-in-out;
@@ -3833,7 +3830,7 @@ td.invert-image a img {
 		border-right: none;
 		border-bottom: none;
 	}
-	tr.rem1, tr.rem2, tr.rem3 {
+	tr.rem1, tr.rem2, tr.rem3 , tr.rem {
 		border: 1px solid #D7D7D7;
 		padding-bottom: 2em;
 		display: block;
@@ -3843,8 +3840,7 @@ td.invert-image a img {
 		border: none;
 	}
 	.close1, .close2, .close3 {
-		right: 190px;
-		top: -4px;
+		
 	}
 	.timetable_sub th:nth-child(1) {
 		border-left: none;
@@ -3914,7 +3910,7 @@ td.invert-image a img {
 		padding: 0em 1em 1em;
 	}
 	.close1, .close2, .close3 {
-		right: 160px;
+		
 	}
 	.w3agile_special_deals_grid_left_grid_pos1 {
 		width: 60px;
@@ -4075,7 +4071,7 @@ td.invert-image a img {
 		padding: 0;
 	}
 	.close1, .close2, .close3 {
-		right: 145px;
+		
 	}
 }
 @media (max-width:375px){
@@ -4105,7 +4101,7 @@ td.invert-image a img {
 		padding: 0em 1em 2em;
 	}
 	.close1, .close2, .close3 {
-		right: 139px;
+		
 	}
 	.resp-tab-item {
 		padding: 5px 19px;
@@ -4322,6 +4318,6 @@ td.invert-image a img {
 		font-size: 14px;
 	}
 	.close1, .close2, .close3 {
-		right: 111px;
+		
 	}
 }

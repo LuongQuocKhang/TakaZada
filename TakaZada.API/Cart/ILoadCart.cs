@@ -9,6 +9,6 @@ namespace TakaZada.API.Cart
     public interface ILoadCart
     {
         TakaZada.Core.Models.Cart LoadCartByEmail(string Email);
-        TakaZada.Core.Models.CartDetails LoadCartDetails(int Id);
+        IEnumerable<TakaZada.Core.Models.CartDetails> LoadCartDetails(int Id);
     } 
 }
