@@ -60,11 +60,37 @@
                                     <div class="tab-2 resp-tab-content" aria-labelledby="tab_item-1">
                                         <div class="facts">
                                             <div class="register">
-                                                <form action="#" method="post">
-                                                    <input placeholder="Name" name="Name" id="Name" type="text" required="">
-                                                    <input placeholder="Email Address" name="Email" id="EmailRes" type="email" required="">
-                                                    <input placeholder="Password" name="Password" id="PasswordPes" type="password" required="">
-                                                    <input placeholder="Confirm Password" name="ComfirmPassword" id="ComfirmPassword" type="password" required="">
+                                                <form action="@Url.Action("Register","Home")" method="post">
+                                                    <div class="form-group">
+                                                        <input placeholder="First Name" name="FirstName" id="FirstName" type="text" required="">
+                                                    </div>
+                                                    <input placeholder="Last Name" name="LastName" id="LastName" type="text" required="">
+
+                                                    <input placeholder="Email Address" name="EmailRes" id="EmailRes" type="email" required="">
+                                                    <input placeholder="Password" name="PasswordPes" id="PasswordPes" type="password" required="">
+
+                                                    <div class="form-group">
+                                                        <input placeholder="Confirm Password" name="ComfirmPassword" id="ComfirmPassword" type="password" required="">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input placeholder="Phonenumber" name="Phonenumber" id="Phonenumber" type="text">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <select class="form-control" id="Sex" name="Sex">
+                                                            <option>Male</option>
+                                                            <option>Female</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="input-group date margin-bottom-5 date-picker" data-date-format="dd/mm/yyyy">
+                                                            <input type="text" class="form-control form-filter input-sm" name="DateOfBirth" id="DateOfBirth" placeholder="Date Of Birth" value="">
+                                                            <span class="input-group-btn">
+                                                                <button class="btn btn-sm default form-control" type="button">
+                                                                    <i class="fa fa-calendar"></i>
+                                                                </button>
+                                                            </span>
+                                                        </div>
+                                                    </div>
                                                     <div class="sign-up">
                                                         <input type="submit" value="Create Account" />
                                                     </div>
@@ -111,6 +137,9 @@
         </div>
     </div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
 <script>
-                //$('#myModal88').modal('show');
+    $('.date-picker').datepicker({
+        autoclose: true
+    });
 </script>

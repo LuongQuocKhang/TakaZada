@@ -9,6 +9,7 @@ using TakaZada.API.Handle;
 using TakaZada.API.RAM;
 using TakaZada.API.VGA;
 using TakaZada.Core;
+using System.Globalization;
 
 namespace TakaZada.Controllers
 {
@@ -78,6 +79,26 @@ namespace TakaZada.Controllers
         public ActionResult Logout()
         {
             Session[Constants.USER_SESSION] = null;
+            return RedirectToAction("Index");
+        }
+        public ActionResult register()
+        {
+            string FirstName = Request.Form["FirstName"], LastName = Request.Form["FirstName"],
+                   Password = Request.Form["PasswordPes"], ComfirmPas = Request.Form["ComfirmPassword"],
+                   Email = Request.Form["EmailRes"],
+                   Phonenumber = Request.Form["Phonenumber"], Sex = Request.Form["Sex"], DateOfBirth = Request.Form["DateOfBirth"];
+            DateTime time = DateTime.Now;
+            if (Password != ComfirmPas) RedirectToAction("Index");
+            try
+            {
+                time = DateTime.ParseExact(DateOfBirth + " 00:00:00", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture);
+            }
+            catch (Exception e) { }
+
+            if ( _LogService.register(FirstName, LastName,Email, Password, Phonenumber,Sex,time))
+            {
+                return RedirectToAction("Index");
+            }
             return RedirectToAction("Index");
         }
 
