@@ -7,14 +7,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 html, body{
     font-size: 100%;
 	background:	#fff;
-	font-family:'Open Sans', sans-serif;
+	font-family: Arial;
 }
 p{
 	margin:0;
 	font-size:14px;
 }
 h1,h2,h3,h4,h5,h6{
-	font-family: 'Glegoo', serif;
+	font-family: Arial;
 	margin:0;
 }
 ul,label{
@@ -496,7 +496,7 @@ ul.multi-column-dropdown h6 {
 .nav-tabs > li > a {
     font-size: 1em;
     color: #212121;
-    font-family: 'Glegoo', serif;
+    font-family: Arial;
     text-transform: uppercase;
     letter-spacing: 2px;
 	border-radius: 0;

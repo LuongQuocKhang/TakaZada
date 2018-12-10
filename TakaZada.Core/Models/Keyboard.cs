@@ -29,5 +29,6 @@ namespace TakaZada.Core.Models
 
         [StringLength(50)]
         public string Price { get; set; }
+        public int Quantity { get; set; }
     }
 }

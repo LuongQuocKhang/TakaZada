@@ -26,6 +26,29 @@ namespace TakaZada.API.Cart
                         var update = db.CartDetails.FirstOrDefault(x => x.ItemId == id && x.type == details.type);
                         update.Quantity += details.Quantity;
                     }
+                    switch (details.type)
+                    {
+                        case "Case":
+                            var update = db.Cases.FirstOrDefault(x => x.Id.ToString() == id);
+                            break;
+                        case "Computer":
+                            break;
+                        case "CPU":
+                            break;
+                        case "Hardware":
+                            break;
+                        case "Keyboard":
+                            break;
+                        case "Mainboard":
+                            break;
+                        case "Radiator":
+                            break;
+                        case "RAM":
+                            break;
+                        case "VGA":
+                            break;
+                    }
+
                     db.SaveChanges();
                     return true;
                 }

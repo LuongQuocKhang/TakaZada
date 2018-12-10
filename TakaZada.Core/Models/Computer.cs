@@ -83,5 +83,6 @@ namespace TakaZada.Core.Models
 
         [StringLength(4000)]
         public string Description { get; set; }
+        public int Quantity { get; set; }
     }
 }

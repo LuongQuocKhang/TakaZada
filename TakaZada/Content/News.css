@@ -183,7 +183,7 @@ body {
 }
 
 @font-face {
-    font-family: myFont;
+    font-family: Arial;
     src: url(SVN-Beast.ttf);
 }
 
@@ -192,7 +192,7 @@ body {
     -webkit-perspective: 400px;
     perspective: 400px;
     padding-left: 17px;
-    font-family: myFont;
+    font-family: Arial;
     font-weight: bold;
     font-size: 36px;
     color: black;

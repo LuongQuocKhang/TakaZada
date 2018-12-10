@@ -1,4 +1,4 @@
-﻿@using TakaZada.Core.Models
+﻿`@using TakaZada.Core.Models
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -17,6 +17,7 @@
                     <tr>
                         <th>Item id</th>
                         <th>Image</th>
+                        <th>Name</th>
                         <th>Type</th>
                         <th>Service Charges</th>
                         <th>Price</th>
@@ -32,6 +33,7 @@
                             <img src="~/Content/Pictures/@CartDetails[i].type/@CartDetails[i].Image" alt=" " class="img-responsive" style=" width: 150px;height: 150px;" />
                         </a>
                     </td>
+                    <td class="invert">@CartDetails[i].Name</td>
                     <td class="invert">
                         <div class="quantity">
                             <div class="quantity-select">
@@ -45,7 +47,7 @@
                     <td class="invert">@CartDetails[i].price</td>
                     <td class="invert">
                         <div class="rem@(i + 1) rem" style="height: 164px;">
-                            <div class="close@(i + 1) close" style="margin-right: 75px;margin-top: 65px;"> </div>
+                            <div class="close@(i + 1) close" style="margin-right: 15px;margin-top: 65px;"> </div>
                         </div>
                         <script>
                                 $(document).ready(function (c) {
@@ -86,17 +88,17 @@
                         {
                             price += Int32.Parse(item.price.Replace(".", "").Replace("đ", ""));
                         }
-                        <li>item.Name <i>-</i> <span> @(price*@item.Quantity) </span></li>
+                        <li>@item.Name  <i>-</i> <span> @(price*@item.Quantity) đ </span></li>
                         { 
                             total += price * item.Quantity;
                         }
                             }
                     <li>Total Service Charges <i>-</i> <span>15.000 đ</span></li>
-                    <li>Total <i>-</i> <span> @(total + 15000)</span></li>
+                    <li>Total <i>-</i> <span> @(total + 15000) đ</span></li>
                 </ul>
             </div>
             <div class="checkout-right-basket">
-                <a href="products.html"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>Continue Shopping</a>
+                <a href="@Url.Action("Index","Home")"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>Continue Shopping</a>
             </div>
             <div class="clearfix"> </div>
         </div>
