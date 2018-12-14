@@ -119,6 +119,8 @@
     <Compile Include="Mainboard\IMainboardLoad.cs" />
     <Compile Include="Mainboard\IMainboardReponsitory.cs" />
     <Compile Include="Mainboard\MainboardService.cs" />
+    <Compile Include="News\ILoadNew.cs" />
+    <Compile Include="News\NewService.cs" />
     <Compile Include="Radiator\IRadiatorLoad.cs" />
     <Compile Include="Radiator\IRadiatorReponsitory.cs" />
     <Compile Include="Radiator\RadiatorService.cs" />

@@ -1,101 +1,99 @@
 ﻿<link href="~/Content/News.css" rel="stylesheet" />
+@using TakaZada.Core.Models
+@{
+    var ListPerformance = (List<New>)ViewBag.PerformanceNew;
+    var ListHotNews = (List<New>)ViewBag.HotNews;
+    var ListOverHeat = (List<New>)ViewBag.OverHeat;
+    var ListComponent = (List<New>)ViewBag.Component;
+    var ListOther = (List<New>)ViewBag.Other;
+    int count = 0;
+}
 <div class="container">
-    <h1>
-        <span><strong>Welcome to TKZL</strong></span>
-    </h1>
-</div>
-
-<div class="container">
-    <div class="row">
-        <div class="col-sm-6 col-md-6 col-lg-6">
-            <div class="thumbnail img-thumb-bg">
-                <div class="overlay"></div>
-                <div class="caption">
-                    <div class="tag"><a href="#">Real Estate</a></div>
-                    <div class="title"><a href="#">Gorgeous Ensea House in California</a></div>
-                    <div class="clearfix">
-                        <span class="meta-data">By <a href="">Admin</a>on 29/06/2016</span>
-                        <span class="meta-data pull-right"><a href=""><i class="fa fa-heart-o"></i> 4</a></span>
-                    </div>
-                    <div class="content">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo nulla porro qui quo expedita voluptas ab iure dolore.</p>
-                    </div>
+    <div class="col-sm-6 col-md-6 col-lg-6">
+        <div class="thumbnail img-thumb-bg" style="height: 418px; background-image: url('../../Content/Pictures/News/@ListHotNews[0].Image');">
+            <div class="overlay"></div>
+            <div class="caption">
+                <div class="tag"><a href="#">@ListHotNews[0].Type</a></div>
+                <div class="title"><a href="#">@ListHotNews[0].Title</a></div>
+                <div class="clearfix">
+                    <span class="meta-data">By <a href="">Admin</a>on 12/12/2018</span>
+                    <span class="meta-data pull-right"><a href=""><i class="fa fa-heart-o"></i> 4</a></span>
+                </div>
+                <div class="content">
+                    <p>@ListHotNews[0].BriefDetail</p>
                 </div>
             </div>
         </div>
-        <div class="col-lg-3 col-md-3 col-sm-3">
-            <div class="thumbnail img-thumb-bg">
-                <div class="overlay"></div>
-                <div class="caption">
-                    <div class="tag"><a href="#">Real Estate</a></div>
-                    <div class="title"><a href="#">Gorgeous Ensea House in California</a></div>
-                    <div class="clearfix">
-                        <span class="meta-data">By <a href="">Admin</a>on 29/06/2016</span>
-                        <span class="meta-data pull-right"><a href=""><i class="fa fa-heart-o"></i> 4</a></span>
-                    </div>
-                    <div class="content">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo nulla porro qui quo expedita voluptas ab iure dolore.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-3 col-sm-3">
-            <div class="thumbnail img-thumb-bg">
-                <div class="overlay"></div>
-                <div class="caption">
-                    <div class="tag"><a href="#">Real Estate</a></div>
-                    <div class="title"><a href="#">Gorgeous Ensea House in California</a></div>
-                    <div class="clearfix">
-                        <span class="meta-data">By <a href="">Admin</a>on 29/06/2016</span>
-                        <span class="meta-data pull-right"><a href=""><i class="fa fa-heart-o"></i> 4</a></span>
-                    </div>
-                    <div class="content">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo nulla porro qui quo expedita voluptas ab iure dolore.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div>
-            <div class="container">
-                <div class="row">
-
-                    <div class="col-lg-3 col-md-3 col-sm-3 col-md-offset-6 ">
-                        <div class="thumbnail img-thumb-bg">
-                            <div class="overlay"></div>
-                            <div class="caption">
-                                <div class="tag"><a href="#">Real Estate</a></div>
-                                <div class="title"><a href="#">Gorgeous Ensea House in California</a></div>
-                                <div class="clearfix">
-                                    <span class="meta-data">By <a href="">Admin</a>on 29/06/2016</span>
-                                    <span class="meta-data pull-right"><a href=""><i class="fa fa-heart-o"></i> 4</a></span>
-                                </div>
-                                <div class="content">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo nulla porro qui quo expedita voluptas ab iure dolore.</p>
-                                </div>
-                            </div>
+    </div>
+    <div class="col-sm-6 col-md-6 col-lg-6">
+        <div class="row">
+            <div class="col-sm-6 col-md-6 col-lg-6">
+                <div class="thumbnail img-thumb-bg" style="background-image: url('../../Content/Pictures/News/@ListHotNews[1].Image');">
+                    <div class="overlay"></div>
+                    <div class="caption">
+                        <div class="tag"><a href="#">@ListHotNews[1].Type</a></div>
+                        <div class="title"><a href="#">@ListHotNews[1].Title</a></div>
+                        <div class="clearfix">
+                            <span class="meta-data">By <a href="">Admin</a>on 29/06/2016</span>
+                            <span class="meta-data pull-right"><a href=""><i class="fa fa-heart-o"></i> 4</a></span>
                         </div>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-3">
-                        <div class="thumbnail img-thumb-bg">
-                            <div class="overlay"></div>
-                            <div class="caption">
-                                <div class="tag"><a href="#">Real Estate</a></div>
-                                <div class="title"><a href="#">Gorgeous Ensea House in California</a></div>
-                                <div class="clearfix">
-                                    <span class="meta-data">By <a href="">Admin</a>on 29/06/2016</span>
-                                    <span class="meta-data pull-right"><a href=""><i class="fa fa-heart-o"></i> 4</a></span>
-                                </div>
-                                <div class="content">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo nulla porro qui quo expedita voluptas ab iure dolore.</p>
-                                </div>
-                            </div>
+                        <div class="content">
+                            <p>@ListHotNews[1].BriefDetail</p>
                         </div>
                     </div>
                 </div>
             </div>
-
+            <div class="col-sm-6 col-md-6 col-lg-6">
+                <div class="thumbnail img-thumb-bg" style="background-image: url('../../Content/Pictures/News/@ListHotNews[2].Image');">
+                    <div class="overlay"></div>
+                    <div class="caption">
+                        <div class="tag"><a href="#">@ListHotNews[2].Type</a></div>
+                        <div class="title"><a href="#">@ListHotNews[2].Title</a></div>
+                        <div class="clearfix">
+                            <span class="meta-data">By <a href="">Admin</a>on 29/06/2016</span>
+                            <span class="meta-data pull-right"><a href=""><i class="fa fa-heart-o"></i> 4</a></span>
+                        </div>
+                        <div class="content">
+                            <p>@ListHotNews[2].BriefDetail</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-
+        <div class="row">
+            <div class="col-sm-6 col-md-6 col-lg-6">
+                <div class="thumbnail img-thumb-bg" style="background-image: url('../../Content/Pictures/News/@ListHotNews[3].Image');">
+                    <div class="overlay"></div>
+                    <div class="caption">
+                        <div class="tag"><a href="#">@ListHotNews[3].Type</a></div>
+                        <div class="title"><a href="#">@ListHotNews[3].Title</a></div>
+                        <div class="clearfix">
+                            <span class="meta-data">By <a href="">Admin</a>on 29/06/2016</span>
+                            <span class="meta-data pull-right"><a href=""><i class="fa fa-heart-o"></i> 4</a></span>
+                        </div>
+                        <div class="content">
+                            <p>@ListHotNews[3].BriefDetail</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-6">
+                <div class="thumbnail img-thumb-bg" style="background-image: url('../../Content/Pictures/News/@ListHotNews[4].Image');">
+                    <div class="overlay"></div>
+                    <div class="caption">
+                        <div class="tag"><a href="#">@ListHotNews[4].Type</a></div>
+                        <div class="title"><a href="#">@ListHotNews[4].Title</a></div>
+                        <div class="clearfix">
+                            <span class="meta-data">By <a href="">Admin</a>on 29/06/2016</span>
+                            <span class="meta-data pull-right"><a href=""><i class="fa fa-heart-o"></i> 4</a></span>
+                        </div>
+                        <div class="content">
+                            <p>@ListHotNews[4].BriefDetail</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -109,162 +107,49 @@
         <div class='col-md-12'>
             <div class="carousel slide media-carousel" id="media">
                 <div class="carousel-inner">
-                    <div class="item  active">
-                        <div class="row">
-                            <div class="col-lg-4 col-md-4 col-sm-4">
-                                <div class="thumbnail img-thumb-bg">
-                                    <div class="overlay"></div>
-                                    <div class="caption">
-                                        <div class="tag"><a href="#">Real Estate</a></div>
-                                        <div class="title"><a href="#">Gorgeous Ensea House in California</a></div>
-                                        <div class="clearfix">
-                                            <span class="meta-data">By <a href="">Admin</a>on 29/06/2016</span>
-                                            <span class="meta-data pull-right"><a href=""><i class="fa fa-heart-o"></i> 4</a></span>
-                                        </div>
-                                        <div class="content">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo nulla porro qui quo expedita voluptas ab iure dolore.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-4">
-                                <div class="thumbnail img-thumb-bg">
-                                    <div class="overlay"></div>
-                                    <div class="caption">
-                                        <div class="tag"><a href="#">Real Estate</a></div>
-                                        <div class="title"><a href="#">Gorgeous Ensea House in California</a></div>
-                                        <div class="clearfix">
-                                            <span class="meta-data">By <a href="">Admin</a>on 29/06/2016</span>
-                                            <span class="meta-data pull-right"><a href=""><i class="fa fa-heart-o"></i> 4</a></span>
-                                        </div>
-                                        <div class="content">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo nulla porro qui quo expedita voluptas ab iure dolore.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-4">
-                                <div class="thumbnail img-thumb-bg">
-                                    <div class="overlay"></div>
-                                    <div class="caption">
-                                        <div class="tag"><a href="#">Real Estate</a></div>
-                                        <div class="title"><a href="#">Gorgeous Ensea House in California</a></div>
-                                        <div class="clearfix">
-                                            <span class="meta-data">By <a href="">Admin</a>on 29/06/2016</span>
-                                            <span class="meta-data pull-right"><a href=""><i class="fa fa-heart-o"></i> 4</a></span>
-                                        </div>
-                                        <div class="content">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo nulla porro qui quo expedita voluptas ab iure dolore.</p>
+                    @for (int i = 0; i < ListPerformance.Count; i++)
+                    {
+                        if ((i % 3 == 0 && i != 0) || i == 0)
+                        {
+                            if (i % 3 == 0 && i != 0)
+                            {
+                                @:<div class="item">
+                                    count = 0;
+                                }
+                                else if (i == 0)
+                                {
+                                    @:<div class="item active">
+                                        count = 0;
+                                    }
+
+                                    @:<div class="row">
+                                    }
+                                    var item = ListPerformance[i];
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <div class="thumbnail img-thumb-bg" style="background-image: url('../../Content/Pictures/News/@item.Image');">
+                                            <div class="overlay"></div>
+                                            <div class="caption">
+                                                <div class="tag"><a href="#">Hiệt suất</a></div>
+                                                <div class="title"><a href="#">@item.Title</a></div>
+                                                <div class="clearfix">
+                                                    <span class="meta-data">By <a href="">Admin</a>on 13/12/2018</span>
+                                                    <span class="meta-data pull-right"><a href=""><i class="fa fa-heart-o"></i> 4</a></span>
+                                                </div>
+                                                <div class="content">
+                                                    <p> @item.BriefDetail <p />
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="row">
-                            <div class="col-lg-4 col-md-4 col-sm-4">
-                                <div class="thumbnail img-thumb-bg">
-                                    <div class="overlay"></div>
-                                    <div class="caption">
-                                        <div class="tag"><a href="#">Real Estate</a></div>
-                                        <div class="title"><a href="#">Gorgeous Ensea House in California</a></div>
-                                        <div class="clearfix">
-                                            <span class="meta-data">By <a href="">Admin</a>on 29/06/2016</span>
-                                            <span class="meta-data pull-right"><a href=""><i class="fa fa-heart-o"></i> 4</a></span>
-                                        </div>
-                                        <div class="content">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo nulla porro qui quo expedita voluptas ab iure dolore.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-4">
-                                <div class="thumbnail img-thumb-bg">
-                                    <div class="overlay"></div>
-                                    <div class="caption">
-                                        <div class="tag"><a href="#">Real Estate</a></div>
-                                        <div class="title"><a href="#">Gorgeous Ensea House in California</a></div>
-                                        <div class="clearfix">
-                                            <span class="meta-data">By <a href="">Admin</a>on 29/06/2016</span>
-                                            <span class="meta-data pull-right"><a href=""><i class="fa fa-heart-o"></i> 4</a></span>
-                                        </div>
-                                        <div class="content">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo nulla porro qui quo expedita voluptas ab iure dolore.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-4">
-                                <div class="thumbnail img-thumb-bg">
-                                    <div class="overlay"></div>
-                                    <div class="caption">
-                                        <div class="tag"><a href="#">Real Estate</a></div>
-                                        <div class="title"><a href="#">Gorgeous Ensea House in California</a></div>
-                                        <div class="clearfix">
-                                            <span class="meta-data">By <a href="">Admin</a>on 29/06/2016</span>
-                                            <span class="meta-data pull-right"><a href=""><i class="fa fa-heart-o"></i> 4</a></span>
-                                        </div>
-                                        <div class="content">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo nulla porro qui quo expedita voluptas ab iure dolore.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="row">
-                            <div class="col-lg-4 col-md-4 col-sm-4">
-                                <div class="thumbnail img-thumb-bg">
-                                    <div class="overlay"></div>
-                                    <div class="caption">
-                                        <div class="tag"><a href="#">Real Estate</a></div>
-                                        <div class="title"><a href="#">Gorgeous Ensea House in California</a></div>
-                                        <div class="clearfix">
-                                            <span class="meta-data">By <a href="">Admin</a>on 29/06/2016</span>
-                                            <span class="meta-data pull-right"><a href=""><i class="fa fa-heart-o"></i> 4</a></span>
-                                        </div>
-                                        <div class="content">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo nulla porro qui quo expedita voluptas ab iure dolore.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-4">
-                                <div class="thumbnail img-thumb-bg">
-                                    <div class="overlay"></div>
-                                    <div class="caption">
-                                        <div class="tag"><a href="#">Real Estate</a></div>
-                                        <div class="title"><a href="#">Gorgeous Ensea House in California</a></div>
-                                        <div class="clearfix">
-                                            <span class="meta-data">By <a href="">Admin</a>on 29/06/2016</span>
-                                            <span class="meta-data pull-right"><a href=""><i class="fa fa-heart-o"></i> 4</a></span>
-                                        </div>
-                                        <div class="content">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo nulla porro qui quo expedita voluptas ab iure dolore.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-4">
-                                <div class="thumbnail img-thumb-bg">
-                                    <div class="overlay"></div>
-                                    <div class="caption">
-                                        <div class="tag"><a href="#">Real Estate</a></div>
-                                        <div class="title"><a href="#">Gorgeous Ensea House in California</a></div>
-                                        <div class="clearfix">
-                                            <span class="meta-data">By <a href="">Admin</a>on 29/06/2016</span>
-                                            <span class="meta-data pull-right"><a href=""><i class="fa fa-heart-o"></i> 4</a></span>
-                                        </div>
-                                        <div class="content">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo nulla porro qui quo expedita voluptas ab iure dolore.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                        {
+                            count++;
+                            if (count == 3 || i == ListPerformance.Count - 1)
+                            {
+                                        @:</div>
+                                    @:</div>
+                                }
+                            }
+                        }
                 </div>
                 <a data-slide="prev" href="#media" class="left carousel-control">‹</a>
                 <a data-slide="next" href="#media" class="right carousel-control">›</a>
@@ -272,172 +157,62 @@
         </div>
     </div>
 </div>
+</div>
+
 <div class="container">
     <div class="row">
         <div class="title">
-            <div class="title-word">Máy Tính bị nóng</div>
+            <div class="title-word">Máy tính bị nóng</div>
         </div>
     </div>
     <div class='row'>
         <div class='col-md-12'>
             <div class="carousel slide media-carousel" id="media1">
                 <div class="carousel-inner">
-                    <div class="item  active">
-                        <div class="row">
-                            <div class="col-lg-4 col-md-4 col-sm-4">
-                                <div class="thumbnail img-thumb-bg">
-                                    <div class="overlay"></div>
-                                    <div class="caption">
-                                        <div class="tag"><a href="#">Real Estate</a></div>
-                                        <div class="title"><a href="#">Gorgeous Ensea House in California</a></div>
-                                        <div class="clearfix">
-                                            <span class="meta-data">By <a href="">Admin</a>on 29/06/2016</span>
-                                            <span class="meta-data pull-right"><a href=""><i class="fa fa-heart-o"></i> 4</a></span>
-                                        </div>
-                                        <div class="content">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo nulla porro qui quo expedita voluptas ab iure dolore.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-4">
-                                <div class="thumbnail img-thumb-bg">
-                                    <div class="overlay"></div>
-                                    <div class="caption">
-                                        <div class="tag"><a href="#">Real Estate</a></div>
-                                        <div class="title"><a href="#">Gorgeous Ensea House in California</a></div>
-                                        <div class="clearfix">
-                                            <span class="meta-data">By <a href="">Admin</a>on 29/06/2016</span>
-                                            <span class="meta-data pull-right"><a href=""><i class="fa fa-heart-o"></i> 4</a></span>
-                                        </div>
-                                        <div class="content">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo nulla porro qui quo expedita voluptas ab iure dolore.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-4">
-                                <div class="thumbnail img-thumb-bg">
-                                    <div class="overlay"></div>
-                                    <div class="caption">
-                                        <div class="tag"><a href="#">Real Estate</a></div>
-                                        <div class="title"><a href="#">Gorgeous Ensea House in California</a></div>
-                                        <div class="clearfix">
-                                            <span class="meta-data">By <a href="">Admin</a>on 29/06/2016</span>
-                                            <span class="meta-data pull-right"><a href=""><i class="fa fa-heart-o"></i> 4</a></span>
-                                        </div>
-                                        <div class="content">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo nulla porro qui quo expedita voluptas ab iure dolore.</p>
+                    @{count = 0;}
+                    @for (int i = 0; i < ListOverHeat.Count; i++)
+                    {
+                        if ((i % 3 == 0 && i != 0) || i == 0)
+                        {
+                            if (i % 3 == 0 && i != 0)
+                            {
+                                @:<div class="item">
+                                    count = 0;
+                                }
+                                else if (i == 0)
+                                {
+                                    @:<div class="item active">
+                                        count = 0;
+                                    }
+
+                                    @:<div class="row">
+                                    }
+                                    var item = ListOverHeat[i];
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <div class="thumbnail img-thumb-bg" style="background-image: url('../../Content/Pictures/News/@item.Image');">
+                                            <div class="overlay"></div>
+                                            <div class="caption">
+                                                <div class="tag"><a href="#">Hiệt suất</a></div>
+                                                <div class="title"><a href="#">@item.Title</a></div>
+                                                <div class="clearfix">
+                                                    <span class="meta-data">By <a href="">Admin</a>on 13/12/2018</span>
+                                                    <span class="meta-data pull-right"><a href=""><i class="fa fa-heart-o"></i> 4</a></span>
+                                                </div>
+                                                <div class="content">
+                                                    <p> @item.BriefDetail <p />
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="row">
-                            <div class="col-lg-4 col-md-4 col-sm-4">
-                                <div class="thumbnail img-thumb-bg">
-                                    <div class="overlay"></div>
-                                    <div class="caption">
-                                        <div class="tag"><a href="#">Real Estate</a></div>
-                                        <div class="title"><a href="#">Gorgeous Ensea House in California</a></div>
-                                        <div class="clearfix">
-                                            <span class="meta-data">By <a href="">Admin</a>on 29/06/2016</span>
-                                            <span class="meta-data pull-right"><a href=""><i class="fa fa-heart-o"></i> 4</a></span>
-                                        </div>
-                                        <div class="content">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo nulla porro qui quo expedita voluptas ab iure dolore.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-4">
-                                <div class="thumbnail img-thumb-bg">
-                                    <div class="overlay"></div>
-                                    <div class="caption">
-                                        <div class="tag"><a href="#">Real Estate</a></div>
-                                        <div class="title"><a href="#">Gorgeous Ensea House in California</a></div>
-                                        <div class="clearfix">
-                                            <span class="meta-data">By <a href="">Admin</a>on 29/06/2016</span>
-                                            <span class="meta-data pull-right"><a href=""><i class="fa fa-heart-o"></i> 4</a></span>
-                                        </div>
-                                        <div class="content">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo nulla porro qui quo expedita voluptas ab iure dolore.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-4">
-                                <div class="thumbnail img-thumb-bg">
-                                    <div class="overlay"></div>
-                                    <div class="caption">
-                                        <div class="tag"><a href="#">Real Estate</a></div>
-                                        <div class="title"><a href="#">Gorgeous Ensea House in California</a></div>
-                                        <div class="clearfix">
-                                            <span class="meta-data">By <a href="">Admin</a>on 29/06/2016</span>
-                                            <span class="meta-data pull-right"><a href=""><i class="fa fa-heart-o"></i> 4</a></span>
-                                        </div>
-                                        <div class="content">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo nulla porro qui quo expedita voluptas ab iure dolore.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="row">
-                            <div class="col-lg-4 col-md-4 col-sm-4">
-                                <div class="thumbnail img-thumb-bg">
-                                    <div class="overlay"></div>
-                                    <div class="caption">
-                                        <div class="tag"><a href="#">Real Estate</a></div>
-                                        <div class="title"><a href="#">Gorgeous Ensea House in California</a></div>
-                                        <div class="clearfix">
-                                            <span class="meta-data">By <a href="">Admin</a>on 29/06/2016</span>
-                                            <span class="meta-data pull-right"><a href=""><i class="fa fa-heart-o"></i> 4</a></span>
-                                        </div>
-                                        <div class="content">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo nulla porro qui quo expedita voluptas ab iure dolore.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-4">
-                                <div class="thumbnail img-thumb-bg">
-                                    <div class="overlay"></div>
-                                    <div class="caption">
-                                        <div class="tag"><a href="#">Real Estate</a></div>
-                                        <div class="title"><a href="#">Gorgeous Ensea House in California</a></div>
-                                        <div class="clearfix">
-                                            <span class="meta-data">By <a href="">Admin</a>on 29/06/2016</span>
-                                            <span class="meta-data pull-right"><a href=""><i class="fa fa-heart-o"></i> 4</a></span>
-                                        </div>
-                                        <div class="content">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo nulla porro qui quo expedita voluptas ab iure dolore.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-4">
-                                <div class="thumbnail img-thumb-bg">
-                                    <div class="overlay"></div>
-                                    <div class="caption">
-                                        <div class="tag"><a href="#">Real Estate</a></div>
-                                        <div class="title"><a href="#">Gorgeous Ensea House in California</a></div>
-                                        <div class="clearfix">
-                                            <span class="meta-data">By <a href="">Admin</a>on 29/06/2016</span>
-                                            <span class="meta-data pull-right"><a href=""><i class="fa fa-heart-o"></i> 4</a></span>
-                                        </div>
-                                        <div class="content">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo nulla porro qui quo expedita voluptas ab iure dolore.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                                    {
+                                        count++;
+                                        if (count == 3 || i == ListOverHeat.Count - 1)
+                                        {
+                                        @:</div>
+                                    @:</div>
+                                }
+                            }
+                        }
                 </div>
                 <a data-slide="prev" href="#media1" class="left carousel-control">‹</a>
                 <a data-slide="next" href="#media1" class="right carousel-control">›</a>
@@ -445,364 +220,139 @@
         </div>
     </div>
 </div>
+</div>
+
 <div class="container">
     <div class="row">
         <div class="title">
-            <div class="title-word">Linh kiện không hoạt động</div>
+            <div class="title-word">Linh kiện</div>
         </div>
     </div>
     <div class='row'>
         <div class='col-md-12'>
-            <div class="carousel slide media-carousel" id="media">
+            <div class="carousel slide media-carousel" id="media2">
                 <div class="carousel-inner">
-                    <div class="item  active">
-                        <div class="row">
-                            <div class="col-lg-4 col-md-4 col-sm-4">
-                                <div class="thumbnail img-thumb-bg">
-                                    <div class="overlay"></div>
-                                    <div class="caption">
-                                        <div class="tag"><a href="#">Real Estate</a></div>
-                                        <div class="title"><a href="#">Gorgeous Ensea House in California</a></div>
-                                        <div class="clearfix">
-                                            <span class="meta-data">By <a href="">Admin</a>on 29/06/2016</span>
-                                            <span class="meta-data pull-right"><a href=""><i class="fa fa-heart-o"></i> 4</a></span>
-                                        </div>
-                                        <div class="content">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo nulla porro qui quo expedita voluptas ab iure dolore.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-4">
-                                <div class="thumbnail img-thumb-bg">
-                                    <div class="overlay"></div>
-                                    <div class="caption">
-                                        <div class="tag"><a href="#">Real Estate</a></div>
-                                        <div class="title"><a href="#">Gorgeous Ensea House in California</a></div>
-                                        <div class="clearfix">
-                                            <span class="meta-data">By <a href="">Admin</a>on 29/06/2016</span>
-                                            <span class="meta-data pull-right"><a href=""><i class="fa fa-heart-o"></i> 4</a></span>
-                                        </div>
-                                        <div class="content">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo nulla porro qui quo expedita voluptas ab iure dolore.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-4">
-                                <div class="thumbnail img-thumb-bg">
-                                    <div class="overlay"></div>
-                                    <div class="caption">
-                                        <div class="tag"><a href="#">Real Estate</a></div>
-                                        <div class="title"><a href="#">Gorgeous Ensea House in California</a></div>
-                                        <div class="clearfix">
-                                            <span class="meta-data">By <a href="">Admin</a>on 29/06/2016</span>
-                                            <span class="meta-data pull-right"><a href=""><i class="fa fa-heart-o"></i> 4</a></span>
-                                        </div>
-                                        <div class="content">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo nulla porro qui quo expedita voluptas ab iure dolore.</p>
+                    @{count = 0;}
+                    @for (int i = 0; i < ListComponent.Count; i++)
+                    {
+                        if ((i % 3 == 0 && i != 0) || i == 0)
+                        {
+                            if (i % 3 == 0 && i != 0)
+                            {
+                                @:<div class="item">
+                                    count = 0;
+                                }
+                                else if (i == 0)
+                                {
+                                    @:<div class="item active">
+                                        count = 0;
+                                    }
+
+                                    @:<div class="row">
+                                    }
+                                    var item = ListComponent[i];
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <div class="thumbnail img-thumb-bg" style="background-image: url('../../Content/Pictures/News/@item.Image');">
+                                            <div class="overlay"></div>
+                                            <div class="caption">
+                                                <div class="tag"><a href="#">Linh kiện</a></div>
+                                                <div class="title"><a href="#">@item.Title</a></div>
+                                                <div class="clearfix">
+                                                    <span class="meta-data">By <a href="">Admin</a>on 13/12/2018</span>
+                                                    <span class="meta-data pull-right"><a href=""><i class="fa fa-heart-o"></i> 4</a></span>
+                                                </div>
+                                                <div class="content">
+                                                    <p> @item.BriefDetail <p />
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="row">
-                            <div class="col-lg-4 col-md-4 col-sm-4">
-                                <div class="thumbnail img-thumb-bg">
-                                    <div class="overlay"></div>
-                                    <div class="caption">
-                                        <div class="tag"><a href="#">Real Estate</a></div>
-                                        <div class="title"><a href="#">Gorgeous Ensea House in California</a></div>
-                                        <div class="clearfix">
-                                            <span class="meta-data">By <a href="">Admin</a>on 29/06/2016</span>
-                                            <span class="meta-data pull-right"><a href=""><i class="fa fa-heart-o"></i> 4</a></span>
-                                        </div>
-                                        <div class="content">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo nulla porro qui quo expedita voluptas ab iure dolore.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-4">
-                                <div class="thumbnail img-thumb-bg">
-                                    <div class="overlay"></div>
-                                    <div class="caption">
-                                        <div class="tag"><a href="#">Real Estate</a></div>
-                                        <div class="title"><a href="#">Gorgeous Ensea House in California</a></div>
-                                        <div class="clearfix">
-                                            <span class="meta-data">By <a href="">Admin</a>on 29/06/2016</span>
-                                            <span class="meta-data pull-right"><a href=""><i class="fa fa-heart-o"></i> 4</a></span>
-                                        </div>
-                                        <div class="content">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo nulla porro qui quo expedita voluptas ab iure dolore.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-4">
-                                <div class="thumbnail img-thumb-bg">
-                                    <div class="overlay"></div>
-                                    <div class="caption">
-                                        <div class="tag"><a href="#">Real Estate</a></div>
-                                        <div class="title"><a href="#">Gorgeous Ensea House in California</a></div>
-                                        <div class="clearfix">
-                                            <span class="meta-data">By <a href="">Admin</a>on 29/06/2016</span>
-                                            <span class="meta-data pull-right"><a href=""><i class="fa fa-heart-o"></i> 4</a></span>
-                                        </div>
-                                        <div class="content">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo nulla porro qui quo expedita voluptas ab iure dolore.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="row">
-                            <div class="col-lg-4 col-md-4 col-sm-4">
-                                <div class="thumbnail img-thumb-bg">
-                                    <div class="overlay"></div>
-                                    <div class="caption">
-                                        <div class="tag"><a href="#">Real Estate</a></div>
-                                        <div class="title"><a href="#">Gorgeous Ensea House in California</a></div>
-                                        <div class="clearfix">
-                                            <span class="meta-data">By <a href="">Admin</a>on 29/06/2016</span>
-                                            <span class="meta-data pull-right"><a href=""><i class="fa fa-heart-o"></i> 4</a></span>
-                                        </div>
-                                        <div class="content">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo nulla porro qui quo expedita voluptas ab iure dolore.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-4">
-                                <div class="thumbnail img-thumb-bg">
-                                    <div class="overlay"></div>
-                                    <div class="caption">
-                                        <div class="tag"><a href="#">Real Estate</a></div>
-                                        <div class="title"><a href="#">Gorgeous Ensea House in California</a></div>
-                                        <div class="clearfix">
-                                            <span class="meta-data">By <a href="">Admin</a>on 29/06/2016</span>
-                                            <span class="meta-data pull-right"><a href=""><i class="fa fa-heart-o"></i> 4</a></span>
-                                        </div>
-                                        <div class="content">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo nulla porro qui quo expedita voluptas ab iure dolore.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-4">
-                                <div class="thumbnail img-thumb-bg">
-                                    <div class="overlay"></div>
-                                    <div class="caption">
-                                        <div class="tag"><a href="#">Real Estate</a></div>
-                                        <div class="title"><a href="#">Gorgeous Ensea House in California</a></div>
-                                        <div class="clearfix">
-                                            <span class="meta-data">By <a href="">Admin</a>on 29/06/2016</span>
-                                            <span class="meta-data pull-right"><a href=""><i class="fa fa-heart-o"></i> 4</a></span>
-                                        </div>
-                                        <div class="content">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo nulla porro qui quo expedita voluptas ab iure dolore.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                                    {
+                                        count++;
+                                        if (count == 3 || i == ListComponent.Count - 1)
+                                        {
+                                        @:</div>
+                                    @:</div>
+                                }
+                            }
+                        }
                 </div>
-                <a data-slide="prev" href="#media" class="left carousel-control">‹</a>
-                <a data-slide="next" href="#media" class="right carousel-control">›</a>
+                <a data-slide="prev" href="#media2" class="left carousel-control">‹</a>
+                <a data-slide="next" href="#media2" class="right carousel-control">›</a>
             </div>
         </div>
     </div>
 </div>
+</div>
+
 <div class="container">
     <div class="row">
         <div class="title">
-            <div class="title-word">Các Lỗi khác</div>
+            <div class="title-word">Linh kiện</div>
         </div>
     </div>
     <div class='row'>
         <div class='col-md-12'>
-            <div class="carousel slide media-carousel" id="media">
+            <div class="carousel slide media-carousel" id="media3">
                 <div class="carousel-inner">
-                    <div class="item  active">
-                        <div class="row">
-                            <div class="col-lg-4 col-md-4 col-sm-4">
-                                <div class="thumbnail img-thumb-bg">
-                                    <div class="overlay"></div>
-                                    <div class="caption">
-                                        <div class="tag"><a href="#">Real Estate</a></div>
-                                        <div class="title"><a href="#">Gorgeous Ensea House in California</a></div>
-                                        <div class="clearfix">
-                                            <span class="meta-data">By <a href="">Admin</a>on 29/06/2016</span>
-                                            <span class="meta-data pull-right"><a href=""><i class="fa fa-heart-o"></i> 4</a></span>
-                                        </div>
-                                        <div class="content">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo nulla porro qui quo expedita voluptas ab iure dolore.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-4">
-                                <div class="thumbnail img-thumb-bg">
-                                    <div class="overlay"></div>
-                                    <div class="caption">
-                                        <div class="tag"><a href="#">Real Estate</a></div>
-                                        <div class="title"><a href="#">Gorgeous Ensea House in California</a></div>
-                                        <div class="clearfix">
-                                            <span class="meta-data">By <a href="">Admin</a>on 29/06/2016</span>
-                                            <span class="meta-data pull-right"><a href=""><i class="fa fa-heart-o"></i> 4</a></span>
-                                        </div>
-                                        <div class="content">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo nulla porro qui quo expedita voluptas ab iure dolore.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-4">
-                                <div class="thumbnail img-thumb-bg">
-                                    <div class="overlay"></div>
-                                    <div class="caption">
-                                        <div class="tag"><a href="#">Real Estate</a></div>
-                                        <div class="title"><a href="#">Gorgeous Ensea House in California</a></div>
-                                        <div class="clearfix">
-                                            <span class="meta-data">By <a href="">Admin</a>on 29/06/2016</span>
-                                            <span class="meta-data pull-right"><a href=""><i class="fa fa-heart-o"></i> 4</a></span>
-                                        </div>
-                                        <div class="content">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo nulla porro qui quo expedita voluptas ab iure dolore.</p>
+                    @{count = 0;}
+                    @for (int i = 0; i < ListOther.Count; i++)
+                    {
+                        if ((i % 3 == 0 && i != 0) || i == 0)
+                        {
+                            if (i % 3 == 0 && i != 0)
+                            {
+                                @:<div class="item">
+                                    count = 0;
+                                }
+                                else if (i == 0)
+                                {
+                                    @:<div class="item active">
+                                        count = 0;
+                                    }
+
+                                    @:<div class="row">
+                                    }
+                                    var item = ListOther[i];
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <div class="thumbnail img-thumb-bg" style="background-image: url('../../Content/Pictures/News/@item.Image');">
+                                            <div class="overlay"></div>
+                                            <div class="caption">
+                                                <div class="tag"><a href="#">Linh kiện</a></div>
+                                                <div class="title"><a href="#">@item.Title</a></div>
+                                                <div class="clearfix">
+                                                    <span class="meta-data">By <a href="">Admin</a>on 13/12/2018</span>
+                                                    <span class="meta-data pull-right"><a href=""><i class="fa fa-heart-o"></i> 4</a></span>
+                                                </div>
+                                                <div class="content">
+                                                    <p> @item.BriefDetail <p />
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="row">
-                            <div class="col-lg-4 col-md-4 col-sm-4">
-                                <div class="thumbnail img-thumb-bg">
-                                    <div class="overlay"></div>
-                                    <div class="caption">
-                                        <div class="tag"><a href="#">Real Estate</a></div>
-                                        <div class="title"><a href="#">Gorgeous Ensea House in California</a></div>
-                                        <div class="clearfix">
-                                            <span class="meta-data">By <a href="">Admin</a>on 29/06/2016</span>
-                                            <span class="meta-data pull-right"><a href=""><i class="fa fa-heart-o"></i> 4</a></span>
-                                        </div>
-                                        <div class="content">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo nulla porro qui quo expedita voluptas ab iure dolore.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-4">
-                                <div class="thumbnail img-thumb-bg">
-                                    <div class="overlay"></div>
-                                    <div class="caption">
-                                        <div class="tag"><a href="#">Real Estate</a></div>
-                                        <div class="title"><a href="#">Gorgeous Ensea House in California</a></div>
-                                        <div class="clearfix">
-                                            <span class="meta-data">By <a href="">Admin</a>on 29/06/2016</span>
-                                            <span class="meta-data pull-right"><a href=""><i class="fa fa-heart-o"></i> 4</a></span>
-                                        </div>
-                                        <div class="content">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo nulla porro qui quo expedita voluptas ab iure dolore.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-4">
-                                <div class="thumbnail img-thumb-bg">
-                                    <div class="overlay"></div>
-                                    <div class="caption">
-                                        <div class="tag"><a href="#">Real Estate</a></div>
-                                        <div class="title"><a href="#">Gorgeous Ensea House in California</a></div>
-                                        <div class="clearfix">
-                                            <span class="meta-data">By <a href="">Admin</a>on 29/06/2016</span>
-                                            <span class="meta-data pull-right"><a href=""><i class="fa fa-heart-o"></i> 4</a></span>
-                                        </div>
-                                        <div class="content">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo nulla porro qui quo expedita voluptas ab iure dolore.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="row">
-                            <div class="col-lg-4 col-md-4 col-sm-4">
-                                <div class="thumbnail img-thumb-bg">
-                                    <div class="overlay"></div>
-                                    <div class="caption">
-                                        <div class="tag"><a href="#">Real Estate</a></div>
-                                        <div class="title"><a href="#">Gorgeous Ensea House in California</a></div>
-                                        <div class="clearfix">
-                                            <span class="meta-data">By <a href="">Admin</a>on 29/06/2016</span>
-                                            <span class="meta-data pull-right"><a href=""><i class="fa fa-heart-o"></i> 4</a></span>
-                                        </div>
-                                        <div class="content">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo nulla porro qui quo expedita voluptas ab iure dolore.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-4">
-                                <div class="thumbnail img-thumb-bg">
-                                    <div class="overlay"></div>
-                                    <div class="caption">
-                                        <div class="tag"><a href="#">Real Estate</a></div>
-                                        <div class="title"><a href="#">Gorgeous Ensea House in California</a></div>
-                                        <div class="clearfix">
-                                            <span class="meta-data">By <a href="">Admin</a>on 29/06/2016</span>
-                                            <span class="meta-data pull-right"><a href=""><i class="fa fa-heart-o"></i> 4</a></span>
-                                        </div>
-                                        <div class="content">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo nulla porro qui quo expedita voluptas ab iure dolore.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-4">
-                                <div class="thumbnail img-thumb-bg">
-                                    <div class="overlay"></div>
-                                    <div class="caption">
-                                        <div class="tag"><a href="#">Real Estate</a></div>
-                                        <div class="title"><a href="#">Gorgeous Ensea House in California</a></div>
-                                        <div class="clearfix">
-                                            <span class="meta-data">By <a href="">Admin</a>on 29/06/2016</span>
-                                            <span class="meta-data pull-right"><a href=""><i class="fa fa-heart-o"></i> 4</a></span>
-                                        </div>
-                                        <div class="content">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo nulla porro qui quo expedita voluptas ab iure dolore.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                                    {
+                                        count++;
+                                        if (count == 3 || i == ListOther.Count - 1)
+                                        {
+                                        @:</div>
+                                    @:</div>
+                                }
+                            }
+                        }
                 </div>
-                <a data-slide="prev" href="#media" class="left carousel-control">‹</a>
-                <a data-slide="next" href="#media" class="right carousel-control">›</a>
+                <a data-slide="prev" href="#media3" class="left carousel-control">‹</a>
+                <a data-slide="next" href="#media3" class="right carousel-control">›</a>
             </div>
         </div>
     </div>
 </div>
+</div>
+
 <script>
     $(document).ready(function () {
-        $('#media').carousel({
-            pause: true,
-            interval: false,
-        });
-    });
-    $(document).ready(function () {
-        $('#media1').carousel({
+        $('#media,#media2,#media1,#media3').carousel({
             pause: true,
             interval: false,
         });
     });
 </script>
-</body>

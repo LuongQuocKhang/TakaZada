@@ -25,6 +25,8 @@ namespace TakaZada.Core.Models
         public virtual DbSet<UserAccount> UserAccounts { get; set; }
         public virtual DbSet<Cart> Carts { get; set; }
         public virtual DbSet<CartDetails> CartDetails { get; set; }
+        public virtual DbSet<New> News { get; set; }
+        public virtual DbSet<NewDetails> NewDetails { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

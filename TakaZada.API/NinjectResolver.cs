@@ -11,6 +11,7 @@ using TakaZada.API.Handle;
 using TakaZada.API.Hardware;
 using TakaZada.API.Keyboard;
 using TakaZada.API.Mainboard;
+using TakaZada.API.News;
 using TakaZada.API.Radiator;
 using TakaZada.API.RAM;
 using TakaZada.API.VGA;
@@ -64,6 +65,8 @@ namespace TakaZada.API
 
             _kernel.Bind<ILoadCart>().To<CartService>().InSingletonScope();
             _kernel.Bind<ICartRepository>().To<CartService>().InSingletonScope();
+
+            _kernel.Bind<ILoadNew>().To<NewService>().InSingletonScope();
         }
         public IDependencyScope BeginScope()
         {

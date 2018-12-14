@@ -62,6 +62,8 @@
     <Compile Include="Models\Hardware.cs" />
     <Compile Include="Models\Keyboard.cs" />
     <Compile Include="Models\MainBoard.cs" />
+    <Compile Include="Models\New.cs" />
+    <Compile Include="Models\NewDetails.cs" />
     <Compile Include="Models\Radiator.cs" />
     <Compile Include="Models\RAM.cs" />
     <Compile Include="Models\UserAccount.cs" />

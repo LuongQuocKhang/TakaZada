@@ -2,80 +2,82 @@
 <link href="~/Content/Consult.css" rel="stylesheet" />
 <div class="container auth">
     <h1 class="text-center">Tìm hiểu về nhu cầu về máy tính và laptop <span>Đây là một vài câu hỏi liên quan đến về những vấn đề khi bạn muốn nâng cấp hoặc mua linh kiện, máy mới,...</span> </h1>
+    @{
+        if (null != Session["Problem"])
+        {
+            @Html.Raw("<h3 class='success-mesage font-green-sharp' style='display: none;font-size: 20px;color: #009614!important;font-weight: bold;'>" + Session["Problem"] + "</h3>");
+            <script type="text/javascript">
+                $(function () {
+                    $('.success-mesage').delay(500).fadeIn('normal', function () {
+                        $(this).delay(10000).fadeOut();
+                    });
+                });
+            </script>
+            Session["Problem"] = null;
+        }
+    }
     <div id="big-form" class="well auth-box">
-        <form>
+        <form method="post">
             <fieldset>
-
                 <div class="form-group">
-                    <label class=" control-label">Are you awesome</label>
+                    <label class=" control-label">Bạn đã sử dụng chiếc máy tính đó đã bao lâu ?</label>
                     <div class="">
                         <div>
                             <label>
-                                <input name="radios" value="1" checked="checked" type="radio">
-                                Dưới 18 tuổi
+                                <input name="Age" checked="checked" value="Dưới 18 tuổi" type="radio">
+                                Dưới 1 năm
                             </label>
                         </div>
                         <div>
                             <label>
-                                <input name="radios" value="1" type="radio">
-                                Từ 18 tuối đến 25 tuổi
+                                <input name="Age" value="Từ 18 tuối đến 25 tuổi" type="radio">
+                                1 đến 3 năm
                             </label>
                         </div>
                         <div>
                             <label>
-                                <input name="radios" value="1" type="radio">
-                                Từ 25 tuối đến 35 tuổi
+                                <input name="Age" value="Từ 25 tuối đến 35 tuổi" type="radio">
+                                Trên 3 đến 5 năm
                             </label>
                         </div>
                         <div>
                             <label>
-                                <input name="radios" value="1" type="radio">
-                                Trên 35 tuổi
+                                <input name="Age" value="Trên 35 tuổi" type="radio">
+                                Trên 5 năm
                             </label>
                         </div>
                     </div>
                 </div>
-
-
-                <!-- Text input-->
-                <div class="form-group">
-                    <label class=" control-label" for="textinput">Nghề nghiệp</label>
-                    <div class="">
-                        <input placeholder="" class="form-control input-md" type="text">
-                    </div>
-                </div>
-                <!-- Password input-->
                 <div class="form-group">
                     <label class=" control-label" for="radios">Khoảng thời gian bạn sử dụng máy tính trong một ngày</label>
                     <div class="">
                         <div>
                             <label>
-                                <input name="radios" value="1" checked="checked" type="radio">
+                                <input name="Time" checked="checked" value="Dưới 2 giờ" type="radio">
                                 Dưới 2 giờ
                             </label>
                         </div>
                         <div>
                             <label>
-                                <input name="radios" value="1" type="radio">
+                                <input name="Time" value="Từ 2 giờ đển 4 giờ" type="radio">
                                 Từ 2 giờ đển 4 giờ
                             </label>
                         </div>
                         <div>
                             <label>
-                                <input name="radios" value="1" type="radio">
+                                <input name="Time" value="Từ trên 4 giờ đến 6 giờ" type="radio">
                                 Từ trên 4 giờ đến 6 giờ
-
                             </label>
                         </div>
                         <div>
                             <label>
-                                <input name="radios" value="1" type="radio">
+                                <input name="Time" value="Từ trên 6 giờ đến 8 giờ" type="radio">
                                 Từ trên 6 giờ đến 8 giờ
                             </label>
                         </div>
                         <div>
                             <label>
-                                <input name="radios" value="1" type="radio">
+                                <input name="Time" value="Trên 8 giờ" type="radio">
                                 Trên 8 giờ
                             </label>
                         </div>
@@ -84,103 +86,53 @@
                 <div class="form-group">
                     <label class=" control-label" for="radios">Mục đích sử dụng</label>
                     <div class="">
-                        <div class="radio">
-                            <label for="radios-0">
-                                <input name="radios" value="1" checked="checked" type="radio">
+                        <div>
+                            <label>
+                                <input name="Goal" checked="checked" value="Học tập" type="radio">
                                 Học tập
                             </label>
                         </div>
-                        <div class="radio">
-                            <label for="radios-1">
-                                <input name="radios" value="2" type="radio">
+                        <div>
+                            <label>
+                                <input name="Goal" value="Giải trí" type="radio">
                                 Giải trí
                             </label>
                         </div>
-                        <div class="radio">
-                            <label for="radios-1">
-                                <input name="radios" value="2" type="radio">
+                        <div>
+                            <label>
+                                <input name="Goal" value="Công việc" type="radio">
                                 Công việc
-
                             </label>
                         </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class=" control-label" for="textinput">Các chương trình thường sử dụng</label>
-                    <div class="">
-                        <input placeholder="" class="form-control input-md" type="text">
-                        <span class="help-block">help</span>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class=" control-label" for="radios">Bạn muốn cải thiện phần nào ở máy của mình hiện tại</label>
                     <div class="">
-                        <div class="radio">
-                            <label for="radios-0">
-                                <input name="radios" value="1" checked="checked" type="radio">
-                                Ram
+                        <div>
+                            <label>
+                                <input name="Improve" checked="checked" value="Tốc độ" type="radio">
+                                Tốc độ
                             </label>
                         </div>
-                        <div class="radio">
-                            <label for="radios-1">
-                                <input name="radios" value="2" type="radio">
-                                CPU
+                        <div>
+                            <label>
+                                <input name="Improve" value="Dung lượng ổ cứng" type="radio">
+                                Dung lượng ổ cứng
                             </label>
                         </div>
-                        <div class="radio">
-                            <label for="radios-1">
-                                <input name="radios" value="2" type="radio">
-                                VGA (card màn hình)
+                        <div>
+                            <label>
+                                <input name="Improve" value="Trải nghiệm game" type="radio">
+                                Trải nghiệm game
                             </label>
                         </div>
-                        <div class="radio">
-                            <label for="radios-1">
-                                <input name="radios" value="2" type="radio">
-                                Ổ cứng
+                        <div>
+                            <label>
+                                <input name="Improve" value="Nhiệt độ" type="radio">
+                                Nhiệt độ
                             </label>
                         </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class=" control-label" for="radios">Khi nâng câp hoặc mua máy mới bạn sẽ quan tâm đến những điều gì</label>
-                    <div class="">
-                        <div class="radio">
-                            <label for="radios-0">
-                                <input name="radios" value="1" checked="checked" type="radio">
-                                Hiệu Năng
-                            </label>
-                        </div>
-                        <div class="radio">
-                            <label for="radios-1">
-                                <input name="radios" value="2" type="radio">
-                                Hiệu Suất
-                            </label>
-                        </div>
-                        <div class="radio">
-                            <label for="radios-1">
-                                <input name="radios" value="2" type="radio">
-                                Giá Thành
-                            </label>
-                        </div>
-                        <div class="radio">
-                            <label for="radios-1">
-                                <input name="radios" value="2" type="radio">
-                                Thiết Kế
-                            </label>
-                        </div>
-                        <div class="radio">
-                            <label for="radios-1">
-                                <input name="radios" value="2" type="radio">
-                                Nhãn Hiệu
-                            </label>
-                        </div>
-                    </div>
-                </div>
-                <!-- Textarea -->
-                <div class="form-group">
-                    <label class=" control-label" for="textarea">Các vấn đề hiện bạn đang gặp với máy tính của mình</label>
-                    <div class="">
-                        <textarea class="form-control" id="textarea" name="textarea"></textarea>
                     </div>
                 </div>
                 <div class="form-group">

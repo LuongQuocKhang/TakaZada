@@ -1675,6 +1675,12 @@
     <Content Include="Content\Pictures\Mainboard\Bo mạch chính Mainboard Msi X370 Gaming Plus.jpg" />
     <Content Include="Content\Pictures\Mainboard\Bo mạch chính Mainboard Msi Z170A PC MATE.png" />
     <Content Include="Content\Pictures\Mainboard\Bo mạch chủ MSI B350 TOMAHAWK PLUS.jpg" />
+    <Content Include="Content\Pictures\News\cai-thien-hieu-suat-may-tinh.jpg" />
+    <Content Include="Content\Pictures\News\khac-phuc-may-tinh-chay-cham.jpg" />
+    <Content Include="Content\Pictures\News\Máy tính bị chậm.jpg" />
+    <Content Include="Content\Pictures\News\máy-tính-chậm.jpg" />
+    <Content Include="Content\Pictures\News\nguyen_nhan_may_tinh_cham.jpg" />
+    <Content Include="Content\Pictures\News\slow-computer.jpg" />
     <Content Include="Content\Pictures\Radiator\Quạt case Aigo Aurora R5.png" />
     <Content Include="Content\Pictures\Radiator\Quạt case Corsair LL120 RGB 120mm.png" />
     <Content Include="Content\Pictures\Radiator\Quạt CPU CM Hyper 212 LED Turbo.jpg" />
