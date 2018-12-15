@@ -15,15 +15,16 @@ namespace TakaZada.API.Cart
             {
                 using (var db = new DBContext())
                 {
+                    int cartid = details.CartId;
                     string id = details.ItemId.ToString();
-                    var item = db.CartDetails.FirstOrDefault(x => x.ItemId == id && x.type == details.type);
+                    var item = db.CartDetails.FirstOrDefault(x => x.ItemId == id && x.type == details.type && x.CartId == cartid);
                     if (item == null)
                     {
                         db.CartDetails.Add(details);
                     }
                     else
                     {
-                        var update = db.CartDetails.FirstOrDefault(x => x.ItemId == id && x.type == details.type);
+                        var update = db.CartDetails.FirstOrDefault(x => x.ItemId == id && x.type == details.type && x.CartId == cartid);
                         update.Quantity += details.Quantity;
                     }
                     switch (details.type)

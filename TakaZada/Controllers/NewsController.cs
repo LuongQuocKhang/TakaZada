@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TakaZada.API.Handle;
 using TakaZada.API.News;
 
 namespace TakaZada.Controllers
@@ -25,7 +26,6 @@ namespace TakaZada.Controllers
 
             return View();
         }
-        public ActionResult Details() => View();
 
         [HttpGet]
         [ActionName("Consult")]
@@ -51,8 +51,13 @@ namespace TakaZada.Controllers
             return View();
         }
 
-        public ActionResult Detail()
+        public ActionResult Detail(int NewId)
         {
+            ViewBag.New = _LoadService.LoadNewById(NewId);
+            var detail = _LoadService.LoadDetailById(NewId);
+            ViewBag.Detail = detail;
+            var solutionItem = _LoadService.LoadSolutionItem(detail.Item);
+            ViewBag.solutionItem = solutionItem;
             return View();
         }
     }

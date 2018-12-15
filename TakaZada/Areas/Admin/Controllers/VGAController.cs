@@ -71,7 +71,7 @@ namespace TakaZada.Areas.Admin.Controllers
             if ( _VGAService.UpdateVGA(vga))
             {
                 Session["submit_message"] =
-                        "<p class='font-green-sharp' style='font-size: 20px;color: #009614!important;font-weight: bold;'>Update vga successful</p>";
+                        "<p class='font-green-sharp' style='font-size: 20px;color: #000000!important;font-weight: bold;'>Update vga successful</p>";
             }
             else
             {

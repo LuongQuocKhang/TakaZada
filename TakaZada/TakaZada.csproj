@@ -1609,6 +1609,7 @@
     <Content Include="Content\css\popuo-box.css" />
     <Content Include="Content\css\style.css" />
     <Content Include="Content\DropdownMenu.css" />
+    <Content Include="Content\NewDetails.css" />
     <Content Include="Content\News.css" />
     <Content Include="Content\Pictures\banner.jpg" />
     <Content Include="Content\Pictures\banner1.jpg" />
@@ -2100,6 +2101,7 @@
     <Content Include="Views\News\Consult.cshtml" />
     <Content Include="Views\Home\Cart.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
+    <Content Include="Views\News\Detail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

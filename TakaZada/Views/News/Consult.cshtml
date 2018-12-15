@@ -5,7 +5,7 @@
     @{
         if (null != Session["Problem"])
         {
-            @Html.Raw("<h3 class='success-mesage font-green-sharp' style='display: none;font-size: 20px;color: #009614!important;font-weight: bold;'>" + Session["Problem"] + "</h3>");
+            @Html.Raw("<h3 class='success-mesage font-green-sharp' style='display: none;font-size: 20px;color: #000000!important;font-weight: bold;'>" + Session["Problem"] + "</h3>");
             <script type="text/javascript">
                 $(function () {
                     $('.success-mesage').delay(500).fadeIn('normal', function () {

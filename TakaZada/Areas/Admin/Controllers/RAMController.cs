@@ -69,7 +69,7 @@ namespace TakaZada.Areas.Admin.Controllers
                 if (_RAMService.UpdateRAM(ram))
                 {
                     Session["submit_message"] =
-                            "<p class='font-green-sharp' style='font-size: 20px;color: #009614!important;font-weight: bold;'>Update ram successful</p>";
+                            "<p class='font-green-sharp' style='font-size: 20px;color: #000000!important;font-weight: bold;'>Update ram successful</p>";
                 }
                 else
                 {

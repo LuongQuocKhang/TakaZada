@@ -66,7 +66,7 @@ namespace TakaZada.Areas.Admin.Controllers
             #endregion
             if ( _CaseService.UpdateCase(Case))
             {
-                Session["submit_message"] ="<p class='font-green-sharp' style='font-size: 20px;color: #009614!important;font-weight: bold;'>Update case successful</p>";
+                Session["submit_message"] ="<p class='font-green-sharp' style='font-size: 20px;color: #000000!important;font-weight: bold;'>Update case successful</p>";
                 return RedirectToAction("Update", new { Id = Case.Id });
             }
             else

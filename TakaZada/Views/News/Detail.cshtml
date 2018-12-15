@@ -1,0 +1,61 @@
+﻿@using TakaZada.Core.Models
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var Detail = (NewDetails)ViewBag.Detail;
+    var New = (New)ViewBag.New;
+
+    var solutionItem = (List<TakaZada.Core.SolutionItem>)ViewBag.solutionItem;
+    var listitem = solutionItem.Select(x => x.Type).Distinct().ToList();
+}
+<link href="~/Content/NewDetails.css" rel="stylesheet" />
+<style>
+    .bordertab img {
+        width: 100%;
+        height: auto;
+        margin: 5px;
+    }
+</style>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8">
+            <div class="bordertab">
+                <h2>
+                    @New.Title
+                </h2>
+                <p>
+                    @Html.Raw(@Detail.Details);
+                </p>
+            </div>
+           
+        </div>
+        <div class=" col-sm-4">
+            <div class="bordertab">
+                @Html.Raw(@Detail.Solution);
+            </div>
+
+            <div class="bordertab">
+                @foreach (var item in listitem)
+                {
+                    var list = solutionItem.Where(x => x.Type == item).ToList();
+                    <h4>
+                        <a href="@Url.Action("Index",@item, new { Name = "Tất cả",filter="Name"})">@item</a>
+                    </h4>
+                    <div class="row">
+                        @foreach (var solution in list)
+                        {
+                            <div class="col-sm-6">
+                                <a href="@Url.Action("Details",solution.Type,new { Id = solution.ItemId})">
+                                    <img src="~/Content/Pictures/@solution.Type/@solution.Image" />
+                                </a>
+                            </div>
+                        }
+                    </div>
+                }
+            </div>
+
+        </div>
+    </div>
+</div>
+

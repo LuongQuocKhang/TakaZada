@@ -25,10 +25,10 @@
 <!-- single -->
 <div class="single">
     <div class="container">
-        <h3 class='success-mesage font-green-sharp' style='display: none;font-size: 20px;color: #009614!important;font-weight: bold;'>
+        <h3 class='success-mesage font-green-sharp' style='display: none;font-size: 20px;color: #000000!important;font-weight: bold;'>
             Cập nhật giỏ hàng thành công
         </h3>
-        <h3 class='error-mesage font-green-sharp' style='display: none;font-size: 20px;color: #009614!important;font-weight: bold;'>
+        <h3 class='error-mesage font-green-sharp' style='display: none;font-size: 20px;color: #000000!important;font-weight: bold;'>
             Lỗi xảy ra khi cập nhật giỏ hàng !!
         </h3>
         <div class="col-md-4 single-left">
@@ -307,7 +307,7 @@
     $("#btnBuy").on('click', function () {
             $.ajax(
                 {
-                    url: "@Request.Url.GetLeftPart(UriPartial.Authority)" + "@Url.Action("AddToCart", "Home")",
+                    url: "@Request.Url.GetLeftPart(UriPartial.Authority)" + "@Url.Action("AddToCart", "Cart")",
                     method: "POST",
                     data: { "type": "MainBoard", "ItemId": "@SelectedMainboard.Id", "Quantity": $(".value1").text(), "price": "@SelectedMainboard.Price", "Id": "@SelectedMainboard.Id" },
                     success: function (response) {

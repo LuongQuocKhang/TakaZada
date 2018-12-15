@@ -63,7 +63,6 @@ namespace TakaZada.Controllers
 
                 if (user != null)
                 {
-
                     int CartId = _LoadCartService.LoadCartByEmail(user.UserName).CartId;
                     var cartdetail = _CartService.CreateCartDetails(type, CartId, ItemId, Int32.Parse(Quantity), price, Name, Image);
                     _CartService.AddToCart(cartdetail);

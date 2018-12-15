@@ -61,7 +61,7 @@ namespace TakaZada.Areas.Admin.Controllers
             if (_HardwareService.UpdateHardware(hardware))
             {
                 Session["submit_message"] =
-                                           "<p class='font-green-sharp' style='font-size: 20px;color: #009614!important;font-weight: bold;'>Update hardware successful</p>";
+                                           "<p class='font-green-sharp' style='font-size: 20px;color: #000000!important;font-weight: bold;'>Update hardware successful</p>";
                 return RedirectToAction("Update", new { Id = hardware.Id });
             }
             else
