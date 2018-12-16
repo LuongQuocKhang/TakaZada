@@ -10,5 +10,6 @@ namespace TakaZada.API.Cart
     {
         TakaZada.Core.Models.Cart LoadCartByEmail(string Email);
         IEnumerable<TakaZada.Core.Models.CartDetails> LoadCartDetails(int Id);
+        TakaZada.Core.Models.CartDetails LoadCartDetailById(int DetailId);
     } 
 }

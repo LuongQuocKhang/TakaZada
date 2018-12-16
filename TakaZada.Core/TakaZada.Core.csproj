@@ -66,6 +66,8 @@
     <Compile Include="Models\NewDetails.cs" />
     <Compile Include="Models\Radiator.cs" />
     <Compile Include="Models\RAM.cs" />
+    <Compile Include="Models\Receipt.cs" />
+    <Compile Include="Models\ReceiptDetail.cs" />
     <Compile Include="Models\UserAccount.cs" />
     <Compile Include="Models\VGA.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

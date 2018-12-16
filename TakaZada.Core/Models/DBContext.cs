@@ -27,7 +27,8 @@ namespace TakaZada.Core.Models
         public virtual DbSet<CartDetails> CartDetails { get; set; }
         public virtual DbSet<New> News { get; set; }
         public virtual DbSet<NewDetails> NewDetails { get; set; }
-
+        public virtual DbSet<Receipt> Receipts { get; set; }
+        public virtual DbSet<ReceiptDetail> ReceiptDetails { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<CPU>()

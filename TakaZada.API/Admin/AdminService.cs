@@ -58,6 +58,16 @@ namespace TakaZada.API.Admin
             return null;
         }
 
+        public UserAccount GetUserInfo(string Email)
+        {
+            UserAccount info = null;
+            using (var db = new DBContext())
+            {
+                info = db.UserAccounts.FirstOrDefault(x => x.Email == Email);
+            }
+            return info;
+        }
+
         public bool LogIn(string username, string password = "")
         {
             if (!String.IsNullOrEmpty(username))

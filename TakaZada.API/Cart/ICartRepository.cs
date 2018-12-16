@@ -10,6 +10,7 @@ namespace TakaZada.API.Cart
     public interface ICartRepository
     {
         bool AddToCart(CartDetails details);
+        bool RemoveCartDetail(int detailsId);
         CartDetails CreateCartDetails(string type , int CartId , string ItemId , int Quantity , string price,string Name , string Image);
     }
 }

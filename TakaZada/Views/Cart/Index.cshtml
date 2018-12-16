@@ -9,6 +9,12 @@
 }
 <div class="checkout">
     <div class="container">
+        <h3 class='success-mesage font-green-sharp' style='display: none;font-size: 20px;color: #000000!important;font-weight: bold;'>
+            Thanh toán thành công
+        </h3>
+        <h3 class='error-mesage font-green-sharp' style='display: none;font-size: 20px;color: #000000!important;font-weight: bold;'>
+            Lỗi xảy ra khi thanh toán !!
+        </h3>
         <h3>Your shopping cart contains: <span>3 Products</span></h3>
 
         <div class="checkout-right">
@@ -26,50 +32,59 @@
                 </thead>
                 @for (int i = 0; i < CartDetails.Count; i++)
                 {
-                <tr class="rem@(i + 1)">
-                    <td class="invert">1</td>
-                    <td class="invert-image">
-                        <a href="single.html">
-                            <img src="~/Content/Pictures/@CartDetails[i].type/@CartDetails[i].Image" alt=" " class="img-responsive" style=" width: 150px;height: 150px;" />
-                        </a>
-                    </td>
-                    <td class="invert">@CartDetails[i].Name</td>
-                    <td class="invert">
-                        <div class="quantity">
-                            <div class="quantity-select">
-                                <div class="entry value-minus" id="@(i + 1)">&nbsp;</div>
-                                <div class="entry value"><span>@CartDetails[i].Quantity</span></div>
-                                <div class="entry value-plus active" id="@(i + 1)">&nbsp;</div>
+                    <tr class="rem@(i + 1)">
+                        <td class="invert">1</td>
+                        <td class="invert-image">
+                            <a href="single.html">
+                                <img src="~/Content/Pictures/@CartDetails[i].type/@CartDetails[i].Image" alt=" " class="img-responsive" style=" width: 150px;height: 150px;" />
+                            </a>
+                        </td>
+                        <td class="invert">@CartDetails[i].Name</td>
+                        <td class="invert">
+                            <div class="quantity">
+                                <div class="quantity-select">
+                                    <div class="entry value-minus" id="@(i + 1)">&nbsp;</div>
+                                    <div class="entry value"><span>@CartDetails[i].Quantity</span></div>
+                                    <div class="entry value-plus active" id="@(i + 1)">&nbsp;</div>
+                                </div>
                             </div>
-                        </div>
-                    </td>
-                    <td class="invert">$5.00</td>
-                    <td class="invert">@CartDetails[i].price</td>
-                    <td class="invert">
-                        <div class="rem@(i + 1) rem" style="height: 164px;">
-                            <div class="close@(i + 1) close" style="margin-right: 15px;margin-top: 65px;"> </div>
-                        </div>
-                        <script>
+                        </td>
+                        <td class="invert">$5.00</td>
+                        <td class="invert">@CartDetails[i].price</td>
+                        <td class="invert">
+                            <div class="rem@(i + 1) rem" style="height: 164px;">
+                                <div class="close@(i + 1) close" style="margin-right: 15px;margin-top: 65px;"> </div>
+                            </div>
+                            <script>
                                 $(document).ready(function (c) {
                                     $('.close@(i + 1)').on('click', function (c) {
                                         $('.rem@(i + 1)').fadeOut('slow', function (c) {
                                             $('.rem@(i + 1)').remove();
                                         });
+                                         $.ajax(
+                                            {
+                                                url: "@Request.Url.GetLeftPart(UriPartial.Authority)" + "@Url.Action("RemoveCartDetails", "Cart")",
+                                                method: "POST",
+                                                 data: { "CartDetailId": @CartDetails[i].ID },
+                                                 success: function (response) {
+                                                     location.reload();
+                                                    }
+                                                })
                                     });
                                 });
-                        </script>
-                    </td>
-                    <script>
-                        $("#@(i + 1).value-plus ").on('click', function () {
+                            </script>
+                        </td>
+                        <script>
+                        @*$("#@(i + 1).value-plus ").on('click', function () {
                             var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10) + 1;
                             divUpd.text(newVal);
                         });
                         $("#@(i + 1).value-minus ").on('click', function () {
                             var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10) - 1;
                             if (newVal >= 1) divUpd.text(newVal);
-                        });
-                    </script>
-                </tr>
+                        });*@
+                        </script>
+                    </tr>
                     <!--quantity-->
 
                 }
@@ -78,9 +93,9 @@
         </div>
         <div class="checkout-left">
             <div class="checkout-left-basket">
-                <h4>Continue to basket</h4>
+
                 <ul>
-                    @{ 
+                    @{
                         double total = 0.0;
                     }
                     @foreach (var item in CartDetails)
@@ -88,11 +103,11 @@
                         {
                             price += Int32.Parse(item.price.Replace(".", "").Replace("đ", ""));
                         }
-                        <li>@item.Name  <i>-</i> <span> @(price*@item.Quantity) đ </span></li>
-                        { 
+                        <li>@item.Name  <i>-</i> <span> @(price * @item.Quantity) đ </span></li>
+                        {
                             total += price * item.Quantity;
                         }
-                            }
+                    }
                     <li>Total Service Charges <i>-</i> <span>15.000 đ</span></li>
                     <li>Total <i>-</i> <span> @(total + 15000) đ</span></li>
                 </ul>
@@ -101,6 +116,35 @@
                 <a href="@Url.Action("Index","Home")"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>Continue Shopping</a>
             </div>
             <div class="clearfix"> </div>
+            <h4>
+                <a href="#" id="btnBuy" style="background-color:#ff9b05;color:white;" class="btn">Thanh toán</a>
+            </h4>
         </div>
     </div>
 </div>
+<script charset="utf-8">
+    $("#btnBuy").on('click', function () {
+        $.ajax(
+            {
+                url: "@Request.Url.GetLeftPart(UriPartial.Authority)" + "@Url.Action("Purchase", "Cart")",
+                method: "POST",
+                data: { "Total": @total + 15000},
+                    success: function (response) {
+                        if (response != null && response.result == true) {
+                            $(function () {
+                                $('.success-mesage').delay(500).fadeIn('normal', function () {
+                                    $(this).delay(2500).fadeOut();
+                                });
+                            });
+                        }
+                        else {
+                            $(function () {
+                                $('.error-mesage').delay(500).fadeIn('normal', function () {
+                                    $(this).delay(2500).fadeOut();
+                                });
+                            });
+                        }
+                    }
+                })
+        });
+</script>

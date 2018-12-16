@@ -20,6 +20,7 @@ namespace TakaZada.API.Cart
                     var item = db.CartDetails.FirstOrDefault(x => x.ItemId == id && x.type == details.type && x.CartId == cartid);
                     if (item == null)
                     {
+                        var cart = db.Carts.FirstOrDefault(x => x.CartId == cartid);
                         db.CartDetails.Add(details);
                     }
                     else
@@ -30,23 +31,40 @@ namespace TakaZada.API.Cart
                     switch (details.type)
                     {
                         case "Case":
-                            var update = db.Cases.FirstOrDefault(x => x.Id.ToString() == id);
+                            var Case = db.Cases.FirstOrDefault(x => x.Id.ToString() == id);
+                            Case.Quantity -= details.Quantity;
                             break;
                         case "Computer":
+                            var Computer = db.Computers.FirstOrDefault(x => x.Id.ToString() == id);
+                            Computer.Quantity -= details.Quantity;
                             break;
                         case "CPU":
+                            var CPU = db.CPUs.FirstOrDefault(x => x.Id.ToString() == id);
+                            CPU.Quantity -= details.Quantity;
                             break;
                         case "Hardware":
+                            var Hardware = db.Hardwares.FirstOrDefault(x => x.Id.ToString() == id);
+                            Hardware.Quantity -= details.Quantity;
                             break;
                         case "Keyboard":
+                            var Keyboard = db.Keyboards.FirstOrDefault(x => x.Id.ToString() == id);
+                            Keyboard.Quantity -= details.Quantity;
                             break;
                         case "Mainboard":
+                            var Mainboard = db.MainBoards.FirstOrDefault(x => x.Id.ToString() == id);
+                            Mainboard.Quantity -= details.Quantity;
                             break;
                         case "Radiator":
+                            var Radiator = db.Radiators.FirstOrDefault(x => x.Id.ToString() == id);
+                            Radiator.Quantity -= details.Quantity;
                             break;
                         case "RAM":
+                            var RAM = db.RAMs.FirstOrDefault(x => x.Id.ToString() == id);
+                            RAM.Quantity -= details.Quantity;
                             break;
                         case "VGA":
+                            var VGA = db.VGAs.FirstOrDefault(x => x.Id.ToString() == id);
+                            VGA.Quantity -= details.Quantity;
                             break;
                     }
 
@@ -81,6 +99,16 @@ namespace TakaZada.API.Cart
             return cart;
         }
 
+        public CartDetails LoadCartDetailById(int DetailId)
+        {
+            Core.Models.CartDetails CartDetails = null;
+            using (var db = new DBContext())
+            {
+                CartDetails = db.CartDetails.FirstOrDefault(x => x.ID == DetailId);
+            }
+            return CartDetails;
+        }
+
         public IEnumerable<CartDetails> LoadCartDetails(int Id)
         {
             List<Core.Models.CartDetails> CartDetails = null;
@@ -90,6 +118,60 @@ namespace TakaZada.API.Cart
             }
             return CartDetails;
         }
-        
+
+        public bool RemoveCartDetail(int detailsiD)
+        {
+            try
+            {
+                using (var db = new DBContext())
+                {
+                    var details = db.CartDetails.FirstOrDefault(x => x.ID == detailsiD);
+                    db.CartDetails.Remove(details);
+                    string id = details.ItemId.ToString();
+                    switch (details.type)
+                    {
+                        case "Case":
+                            var Case = db.Cases.FirstOrDefault(x => x.Id.ToString() == id);
+                            Case.Quantity += details.Quantity;
+                            break;
+                        case "Computer":
+                            var Computer = db.Computers.FirstOrDefault(x => x.Id.ToString() == id);
+                            Computer.Quantity += details.Quantity;
+                            break;
+                        case "CPU":
+                            var CPU = db.CPUs.FirstOrDefault(x => x.Id.ToString() == id);
+                            CPU.Quantity += details.Quantity;
+                            break;
+                        case "Hardware":
+                            var Hardware = db.Hardwares.FirstOrDefault(x => x.Id.ToString() == id);
+                            Hardware.Quantity += details.Quantity;
+                            break;
+                        case "Keyboard":
+                            var Keyboard = db.Keyboards.FirstOrDefault(x => x.Id.ToString() == id);
+                            Keyboard.Quantity += details.Quantity;
+                            break;
+                        case "Mainboard":
+                            var Mainboard = db.MainBoards.FirstOrDefault(x => x.Id.ToString() == id);
+                            Mainboard.Quantity += details.Quantity;
+                            break;
+                        case "Radiator":
+                            var Radiator = db.Radiators.FirstOrDefault(x => x.Id.ToString() == id);
+                            Radiator.Quantity += details.Quantity;
+                            break;
+                        case "RAM":
+                            var RAM = db.RAMs.FirstOrDefault(x => x.Id.ToString() == id);
+                            RAM.Quantity += details.Quantity;
+                            break;
+                        case "VGA":
+                            var VGA = db.VGAs.FirstOrDefault(x => x.Id.ToString() == id);
+                            VGA.Quantity += details.Quantity;
+                            break;
+                    }
+                    db.SaveChanges();
+                    return true;
+                }
+            }
+            catch (Exception e) { } return false;
+        }
     }
 }

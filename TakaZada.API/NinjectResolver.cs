@@ -14,6 +14,7 @@ using TakaZada.API.Mainboard;
 using TakaZada.API.News;
 using TakaZada.API.Radiator;
 using TakaZada.API.RAM;
+using TakaZada.API.Receipt;
 using TakaZada.API.VGA;
 
 namespace TakaZada.API
@@ -67,6 +68,9 @@ namespace TakaZada.API
             _kernel.Bind<ICartRepository>().To<CartService>().InSingletonScope();
 
             _kernel.Bind<ILoadNew>().To<NewService>().InSingletonScope();
+
+            _kernel.Bind<IReceiptReponsitory>().To<ReceiptService>().InSingletonScope();
+            _kernel.Bind<ILoadReceipt>().To<ReceiptService>().InSingletonScope();
         }
         public IDependencyScope BeginScope()
         {

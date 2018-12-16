@@ -127,6 +127,9 @@
     <Compile Include="RAM\IRAMLoad.cs" />
     <Compile Include="RAM\IRAMRepository.cs" />
     <Compile Include="RAM\RAMService.cs" />
+    <Compile Include="Receipt\ILoadReciept.cs" />
+    <Compile Include="Receipt\IReceiptReponsitory.cs" />
+    <Compile Include="Receipt\ReceiptService.cs" />
     <Compile Include="UploadFileService.cs" />
     <Compile Include="NinjectResolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
