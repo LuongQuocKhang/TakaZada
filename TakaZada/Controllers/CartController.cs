@@ -46,7 +46,10 @@ namespace TakaZada.Controllers
             {
                 int CartId = _LoadCartService.LoadCartByEmail(user.UserName).CartId;
                 var cartdetail = _CartService.CreateCartDetails(type, CartId, ItemId, Quantity, price, Name, Image);
-                _CartService.AddToCart(cartdetail);
+                if (_CartService.AddToCart(cartdetail))
+                {
+                    return RedirectToAction("Details", type, new { Id = Id });
+                }
             }
             return RedirectToAction("Details", type, new { Id = Id });
         }
@@ -67,8 +70,14 @@ namespace TakaZada.Controllers
                 {
                     int CartId = _LoadCartService.LoadCartByEmail(user.UserName).CartId;
                     var cartdetail = _CartService.CreateCartDetails(type, CartId, ItemId, Int32.Parse(Quantity), price, Name, Image);
-                    _CartService.AddToCart(cartdetail);
-                    return Json(new { result = true }, JsonRequestBehavior.AllowGet);
+                    if (_CartService.AddToCart(cartdetail))
+                    {
+                        return Json(new { result = true }, JsonRequestBehavior.AllowGet);
+                    }
+                    else
+                    {
+                        return Json(new { result = false }, JsonRequestBehavior.AllowGet);
+                    }
                 }
 
             }
@@ -104,6 +113,23 @@ namespace TakaZada.Controllers
                 return Json(new { result = true }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception e) { }
+            return Json(new { result = false }, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult DescreaseQuantity(int detailsiD)
+        {
+            if ( _CartService.DecreaseQuantity(detailsiD))
+            {
+                return Json(new { result = true }, JsonRequestBehavior.AllowGet);
+            }
+            return Json(new { result = false }, JsonRequestBehavior.AllowGet);
+        }
+        public ActionResult IncreaseQuantity(int detailsiD)
+        {
+            if (_CartService.IncreaseQuantity(detailsiD))
+            {
+                return Json(new { result = true }, JsonRequestBehavior.AllowGet);
+            }
             return Json(new { result = false }, JsonRequestBehavior.AllowGet);
         }
     }

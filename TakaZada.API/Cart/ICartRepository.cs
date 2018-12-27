@@ -12,5 +12,8 @@ namespace TakaZada.API.Cart
         bool AddToCart(CartDetails details);
         bool RemoveCartDetail(int detailsId);
         CartDetails CreateCartDetails(string type , int CartId , string ItemId , int Quantity , string price,string Name , string Image);
+
+        bool DecreaseQuantity(int detailsiD);
+        bool IncreaseQuantity(int detailsiD);
     }
 }

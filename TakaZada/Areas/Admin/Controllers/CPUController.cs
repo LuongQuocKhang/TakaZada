@@ -64,6 +64,23 @@ namespace TakaZada.Areas.Admin.Controllers
             try { cpu.Description = Request.Form["Description"]; } catch (Exception e) { }
             try { cpu.Price = Request.Form["Price"]; } catch (Exception e) { }
             #endregion
+
+            int num = 0;
+            string price = cpu.Price.Replace(".", "").Replace("đ", "");
+            if (int.TryParse(price, out num) == false)
+            {
+                Session["submit_message"] = "<p class='font-green-sharp' style='font-size: 20px;color: #f44242!important;font-weight: bold;'>Giá phải nhập số</p>";
+                return RedirectToAction("Add");
+            }
+            else
+            {
+                if (num < 0)
+                {
+                    Session["submit_message"] = "<p class='font-green-sharp' style='font-size: 20px;color: #f44242!important;font-weight: bold;'>Nhập giá lớn hơn 0</p>";
+                    return RedirectToAction("Add");
+                }
+            }
+
             if ( _CPUService.UpdateCPU(cpu))
             {
                 Session["submit_message"] =
@@ -96,6 +113,7 @@ namespace TakaZada.Areas.Admin.Controllers
                 if (UploadFileService.UploadFileToServerBase64(filename, Constants.CPU_PATH, src))
                 {
                     var cpu = _CPUService.CreateCPU();
+
                     #region get properties
                     try { cpu.Name = Request.Form["Name"]; } catch (Exception e) { }
                     try { cpu.WarrantyPeriod = Int32.Parse(Request.Form["WarrantyPeriod"]); } catch (Exception e) { }
@@ -114,6 +132,22 @@ namespace TakaZada.Areas.Admin.Controllers
                     try { cpu.IsDeleted = false; } catch (Exception e) { }
                     cpu.Image = filename;
                     #endregion
+
+                    int num = 0;
+                    string price = cpu.Price.Replace(".", "").Replace("đ", "");
+                    if (int.TryParse(price, out num) == false)
+                    {
+                        Session["submit_message"] = "<p class='font-green-sharp' style='font-size: 20px;color: #f44242!important;font-weight: bold;'>Giá phải nhập số</p>";
+                        return RedirectToAction("Add");
+                    }
+                    else
+                    {
+                        if (num < 0)
+                        {
+                            Session["submit_message"] = "<p class='font-green-sharp' style='font-size: 20px;color: #f44242!important;font-weight: bold;'>Nhập giá lớn hơn 0</p>";
+                            return RedirectToAction("Add");
+                        }
+                    }
 
                     if (_CPUService.InsertCPU(cpu))
                     {

@@ -7,6 +7,20 @@
 @Scripts.Render("~/bundles/jquery")
 <link href="~/Content/Style.css" rel="stylesheet" />
 <h2>Add form</h2>
+@{
+    if (null != Session["submit_message"])
+    {
+        @Html.Raw("<h3 class='error-mesage' style='display: none;'>" + Session["submit_message"] + "</h3>");
+        <script type="text/javascript">
+            $(function () {
+                $('.error-mesage').delay(500).fadeIn('normal', function () {
+                    $(this).delay(2500).fadeOut();
+                });
+            });
+        </script>
+        Session["submit_message"] = null;
+    }
+}
 <form method="post">
     <div class="form-group">
         <div class="col-md-6">

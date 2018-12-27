@@ -62,6 +62,21 @@ namespace TakaZada.Areas.Admin.Controllers
             try { mainboard.RamNum = Int32.Parse(Request.Form["RamNum"]); } catch (Exception e) { }
             try { mainboard.WarrantyPeriod = Int32.Parse(Request.Form["WarrantyPeriod"]); } catch (Exception e) { }
 
+            int num = 0;
+            string price = mainboard.Price.Replace(".", "").Replace("đ", "");
+            if (int.TryParse(price, out num) == false)
+            {
+                Session["submit_message"] = "<p class='font-green-sharp' style='font-size: 20px;color: #f44242!important;font-weight: bold;'>Giá phải nhập số</p>";
+                return RedirectToAction("Add");
+            }
+            else
+            {
+                if (num < 0)
+                {
+                    Session["submit_message"] = "<p class='font-green-sharp' style='font-size: 20px;color: #f44242!important;font-weight: bold;'>Nhập giá lớn hơn 0</p>";
+                    return RedirectToAction("Add");
+                }
+            }
             if ( _MainboardService.UpdateMainboard(mainboard))
             {
                 Session["submit_message"] =
@@ -109,6 +124,23 @@ namespace TakaZada.Areas.Admin.Controllers
                 try { mainboard.WarrantyPeriod = Int32.Parse(Request.Form["WarrantyPeriod"]); } catch (Exception e) { }
                 mainboard.IsDeleted = false;
                 mainboard.Image = filename;
+
+                int num = 0;
+                string price = mainboard.Price.Replace(".", "").Replace("đ", "");
+                if (int.TryParse(price, out num) == false)
+                {
+                    Session["submit_message"] = "<p class='font-green-sharp' style='font-size: 20px;color: #f44242!important;font-weight: bold;'>Giá phải nhập số</p>";
+                    return RedirectToAction("Add");
+                }
+                else
+                {
+                    if (num < 0)
+                    {
+                        Session["submit_message"] = "<p class='font-green-sharp' style='font-size: 20px;color: #f44242!important;font-weight: bold;'>Nhập giá lớn hơn 0</p>";
+                        return RedirectToAction("Add");
+                    }
+                }
+
                 if (_MainboardService.InsertMainboard(mainboard))
                 {
                     Session["submit_message"] = null;

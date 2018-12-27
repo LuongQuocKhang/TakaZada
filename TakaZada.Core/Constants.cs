@@ -13,7 +13,7 @@ namespace TakaZada.Core
         public static string ADMIN_SESSION = "ADMIN_SESSION";
         public static string USER_SESSION = "USER_SESSION";
 
-        public static string COMPUTER_PATH = "/Content/Pictures/Laptop/";
+        public static string COMPUTER_PATH = "/Content/Pictures/Computer/";
         public static string CASE_PATH = "/Content/Pictures/Case/";
         public static string CPU_PATH = "/Content/Pictures/CPU/";
         public static string HARDWARE_PATH = "/Content/Pictures/Hardware/";

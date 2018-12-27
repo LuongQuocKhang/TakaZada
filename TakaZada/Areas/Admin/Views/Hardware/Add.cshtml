@@ -6,6 +6,20 @@
 @Scripts.Render("~/bundles/jquery")
 <link href="~/Content/Style.css" rel="stylesheet" />
 <h2>Update form</h2>
+@{
+    if (null != Session["submit_message"])
+    {
+        @Html.Raw("<h3 class='error-mesage' style='display: none;'>" + Session["submit_message"] + "</h3>");
+        <script type="text/javascript">
+                $(function () {
+                    $('.error-mesage').delay(500).fadeIn('normal', function () {
+                        $(this).delay(2500).fadeOut();
+                    });
+                });
+        </script>
+        Session["submit_message"] = null;
+    }
+}
 <form method="post">
     <div class="form-group">
         <div class="col-md-6">
@@ -33,7 +47,7 @@
     </div>
     <div class="form-group">
         <label>WarrantyPeriod</label>
-        <input class="form-control" type="number" id="WarrantyPeriod" name="WarrantyPeriod"/>
+        <input class="form-control" type="number" id="WarrantyPeriod" name="WarrantyPeriod" />
     </div>
     <div class="form-group">
         <label>TradeMark</label>
@@ -41,7 +55,7 @@
     </div>
     <div class="form-group">
         <label>Memory</label>
-        <input class="form-control" type="text" id="Memory" name="Memory"/>
+        <input class="form-control" type="text" id="Memory" name="Memory" />
     </div>
     <div class="form-group">
         <label>Label</label>
@@ -49,19 +63,19 @@
     </div>
     <div class="form-group">
         <label>ReadSpeed</label>
-        <input class="form-control" type="text" id="Size" name="Size"/>
+        <input class="form-control" type="text" id="Size" name="Size" />
     </div>
     <div class="form-group">
         <label>ReadSpeed</label>
-        <input class="form-control" type="text" id="ReadSpeed" name="ReadSpeed"/>
+        <input class="form-control" type="text" id="ReadSpeed" name="ReadSpeed" />
     </div>
     <div class="form-group">
         <label>WriteSpeed</label>
-        <input class="form-control" type="text" id="WriteSpeed" name="WriteSpeed"/>
+        <input class="form-control" type="text" id="WriteSpeed" name="WriteSpeed" />
     </div>
     <div class="form-group">
         <label>Price</label>
-        <input class="form-control" type="text" id="Price" name="Price"/>
+        <input class="form-control" type="text" id="Price" name="Price" />
     </div>
     <div class="form-group">
         <label>Description</label>

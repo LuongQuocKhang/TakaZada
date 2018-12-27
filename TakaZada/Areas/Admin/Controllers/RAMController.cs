@@ -65,6 +65,21 @@ namespace TakaZada.Areas.Admin.Controllers
                 try { ram.Price = Request.Form["Price"]; } catch (Exception e) { }
                 try { ram.WarrantyPeriod = Int32.Parse(Request.Form["WarrantyPeriod"]); } catch (Exception e) { }
                 #endregion
+                int num = 0;
+                string price = ram.Price.Replace(".", "").Replace("đ", "");
+                if (int.TryParse(price, out num) == false)
+                {
+                    Session["submit_message"] = "<p class='font-green-sharp' style='font-size: 20px;color: #f44242!important;font-weight: bold;'>Giá phải nhập số</p>";
+                    return RedirectToAction("Add");
+                }
+                else
+                {
+                    if (num < 0)
+                    {
+                        Session["submit_message"] = "<p class='font-green-sharp' style='font-size: 20px;color: #f44242!important;font-weight: bold;'>Nhập giá lớn hơn 0</p>";
+                        return RedirectToAction("Add");
+                    }
+                }
 
                 if (_RAMService.UpdateRAM(ram))
                 {
@@ -113,7 +128,21 @@ namespace TakaZada.Areas.Admin.Controllers
                     ram.Image = filename;
                     ram.IsDeleted = false;
                     #endregion
-
+                    int num = 0;
+                    string price = ram.Price.Replace(".", "").Replace("đ", "");
+                    if (int.TryParse(price, out num) == false)
+                    {
+                        Session["submit_message"] = "<p class='font-green-sharp' style='font-size: 20px;color: #f44242!important;font-weight: bold;'>Giá phải nhập số</p>";
+                        return RedirectToAction("Add");
+                    }
+                    else
+                    {
+                        if (num < 0)
+                        {
+                            Session["submit_message"] = "<p class='font-green-sharp' style='font-size: 20px;color: #f44242!important;font-weight: bold;'>Nhập giá lớn hơn 0</p>";
+                            return RedirectToAction("Add");
+                        }
+                    }
                     if (_RAMService.InsertRAM(ram))
                     {
                         return RedirectToAction("Index");

@@ -63,15 +63,30 @@ namespace TakaZada.Areas.Admin.Controllers
             try { Case.Slots = Request.Form["Slots"]; } catch (Exception e) { }
             try { Case.Price = Request.Form["Price"]; } catch (Exception e) { }
             try { Case.Description = Request.Form["Description"]; } catch (Exception e) { }
+            int num = 0;
+            string price = Case.Price.Replace(".", "").Replace("đ", "");
+            if (int.TryParse(price, out num) == false)
+            {
+                Session["submit_message"] = "<p class='font-green-sharp' style='font-size: 20px;color: #000000!important;font-weight: bold;'>Giá phải nhập số</p>";
+                return RedirectToAction("Add");
+            }
+            else
+            {
+                if (num < 0)
+                {
+                    Session["submit_message"] = "<p class='font-green-sharp' style='font-size: 20px;color: #000000!important;font-weight: bold;'>Nhập giá lớn hơn 0</p>";
+                    return RedirectToAction("Add");
+                }
+            }
             #endregion
             if ( _CaseService.UpdateCase(Case))
             {
-                Session["submit_message"] ="<p class='font-green-sharp' style='font-size: 20px;color: #000000!important;font-weight: bold;'>Update case successful</p>";
+                Session["submit_message"] = "<p class='font-green-sharp' style='font-size: 20px;color: #64d1a5!important;font-weight: bold;'>Update case successful</p>";
                 return RedirectToAction("Update", new { Id = Case.Id });
             }
             else
             {
-                Session["submit_message"] = "<p class='font-green-sharp' style='font-size: 20px;color: #dd0808!important;font-weight: bold;'>Update case failed</p>";
+                Session["submit_message"] = "<p class='font-green-sharp' style='font-size: 20px;color: #f44242!important;font-weight: bold;'>Update case failed</p>";
             }
             return RedirectToAction("Update", new { Id = Case.Id });
         }
@@ -108,10 +123,24 @@ namespace TakaZada.Areas.Admin.Controllers
                 try { Case.Description = Request.Form["Description"]; } catch (Exception e) { }
                 Case.IsDelete = false;
                 Case.Image = filename;
+
                 #endregion
+                string price = Case.Price.Replace(".", "").Replace("đ", "");
+                if (int.TryParse(price, out int num) == false)
+                {
+                    Session["submit_message"] = "<p class='font-green-sharp' style='font-size: 20px;color: #f44242!important;font-weight: bold;'>Giá phải nhập số</p>";
+                    return RedirectToAction("Add");
+                }
+                else
+                {
+                    if (num < 0)
+                    {
+                        Session["submit_message"] = "<p class='font-green-sharp' style='font-size: 20px;color: #f44242!important;font-weight: bold;'>Nhập giá lớn hơn 0</p>";
+                        return RedirectToAction("Add");
+                    }
+                }
                 if (_CaseService.InsertCase(Case))
                 {
-
                     return RedirectToAction("Index");
                 }
                 else

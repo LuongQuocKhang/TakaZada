@@ -15,6 +15,13 @@
         <h3 class='error-mesage font-green-sharp' style='display: none;font-size: 20px;color: #000000!important;font-weight: bold;'>
             Lỗi xảy ra khi thanh toán !!
         </h3>
+         <h3 class='font-green-sharp' id="success" style='display: none;font-size: 20px;color: #000000!important;font-weight: bold;'>
+            Cập nhật thành công
+        </h3>
+        <h3 class='error-mesage font-green-sharp' id="error" style='display: none;font-size: 20px;color: #000000!important;font-weight: bold;'>
+            Cập nhật không thành công !!
+        </h3>
+
         <h3>Your shopping cart contains: <span>3 Products</span></h3>
 
         <div class="checkout-right">
@@ -33,7 +40,7 @@
                 @for (int i = 0; i < CartDetails.Count; i++)
                 {
                     <tr class="rem@(i + 1)">
-                        <td class="invert">1</td>
+                        <td class="invert">@CartDetails[i].ItemId</td>
                         <td class="invert-image">
                             <a href="single.html">
                                 <img src="~/Content/Pictures/@CartDetails[i].type/@CartDetails[i].Image" alt=" " class="img-responsive" style=" width: 150px;height: 150px;" />
@@ -75,14 +82,38 @@
                             </script>
                         </td>
                         <script>
-                        @*$("#@(i + 1).value-plus ").on('click', function () {
+                        $("#@(i + 1).value-plus ").on('click', function () {
                             var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10) + 1;
                             divUpd.text(newVal);
+
+                            $.ajax(
+                                {
+                                    url: "@Request.Url.GetLeftPart(UriPartial.Authority)" + "@Url.Action("IncreaseQuantity", "Cart")",
+                                    method: "POST",
+                                    data: { "detailsiD": @CartDetails[i].ID},
+                                        success: function (response) {
+                                            if (response != null && response.result == true) {
+                                                location.reload();
+                                            }
+                                        }
+                                    })
+
                         });
                         $("#@(i + 1).value-minus ").on('click', function () {
                             var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10) - 1;
                             if (newVal >= 1) divUpd.text(newVal);
-                        });*@
+
+                             $.ajax(
+                                {
+                                    url: "@Request.Url.GetLeftPart(UriPartial.Authority)" + "@Url.Action("DescreaseQuantity", "Cart")",
+                                    method: "POST",
+                                    data: { "detailsiD": @CartDetails[i].ID},
+                                        success: function (response) {
+                                        if(response != null && response.result == true) {
+                                            location.reload();
+                                        }}
+                                    })
+                        });
                         </script>
                     </tr>
                     <!--quantity-->
@@ -131,11 +162,13 @@
                 data: { "Total": @total + 15000},
                     success: function (response) {
                         if (response != null && response.result == true) {
+                            
                             $(function () {
                                 $('.success-mesage').delay(500).fadeIn('normal', function () {
                                     $(this).delay(2500).fadeOut();
                                 });
                             });
+                            location.reload();
                         }
                         else {
                             $(function () {

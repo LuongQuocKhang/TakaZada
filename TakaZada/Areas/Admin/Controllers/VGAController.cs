@@ -65,9 +65,23 @@ namespace TakaZada.Areas.Admin.Controllers
             try { vga.Directx = Request.Form["Directx"]; } catch(Exception e){ }
             try { vga.Size = Request.Form["Size"]; } catch(Exception e){ }
             try { vga.WarrantyPeriod = Int32.Parse(Request.Form["WarrantyPeriod"]); } catch(Exception e){ }
-            try { vga.Description = Request.Form["Description"]; } catch(Exception e){ }     
+            try { vga.Description = Request.Form["Description"]; } catch(Exception e){ }
             #endregion
-            
+            int num = 0;
+            string price = vga.Price.Replace(".", "").Replace("đ", "");
+            if (int.TryParse(price, out num) == false)
+            {
+                Session["submit_message"] = "<p class='font-green-sharp' style='font-size: 20px;color: #f44242!important;font-weight: bold;'>Giá phải nhập số</p>";
+                return RedirectToAction("Add");
+            }
+            else
+            {
+                if (num < 0)
+                {
+                    Session["submit_message"] = "<p class='font-green-sharp' style='font-size: 20px;color: #f44242!important;font-weight: bold;'>Nhập giá lớn hơn 0</p>";
+                    return RedirectToAction("Add");
+                }
+            }
             if ( _VGAService.UpdateVGA(vga))
             {
                 Session["submit_message"] =
@@ -112,8 +126,24 @@ namespace TakaZada.Areas.Admin.Controllers
                 try { vga.WarrantyPeriod = Int32.Parse(Request.Form["WarrantyPeriod"]); } catch (Exception e) { }
                 try { vga.Description = Request.Form["Description"]; } catch (Exception e) { }
                 vga.Image = filename;
-                vga.IsDeleted = false;        
+                vga.IsDeleted = false;
                 #endregion
+
+                int num = 0;
+                string price = vga.Price.Replace(".", "").Replace("đ", "");
+                if (int.TryParse(price, out num) == false)
+                {
+                    Session["submit_message"] = "<p class='font-green-sharp' style='font-size: 20px;color: #f44242!important;font-weight: bold;'>Giá phải nhập số</p>";
+                    return RedirectToAction("Add");
+                }
+                else
+                {
+                    if (num < 0)
+                    {
+                        Session["submit_message"] = "<p class='font-green-sharp' style='font-size: 20px;color: #f44242!important;font-weight: bold;'>Nhập giá lớn hơn 0</p>";
+                        return RedirectToAction("Add");
+                    }
+                }
                 if (_VGAService.InsertVGA(vga))
                 {
                     return RedirectToAction("Index");

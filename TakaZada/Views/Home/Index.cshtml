@@ -41,8 +41,7 @@
                                 <div class="col-md-4 agile_ecommerce_tab_left">
                                     <div class="card" style="width:215px;height: 385px;margin:10px;">
                                         @{
-                                            num = random.Next(1, listRam.Count);
-                                            var item = listRam[num];
+                                            var item = listRam[i];
                                         }
                                         <a href="@Url.Action("Index","RAM",new { name = item.Name })">
                                             <img class="card-img-top" src="~/Content/Pictures/RAM/@item.Image" style="width: 200px;height:215px;mix-blend-mode: multiply;" alt="Card image cap">
@@ -69,8 +68,7 @@
                                 <div class="col-md-4 agile_ecommerce_tab_left">
                                     <div class="card" style="width:215px;height: 385px;margin:10px;">
                                         @{
-                                            num = random.Next(1, listvga.Count);
-                                            var item = listvga.FirstOrDefault(x => x.Id == num);
+                                            var item = listvga[i];
                                         }
                                         <img class="card-img-top" src="~/Content/Pictures/VGA/@item.Image" style="width: 200px;height:215px;mix-blend-mode: multiply;" alt="Card image cap">
                                         <div class="card-body">
@@ -94,8 +92,7 @@
                                 <div class="col-md-4 agile_ecommerce_tab_left">
                                     <div class="card" style="width:215px;height: 385px;margin:10px;">
                                         @{
-                                            num = random.Next(1, listCPU.Count);
-                                            var item = listCPU.FirstOrDefault(x => x.Id == num);
+                                            var item = listCPU[i];
                                         }
                                         <img class="card-img-top" src="~/Content/Pictures/CPU/@item.Image" style="width: 200px;height:215px;mix-blend-mode: multiply;" alt="Card image cap">
                                         <div class="card-body">
@@ -119,8 +116,7 @@
                                 <div class="col-md-4 agile_ecommerce_tab_left">
                                     <div class="card" style="width:215px;height: 385px;margin:10px;">
                                         @{
-                                            num = random.Next(1, listCase.Count);
-                                            var item = listCase.FirstOrDefault(x => x.Id == num);
+                                            var item = listCase[i];
                                         }
                                         <img class="card-img-top" src="~/Content/Pictures/Case/@item.Image" style="width: 200px;height:215px;mix-blend-mode: multiply;" alt="Card image cap">
                                         <div class="card-body">

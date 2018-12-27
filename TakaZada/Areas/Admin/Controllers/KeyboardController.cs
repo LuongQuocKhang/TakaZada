@@ -53,7 +53,21 @@ namespace TakaZada.Areas.Admin.Controllers
             try { keyboard.WarrantyPeriod = Int32.Parse(Request.Form["WarrantyPeriod"]); } catch (Exception e) { }
             try { keyboard.Price = Request.Form["Price"]; } catch (Exception e) { }
             #endregion
-
+            int num = 0;
+            string price = keyboard.Price.Replace(".", "").Replace("đ", "");
+            if (int.TryParse(price, out num) == false)
+            {
+                Session["submit_message"] = "<p class='font-green-sharp' style='font-size: 20px;color: #f44242!important;font-weight: bold;'>Giá phải nhập số</p>";
+                return RedirectToAction("Add");
+            }
+            else
+            {
+                if (num < 0)
+                {
+                    Session["submit_message"] = "<p class='font-green-sharp' style='font-size: 20px;color: #f44242!important;font-weight: bold;'>Nhập giá lớn hơn 0</p>";
+                    return RedirectToAction("Add");
+                }
+            }
             if (_KeyboardService.UpdateKeyboard(keyboard))
             {
                 Session["submit_message"] =
@@ -95,7 +109,21 @@ namespace TakaZada.Areas.Admin.Controllers
                 keyboard.IsDeleted = false;
                 keyboard.Image = filename;
                 #endregion
-
+                int num = 0;
+                string price = keyboard.Price.Replace(".", "").Replace("đ", "");
+                if (int.TryParse(price, out num) == false)
+                {
+                    Session["submit_message"] = "<p class='font-green-sharp' style='font-size: 20px;color: #f44242!important;font-weight: bold;'>Giá phải nhập số</p>";
+                    return RedirectToAction("Add");
+                }
+                else
+                {
+                    if (num < 0)
+                    {
+                        Session["submit_message"] = "<p class='font-green-sharp' style='font-size: 20px;color: #f44242!important;font-weight: bold;'>Nhập giá lớn hơn 0</p>";
+                        return RedirectToAction("Add");
+                    }
+                }
                 if (_KeyboardService.InsertKeyboard(keyboard))
                 {
                     Session["submit_message"] = null;

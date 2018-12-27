@@ -28,7 +28,11 @@ namespace TakaZada.API.Receipt
                             Price = cartdetail.price,
                             Total = total
                         };
+                        var cartid = cartdetail.CartId;
+                        var cartdelete = db.CartDetails.FirstOrDefault(x => x.CartId == cartid);
 
+
+                        db.CartDetails.Remove(cartdelete);
                         db.ReceiptDetails.Add(detail);
                         db.SaveChanges();
                         return true;

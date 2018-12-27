@@ -71,6 +71,20 @@ namespace TakaZada.Areas.Admin.Controllers
             try { computer.Price = Request.Form["Price"]; } catch (Exception e) { }
             try { computer.Description = Request.Form["Description"]; } catch (Exception e) { }
             #endregion
+            string price = computer.Price.Replace(".", "").Replace("đ", "");
+            if (int.TryParse(price ,out int num) == false)
+            {
+                Session["submit_message"] = "<p class='font-green-sharp' style='font-size: 20px;color: #f44242!important;font-weight: bold;'>Price phải nhập số</p>";
+                return RedirectToAction("Update", new { Id = computer.Id });
+            }
+            else
+            {
+                if (num < 0)
+                {
+                    Session["submit_message"] = "<p class='font-green-sharp' style='font-size: 20px;color: #000000!important;font-weight: bold;'>Nhập giá lớn hơn 0</p>";
+                    return RedirectToAction("Add");
+                }
+            }
 
             if (_ComputerService.UpdateComputer(computer))
             {
@@ -128,6 +142,22 @@ namespace TakaZada.Areas.Admin.Controllers
                     try { computer.IsDeleted = false; } catch (Exception e) { }
                     computer.Image = filename;
                     #endregion
+
+                    int num = 0;
+                    string price = computer.Price.Replace(".", "").Replace("đ", "");
+                    if (int.TryParse(price, out num) == false)
+                    {
+                        Session["submit_message"] = "<p class='font-green-sharp' style='font-size: 20px;color: #f44242!important;font-weight: bold;'>Price phải nhập số</p>";
+                        return RedirectToAction("Update", new { Id = computer.Id });
+                    }
+                    else
+                    {
+                        if (num < 0)
+                        {
+                            Session["submit_message"] = "<p class='font-green-sharp' style='font-size: 20px;color: #000000!important;font-weight: bold;'>Nhập giá lớn hơn 0</p>";
+                            return RedirectToAction("Add");
+                        }
+                    }
 
                     if (_ComputerService.InsertComputer(computer))
                     {
