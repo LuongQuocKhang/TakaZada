@@ -85,13 +85,13 @@ namespace TakaZada.API.Admin
             throw new NotImplementedException();
         }
 
-        public bool register(string FirstName , string LastName ,string Email, string Password , string PhoneNumber , string Sex , DateTime DateOfBirth)
+        public bool register(string FirstName , string LastName ,string Email, string Password , string PhoneNumber , string Sex , DateTime DateOfBirth,string Address)
         {
             try
             {
                 using (var db = new DBContext())
                 {
-                    UserAccount user = new UserAccount() { FirstName = FirstName, LastName = LastName, Email = Email, Password = Password, PhoneNumber = PhoneNumber, Sex = Sex, DateOfBirth = DateOfBirth };
+                    UserAccount user = new UserAccount() { FirstName = FirstName, LastName = LastName, Email = Email, Password = Password, PhoneNumber = PhoneNumber, Sex = Sex, DateOfBirth = DateOfBirth , Address  = Address };
                     var email = user.Email;
                     if (db.UserAccounts.FirstOrDefault(x => x.Email == email) != null) return false;
                     db.UserAccounts.Add(user);

@@ -15,6 +15,7 @@ using TakaZada.API.News;
 using TakaZada.API.Radiator;
 using TakaZada.API.RAM;
 using TakaZada.API.Receipt;
+using TakaZada.API.Search;
 using TakaZada.API.VGA;
 
 namespace TakaZada.API
@@ -71,6 +72,8 @@ namespace TakaZada.API
 
             _kernel.Bind<IReceiptReponsitory>().To<ReceiptService>().InSingletonScope();
             _kernel.Bind<ILoadReceipt>().To<ReceiptService>().InSingletonScope();
+
+            _kernel.Bind<ISearchQuerry>().To<SearchService>().InSingletonScope();
         }
         public IDependencyScope BeginScope()
         {

@@ -2103,6 +2103,7 @@
     <Content Include="Views\Home\Cart.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\News\Detail.cshtml" />
+    <Content Include="Views\Home\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

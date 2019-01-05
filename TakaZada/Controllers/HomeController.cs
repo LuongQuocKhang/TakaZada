@@ -10,6 +10,7 @@ using TakaZada.API.RAM;
 using TakaZada.API.VGA;
 using TakaZada.Core;
 using System.Globalization;
+using TakaZada.API.Search;
 
 namespace TakaZada.Controllers
 {
@@ -24,9 +25,9 @@ namespace TakaZada.Controllers
         private readonly IUser _UserService;
         private readonly ILoadCart _LoadCartService;
         private readonly ICartRepository _CartService;
-
+        private readonly ISearchQuerry _SearchService;
         public HomeController(ILoad load, IVGALoad LoadVGA, IRAMLoad LoadRAM, ILoadCPU LoadCPU, ILoadCase LoadCase, ILog LogService , IUser UserService
-            , ILoadCart LoadCartService, ICartRepository CartService)
+            , ILoadCart LoadCartService, ICartRepository CartService, ISearchQuerry SearchService)
         {
             _LoadComputer = load;
             _LoadVGA = LoadVGA;
@@ -37,6 +38,7 @@ namespace TakaZada.Controllers
             _UserService = UserService;
             _LoadCartService = LoadCartService;
             _CartService = CartService;
+            _SearchService = SearchService;
         }
 
         public ActionResult Index()
@@ -86,7 +88,8 @@ namespace TakaZada.Controllers
             string FirstName = Request.Form["FirstName"], LastName = Request.Form["FirstName"],
                    Password = Request.Form["PasswordPes"], ComfirmPas = Request.Form["ComfirmPassword"],
                    Email = Request.Form["EmailRes"],
-                   Phonenumber = Request.Form["Phonenumber"], Sex = Request.Form["Sex"], DateOfBirth = Request.Form["DateOfBirth"];
+                   Phonenumber = Request.Form["Phonenumber"], Sex = Request.Form["Sex"], DateOfBirth = Request.Form["DateOfBirth"],
+                   Address = Request.Form["Address"];
             DateTime time = DateTime.Now;
             if (Password != ComfirmPas) RedirectToAction("Index");
             try
@@ -95,12 +98,19 @@ namespace TakaZada.Controllers
             }
             catch (Exception e) { }
 
-            if ( _LogService.register(FirstName, LastName,Email, Password, Phonenumber,Sex,time))
+            if ( _LogService.register(FirstName, LastName,Email, Password, Phonenumber,Sex,time, Address))
             {
                 return RedirectToAction("Index");
             }
             return RedirectToAction("Index");
         }
+        public ActionResult Search()
+        {
+            string type = Request.Form["SearchCondition"],
+                   nameContain = Request.Form["SearchResult"];
 
+            ViewBag.SearchList = _SearchService.Search(type,nameContain);
+            return View();
+        }
     }
 }

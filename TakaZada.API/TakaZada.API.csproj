@@ -130,6 +130,8 @@
     <Compile Include="Receipt\ILoadReciept.cs" />
     <Compile Include="Receipt\IReceiptReponsitory.cs" />
     <Compile Include="Receipt\ReceiptService.cs" />
+    <Compile Include="Search\ISearchQuerry.cs" />
+    <Compile Include="Search\SearchService.cs" />
     <Compile Include="UploadFileService.cs" />
     <Compile Include="NinjectResolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
