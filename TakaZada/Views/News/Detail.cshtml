@@ -29,10 +29,12 @@
         </div>
         <div class=" col-sm-4">
             <div class="bordertab">
+                <h4> Giải pháp </h4>
                 @Html.Raw(@Detail.Solution);
             </div>
 
             <div class="bordertab">
+                <h4> Các sản phẩm </h4>
                 @foreach (var item in listitem)
                 {
                     var list = solutionItem.Where(x => x.Type == item).ToList();
